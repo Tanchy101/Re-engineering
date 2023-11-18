@@ -353,11 +353,11 @@ body.dark .switch::before {
 }
 
 .img {
-  content: url("../SIA-Project/assets/img/brand/networkit logo 1.png");
+  content: url("/Re-engineering/assets/img/brand/networkit logo 1.png");
 }
 
 .img-navbar-close {
-  content: url("../SIA-Project/assets/img/brand/networkit logo 2.png");
+  content: url("/Re-engineering/assets/img/brand/networkit logo 2.png");
 }
 
 body.dark .home .text {
