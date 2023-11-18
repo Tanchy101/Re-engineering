@@ -1,0 +1,7 @@
+{
+    "require": {
+        "rubix/ml": "^2.3",
+        "rubix/tensor": "^3.0",
+        "php-ai/php-ml": "^0.10.0"
+    }
+}
