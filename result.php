@@ -41,12 +41,13 @@ $net_institution = $_GET['net_institution'];
       </div>
     </div>
     
+    <!--
     <script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "75%";
         };
-    </script>
+    </script> -->
 
 <?php
 if(is_numeric($input)){

@@ -246,7 +246,7 @@ body.dark .sidebar header .toggle {
 }
 
 .sidebar li a:hover {
-  background-color: var(--primary-color);
+  background-color: #8F8E8E;
 }
 
 .sidebar li a:hover .icon,

@@ -30,12 +30,13 @@ require_once('partials/_head.php');
       </div>
     </div>
     
+    <!-- wag pi
     <script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "75%";
         };
-    </script>
+    </script> -->
 
     <!-- Page content -->
     <div class="container-fluid mt--8">

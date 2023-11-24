@@ -129,12 +129,13 @@ require_once('partials/_head.php');
 ?>
 
 
-<script>
+    <!--wag pi
+    <script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "75%";
         };
-    </script>
+    </script> -->
 <body>
   <!-- Sidenav -->
   
@@ -238,11 +239,11 @@ require_once('partials/_head.php');
           </div>
           <div class="col-xl-8 order-xl-1">
       <div class="card bg-secondary shadow">
-        <div class="card-header bg-white border-0">
+        <div class="card-header bg-white border-0 py-4">
           <div class="row align-items-center">
             <form method="post" enctype="multipart/form-data">
-              <div class="col-8">
-                <h3>My Account  </h3>
+              <div class="col-8" style="width: 300px;">
+                <h3 style="margin-bottom: 0px;">My Account </h3>
               
               </div>
             </form>
@@ -250,7 +251,7 @@ require_once('partials/_head.php');
             </div>
           </div>
         </div>
-              <div class="card-body">
+              <div class="card-body" style="zoom: 83%">
                 <form method="post" enctype ="multipart/form-data">
                   
                   <h6 class="heading-small text-muted mb-4">User information</h6>
@@ -289,7 +290,7 @@ require_once('partials/_head.php');
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
-                          <label class="form-control-label" for="upload-img">Upload</label>
+                          <label class="form-control-label" for="upload-img"></br></label>
                           <input type="submit" id="upload-img" value="Upload" name="ChangeProfileImage" class="form-control form-control-alternative btn btn-sm btn-primary">
                         </div>
                         

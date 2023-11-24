@@ -55,7 +55,7 @@ require_once('partials/_head.php');
 
     <!-- Top navbar -->
 
-    <body>
+<!--   <body>
     <style>
   .form-container {
     background-color: #f8f9fa;
@@ -67,7 +67,8 @@ require_once('partials/_head.php');
     padding: 20px;
     border: 1px solid #ced4da;
   }
-</style><body>
+</style><body> -->
+
 <?php
     $length = 6;
     $alpha= substr(str_shuffle("QWERTYUIOPLKJHGFDSAZXCVBNM"),1,$length);
@@ -78,8 +79,8 @@ require_once('partials/_head.php');
   <!-- Main content -->
   <div class="main-content">
     <!-- Top navbar -->
-    <body>
-      <div class="d-flex justify-content-center align-items-center vh-100 form-container" style="margin-bottom: 50px; margin-top: 100px;">
+    <body class="bg-white">
+      <div class="d-flex justify-content-center align-items-center vh-100 form-container" style="margin-bottom: 50px; margin-top: 50px;">
         <form class="shadow w-450 p-3 form-style" method="POST" enctype="multipart/form-data">
           <h4 class="display-4 fs-1">Create Account</h4><br>
 

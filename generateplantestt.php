@@ -30,12 +30,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <meta name="theme-color" content="#ffffff">
 </head>
 
-<script>
+    <!--wag pi
+    <script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "75%";
         };
-    </script>
+    </script>-->
 
 <body>
 <!-- Sidenav -->

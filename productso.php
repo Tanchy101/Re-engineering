@@ -53,7 +53,6 @@ if (isset($_POST['input'])) {
                 $prod_type = $row['prod_type'];
                 $prod_name = $row['prod_name'];
                 $prod_price = $row['prod_price'];
-                $prod_url = $row['prod_url'];
                 ?>
                 <tr>
                     <td>
@@ -77,7 +76,12 @@ if (isset($_POST['input'])) {
                             Add to Cart
                         </button>
                     </td>
-                    <td><?php echo $prod_url; ?></td>
+                    <td>
+                        <button class="btn btn-sm btn-primary">
+                            <i class="fas fa-link"></i>
+                            Link
+                        </button>
+                    </td>
                 </tr>
                 <?php
             }

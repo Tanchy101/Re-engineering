@@ -21,12 +21,12 @@ if (isset($_GET['delete'])) {
 require_once('partials/_head.php');
 ?>
 
-<script>
+    <!--wag pi<script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "75%";
         };
-    </script>
+    </script> -->
 <body>
   <!-- Sidenav -->
   <?php
