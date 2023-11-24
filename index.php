@@ -26,12 +26,12 @@ if (isset($_POST['login'])) {
 require_once('partials/_head.php');
 ?>
 
-<script>
+    <!-- <script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "75%";
         };
-    </script>
+    </script> -->
 <body class="bg-dark">
     <div class="main-content">
     <div class="header bg-gradient-white py-9">
