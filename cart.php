@@ -125,10 +125,17 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
 
                       echo "<tr><td colspan='4' style='text-align: right; font-weight: bold;'>Total Amount:</td>";
                       echo "<td>₱" . number_format($totalAmount, 2) . "</td></tr>";
+                      echo "<tr> <td> <button type='button' class='btn btn-primary'>Place Order</button>
+                      </td> </tr>";
+
+    
+
                     } else {
                       echo "<tr><td colspan='6'>Cart is empty</td></tr>";
                     }
                     ?>
+
+              
                   </tbody>
                 </table>
               </div>
