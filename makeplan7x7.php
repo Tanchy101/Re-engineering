@@ -14,7 +14,10 @@ require_once('partials/_head.php');
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "67%";
         };
-    </script> -->
+
+    </script>-->
+
+
 <body>
 
 <script> 

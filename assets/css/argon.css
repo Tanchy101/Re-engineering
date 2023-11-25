@@ -58,7 +58,10 @@
 *::after {
   box-sizing: border-box;
 }
-
+@font-face {
+  font-family: "Blanka";
+  src: url(font/Blanka-Regular.ttf) format('truetype');
+}
 html {
   font-family: sans-serif;
   line-height: 1.15;
