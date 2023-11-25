@@ -79,66 +79,75 @@ require_once('partials/_head.php');
   <!-- Main content -->
   <div class="main-content">
     <!-- Top navbar -->
-    <body class="bg-white">
-      <div class="d-flex justify-content-center align-items-center vh-100 form-container" style="margin-bottom: 50px; margin-top: 50px;">
-        <form class="shadow w-450 p-3 form-style" method="POST" enctype="multipart/form-data">
-          <h4 class="display-4 fs-1">Create Account</h4><br>
+    <body class="bg-image" style="display: flex; overflow: hidden; background-image: url('assets/img/brand/Index BG.png'); background-size: cover;">
+        <div class="nlas" style="position: fixed; top: 45%; left: 25%; color: white; 
+        font-size: 20px; text-align: center;">Network Layout<br>Assessment System</div>
+
+        <div class="text" style="position: fixed; top: 2%; left: 1%; color: white; font-size: 20px; font-family: 'Montserrat'; 
+        font-weight: bold;">Sign Up</div>
+
+      <div class="align-items-center" style="position: absolute; top: 0; left: 0; 
+      background-color: transparent; width: 349px; height: 374px; margin-left: 1024px; margin-top: 130px; border-radius: 25px;"></div>
+
+        <form class="card border-white w-400 p-3 form-style" method="POST" enctype="multipart/form-data" style="position: relative; background-color: #161B22; 
+        border-radius: 25px; width: 345px; margin-left: 1026px; margin-top: 131px;">
+
+          <h4 class="display" style="font-family:'Montserrat'; color: white; font-size: 20px; margin-bottom: -10px; margin-top:10px;">Create Account</h4><br>
 
           <input type="hidden" name="admin_id" value="<?php echo $alpha; ?>-<?php echo $beta;?>"class="form-control">
-          <div class="mb-3">
-            <label>Username:</label>
-            <input type="text" name="admin_name" class="form-control" value="">
-          </div>
-          <div class="mb-3">
-          <label>Email:</label>
-          <input type="email" name="admin_email" class="form-control" value="">
+
+          <div class="mb-1">
+          <div class="input-group input-group-alternative" style="border-radius: 20px;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="background-color: black; height: 46px;"><i class="ni ni-email-83"></i></span>
+            </div>
+            <input type="text" name="admin_name" class="form-control" value="" placeholder="Create Username" style="margin-bottom: 15px; background-color: black;">
           </div>
 
-          <div class="mb-3">
-            <label class="form-label">Password</label>
-            <input type="password" name="admin_password" class="form-control" value="">
-          </div>
-          <div class="mb-3">
-            <label class="form-label">Profile Picture</label>
-            <input type="file" class="form-control" name="profileImage">
+          <div class="mb-1">
+          <div class="input-group input-group-alternative" style="border-radius: 25px;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="background-color: black; height: 46px;"><i class="ni ni-email-83"></i></span>
+            </div>
+          <input type="email" name="admin_email" class="form-control" value="" placeholder="Enter Email" style="margin-bottom: 15px; background-color: black;">
           </div>
 
-          <button type="submit" name="adduser"class="btn btn-primary" style="width: 300px;">Sign Up</button>
+          <div class="mb-4">
+          <div class="input-group input-group-alternative" style="border-radius: 25px;">
+            <div class="input-group-prepend">
+              <span class="input-group-text" style="background-color: black; height: 46px;"><i class="ni ni-lock-circle-open"></i></span>
+            </div>
+            <input type="password" name="admin_password" class="form-control" value="" placeholder="Create Password" style="margin-bottom: 15px; background-color: black;">
+          </div>
+          
+          <button type="submit" name="adduser"class="btn" style="width: 317px; border-radius: 25px; color: white; background-color: #7ED957;
+          font-family: 'Montserrat';">Sign Up</button>
+            <hr class="my-3">
+            <div class="text-center" style="margin-top: 10px;">
+                <p class="mb-0" style="color: white">Already Signed? <a href="index.php" style="color: #37D5F2; font-weight: bold;">Log In</a></p>
+            </div>
         </form>
       </div>
     </body>
-    <!-- Footer -->
-    <?php
-    require_once('partials/_footer.php');
-    ?>
-  </div>
-</div>
-<!-- Argon Scripts -->
-<?php
-require_once('partials/_scripts.php');
-?>
-    </body>
-    <!-- Footer -->
-    <?php
-    require_once('partials/_footer.php');
-    ?>
-  </div>
-</div>
-<!-- Argon Scripts -->
-<?php
-require_once('partials/_scripts.php');
-?>
-</body>
-      <!-- Footer -->
-      <?php
-      require_once('partials/_footer.php');
-      ?>
+        <!-- Footer -->
+        <?php require_once('partials/_FooterIndex.php'); ?>
+            </div>
+        </div>
+        
+        
+        <!-- Page content -->
+
+        <div class="container mt--8 pb-5">
+            <div class="row justify-content-center">
+                <div class="col-lg-5 col-md-7">
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-  <!-- Argon Scripts -->
-  <?php
-  require_once('partials/_scripts.php');
-  ?>
+
+    <!-- Argon Scripts -->
+    <?php require_once('partials/_scripts.php'); ?>
 </body>
+
 
 </html>
