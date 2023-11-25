@@ -39,12 +39,12 @@ if (isset($_GET['display'])) {
 ?>
 <head><link rel="stylesheet" href="makeplanstyle.css"></head>
 
-<script>
+<!--<script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "67%";
         };
-    </script>
+    </script>-->
 <body>
 
 <script> 

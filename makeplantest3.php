@@ -38,7 +38,7 @@ if (isset($_GET['display'])) {
       $no_standard_school = $row ['no_standard_school'];
 ?>
 <head><link rel="stylesheet" href="makeplanstyle.css"></head>
-<!--wag pi<script>
+<!--<script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "67%";
