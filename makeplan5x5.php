@@ -15,8 +15,7 @@ require_once('partials/_head.php');
             min-width: 1000px;
         }
     </style>
-    <!--
-    <script>
+    <!--wag pi <script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "67%";
