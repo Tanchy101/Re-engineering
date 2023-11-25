@@ -24,12 +24,14 @@
   ?>
 </head>
 
-<script>
+<!-- wag pi
+    <script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "75%";
         };
-    </script>
+    </script> -->
+    
 <body>
   <?php
     $activePage = 'page4';
@@ -89,7 +91,7 @@
   
 
                   <div class="table-responsive">
-                    <table class="table align-items-center table-flush" id="table-data-product">
+                    <table class="table align-items-center table-flush" id="table-data-product" style="zoom:70%">
                       <thead class="thead-light">
                         <?php
                         $ret = "SELECT * FROM product";
@@ -114,7 +116,7 @@
                           $prod_name = $row['prod_name'];
                           $prod_price = $row['prod_price'];
                           $prod_type = $row['prod_type'];
-                          $prod_url= $row['prod_url'];
+                          // $prod_url= $row['prod_url'];
                         ?>
                           <tr>
                             <td>
@@ -129,7 +131,7 @@
                             <td><?php echo $prod_name; ?></td>
                             <td>₱<?php echo $prod_price; ?></td>
                             <td>
-                              <input type="number" class="form-control quantity-input" min="1" value="1">
+                              <input type="number" class="form-control quantity-input" min="1" value="1" max="999" style="width:70px;">
                             </td>
                             <td><?php echo $prod_type; ?></td>
                             <td>
@@ -138,7 +140,12 @@
                                 Add to Cart
                               </button>
                             </td>
-                            <td><?php echo $prod_url; ?></td>
+                            <td>
+                              <button class="btn btn-sm btn-primary">
+                                <i class="fas fa-link"></i>
+                                Link
+                              </button>
+                            </td>
                           </tr>
                         <?php } ?>
                       </tbody>

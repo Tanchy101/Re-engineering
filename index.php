@@ -26,23 +26,25 @@ if (isset($_POST['login'])) {
 require_once('partials/_head.php');
 ?>
 
-<script>
+<!-- wag pi <script>
+>>>>>>> Stashed changes
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "75%";
         };
-    </script>
-<body class="bg-dark">
+    </script> -->
+<body class="bg-white">
+
     <div class="main-content">
-    <div class="header bg-gradient-white py-9">
-            <div class="container">
+    <div class="header bg-gradient-white py-6">
+    <div class="footer bg-gradient-white py-0">
+            <div class="container" style="margin-bottom: 80px; margin-top: 50px;">
                 <div class="header-body text-center mb-7">
-                   
                     <div class="row justify-content-center">
                         <!-- Move the h1 tag inside the col-lg-5 col-md-7 div -->
                         <div class="col-lg-5 col-md-7">
-                            <div class="card bg-secondary shadow border-50">
-                                <div class="card-body px-lg-5 py-lg-5">
+                            <div class="card bg-secondary shadow border-50" style="margin-bottom: 20px;">
+                                <div class="card-body px-md-5 py-md-4">
                                     <!-- Align the text horizontally -->
                                     <h1 class="text-center text-black">Network Layout Assessment System</h1>
                                     <!-- Form starts here -->
@@ -75,21 +77,13 @@ require_once('partials/_head.php');
                                             <p class="mb-0">Don't have an account? <a href="add_user.php">Sign Up</a></p>
                                         </div>
                                     </form>
-
-                             
-                                    
                                 </div>
-                                
                             </div>
-                            
                         </div>
-                        
                     </div><br>
                         <!-- Footer -->
     <?php require_once('partials/_footer.php'); ?>
                 </div>
-                
-                
             </div>
             
         </div>
@@ -98,7 +92,6 @@ require_once('partials/_head.php');
         <div class="container mt--8 pb-5">
             <div class="row justify-content-center">
                 <div class="col-lg-5 col-md-7">
-
                 </div>
             </div>
         </div>

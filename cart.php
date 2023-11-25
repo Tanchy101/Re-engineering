@@ -21,12 +21,12 @@ if (isset($_GET['delete'])) {
 require_once('partials/_head.php');
 ?>
 
-<script>
+    <!--wag pi<script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "75%";
         };
-    </script>
+    </script> -->
 <body>
   <!-- Sidenav -->
   <?php
@@ -125,10 +125,17 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
 
                       echo "<tr><td colspan='4' style='text-align: right; font-weight: bold;'>Total Amount:</td>";
                       echo "<td>₱" . number_format($totalAmount, 2) . "</td></tr>";
+                      echo "<tr> <td> <button type='button' class='btn btn-primary'>Place Order</button>
+                      </td> </tr>";
+
+    
+
                     } else {
                       echo "<tr><td colspan='6'>Cart is empty</td></tr>";
                     }
                     ?>
+
+              
                   </tbody>
                 </table>
               </div>

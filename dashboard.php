@@ -129,12 +129,13 @@ p.caption {
 }
 </style>
 
+    <!--wag pi
     <script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "75%";
         };
-    </script>
+    </script> -->
   
   <!-- Header -->
   <div style="background-image: url(assets/img/theme/bg4.jpg); background-size: cover;" class="pb-12 pt-md-12">

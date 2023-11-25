@@ -246,7 +246,7 @@ body.dark .sidebar header .toggle {
 }
 
 .sidebar li a:hover {
-  background-color: var(--primary-color);
+  background-color: #8F8E8E;
 }
 
 .sidebar li a:hover .icon,
@@ -407,8 +407,8 @@ if (isset($_SESSION['admin_id'])) {
           <span class="profession"></span>
         </div>
       </div>
-
-      <i class='bx bx-chevron-right toggle'></i>
+    
+      <i id="arrow" class='bx bx-chevron-right toggle'></i>
     </header>
 
     <div class="menu-bar">
@@ -449,6 +449,12 @@ if (isset($_SESSION['admin_id'])) {
             </a>
           </li>
           
+          <li class="<?php echo ($activePage == 'page8') ? 'active2' : 'item'; ?>">
+            <a href="DeliveryFunction.php">
+              <i class='bx bxs-truck icon'></i>
+              <span class="text nav-text">Orders</span>
+            </a>
+          </li>
           
           <li class="<?php echo ($activePage == 'page6') ? 'active2' : 'item'; ?>">
             <a href="forum.php">
