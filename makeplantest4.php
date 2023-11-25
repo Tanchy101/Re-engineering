@@ -44,6 +44,7 @@ if (isset($_GET['display'])) {
             document.body.style.zoom = "75%";
         };
     </script> -->
+
 <body>
 
 <script> 
