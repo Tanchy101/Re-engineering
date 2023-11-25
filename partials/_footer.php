@@ -1,4 +1,4 @@
-<footer>
+<footer style="margin: 0; height: 100%; overflow: hidden">
   <div class="header bg-transparent">
     <div class="footer bg-transparent py-1">
       <div class="container bg-transparent" style="margin-bottom: 5px; margin-top: 30px;">
