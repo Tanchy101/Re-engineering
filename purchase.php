@@ -17,7 +17,6 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $stmt=mysqli_prepare($mysqli, $sql);
 
         if($stmt){
-            var_dump($_SESSION['cart']);
             foreach($_SESSION['cart'] as $key => $values){
                 $item_name=$values['name'];
                 $price=$values['price'];

@@ -14,7 +14,10 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
   <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800;900&family=Poppins:wght@400;500&display=swap" rel="stylesheet">
   <!-- Icons -->
   <link href="assets/vendor/nucleo/css/nucleo.css" rel="stylesheet">
   <link href="assets/vendor/@fortawesome/fontawesome-free/css/all.min.css" rel="stylesheet">
