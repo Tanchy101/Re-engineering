@@ -25,6 +25,17 @@ if (isset($_POST['login'])) {
 
 require_once('partials/_head.php');
 ?>
+<style>
+@font-face {
+    font-family: "Blanka-Regular";
+    src: url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.eot");
+    src: url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.svg#Blanka-Regular")format("svg");
+}
+</style>
 
 <!-- wag pi <script>
 >>>>>>> Stashed changes
@@ -33,11 +44,18 @@ require_once('partials/_head.php');
             document.body.style.zoom = "75%";
         };
     </script> -->
+
 <body class="bg-white" style="margin: 0; height: 100%; overflow: hidden">
     <div class="main-content">
     <div class="header bg-gradient-white py-6">
     <div class="footer bg-gradient-white py-0">
             <div class="container" style="margin-bottom: 80px; margin-top: 50px;">
+
+<body class="bg-image" style="display: flex; overflow: hidden; background-image: url('assets/img/brand/Index BG.png'); background-size: cover">
+    <div class="nlas" style="font-family: 'Blanka-Regular'; position: fixed; top: 38%; left: 15%; color: white; 
+    font-size: 70px; text-align: center;">Network Layout<br>Assessment System</div>
+        <div class="text" style="position: fixed; top: 2%; left: 3%; color: white; font-size: 20px; font-family: 'Montserrat'; font-weight: bold;">Log In</div>
+            <div class="container" style="position: fixed; top: 28%; left: 70%; width: 345px;">x1
                 <div class="header-body text-center mb-7">
                     <div class="row justify-content-center">
                         <!-- Move the h1 tag inside the col-lg-5 col-md-7 div -->
