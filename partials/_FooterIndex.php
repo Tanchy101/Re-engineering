@@ -1,6 +1,6 @@
 <footer>
   <div class="header bg-transparent">
-    <div class="footer bg-transparent" style="position:fixed; top: 85%; left: 2%">
+    <div class="footer bg-transparent" style="position:fixed; top: 87%; left: 2%">
       <div class="container bg-transparent">
         <div class="row justify-content-lg-start">
           <ul class="list">

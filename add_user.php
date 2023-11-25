@@ -53,21 +53,17 @@ if (isset($_POST['adduser'])) {
 require_once('partials/_head.php');
 ?>
 
-    <!-- Top navbar -->
-
-<!--   <body>
-    <style>
-  .form-container {
-    background-color: #f8f9fa;
-    padding: 20px;
-    border: 1px solid #ced4da;
-  }
-
-  .form-style {
-    padding: 20px;
-    border: 1px solid #ced4da;
-  }
-</style><body> -->
+<style>
+@font-face {
+    font-family: "Blanka-Regular";
+    src: url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.eot");
+    src: url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.svg#Blanka-Regular")format("svg");
+}
+</style>
 
 <?php
     $length = 6;
@@ -80,17 +76,17 @@ require_once('partials/_head.php');
   <div class="main-content">
     <!-- Top navbar -->
     <body class="bg-image" style="display: flex; overflow: hidden; background-image: url('assets/img/brand/Index BG.png'); background-size: cover;">
-        <div class="nlas" style="position: fixed; top: 45%; left: 25%; color: white; 
-        font-size: 20px; text-align: center;">Network Layout<br>Assessment System</div>
+        <div class="nlas" style="font-family: 'Blanka-Regular';position: fixed; top: 38%; left: 15%; color: white; 
+        font-size: 70px; text-align: center;">Network Layout<br>Assessment System</div>
 
-        <div class="text" style="position: fixed; top: 2%; left: 1%; color: white; font-size: 20px; font-family: 'Montserrat'; 
+        <div class="text" style="position: fixed; top: 2%; left: 3%; color: white; font-size: 20px; font-family: 'Montserrat'; 
         font-weight: bold;">Sign Up</div>
 
       <div class="align-items-center" style="position: absolute; top: 0; left: 0; 
-      background-color: transparent; width: 349px; height: 374px; margin-left: 1024px; margin-top: 130px; border-radius: 25px;"></div>
+      background-color: transparent; width: 351px; height: 374px; border-radius: 25px;"></div>
 
-        <form class="card border-white w-400 p-3 form-style" method="POST" enctype="multipart/form-data" style="position: relative; background-color: #161B22; 
-        border-radius: 25px; width: 345px; margin-left: 1026px; margin-top: 131px;">
+        <form class="card border-white w-400 p-3 form-style" method="POST" enctype="multipart/form-data" style="position: fixed; background-color: #161B22; 
+        border-radius: 25px; width: 351px; top: 24%; left: 72%">
 
           <h4 class="display" style="font-family:'Montserrat'; color: white; font-size: 20px; margin-bottom: -10px; margin-top:10px;">Create Account</h4><br>
 

@@ -45,17 +45,13 @@ require_once('partials/_head.php');
         };
     </script> -->
 
-<body class="bg-white" style="margin: 0; height: 100%; overflow: hidden">
-    <div class="main-content">
-    <div class="header bg-gradient-white py-6">
-    <div class="footer bg-gradient-white py-0">
-            <div class="container" style="margin-bottom: 80px; margin-top: 50px;">
+
 
 <body class="bg-image" style="display: flex; overflow: hidden; background-image: url('assets/img/brand/Index BG.png'); background-size: cover">
     <div class="nlas" style="font-family: 'Blanka-Regular'; position: fixed; top: 38%; left: 15%; color: white; 
     font-size: 70px; text-align: center;">Network Layout<br>Assessment System</div>
         <div class="text" style="position: fixed; top: 2%; left: 3%; color: white; font-size: 20px; font-family: 'Montserrat'; font-weight: bold;">Log In</div>
-            <div class="container" style="position: fixed; top: 28%; left: 70%; width: 345px;">x1
+            <div class="container" style="position: fixed; top: 30%; left: 70%; width: 345px;">
                 <div class="header-body text-center mb-7">
                     <div class="col">
                         <!-- Move the h1 tag inside the col-lg-5 col-md-7 div -->
