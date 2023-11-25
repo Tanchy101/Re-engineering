@@ -33,8 +33,7 @@ require_once('partials/_head.php');
             document.body.style.zoom = "75%";
         };
     </script> -->
-<body class="bg-white">
-
+<body class="bg-white" style="margin: 0; height: 100%; overflow: hidden">
     <div class="main-content">
     <div class="header bg-gradient-white py-6">
     <div class="footer bg-gradient-white py-0">
