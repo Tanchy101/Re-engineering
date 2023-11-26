@@ -76,8 +76,9 @@ require_once('partials/_head.php');
   <div class="main-content">
     <!-- Top navbar -->
     <body class="bg-image" style="display: flex; overflow: hidden; background-image: url('assets/img/brand/Index BG.png'); background-size: cover;">
-        <div class="nlas" style="font-family: 'Blanka-Regular';position: fixed; top: 38%; left: 15%; color: white; 
-        font-size: 70px; text-align: center;">Network Layout<br>Assessment System</div>
+        <img src="assets/img/brand/LogoIndex.png" class="logoindex" style="position: fixed; top: 32%; left: 35%; color: white; width: 120px; height: 120px;">
+        <div class="nlas" style="font-family: 'Blanka-Regular'; position: fixed; top: 47%; left: 18%; color: white; 
+        font-size: 65px; text-align: center;">Network Layout<br>Assessment System</div>
 
         <div class="text" style="position: fixed; top: 2%; left: 3%; color: white; font-size: 20px; font-family: 'Montserrat'; 
         font-weight: bold;">Sign Up</div>
