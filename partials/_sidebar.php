@@ -450,7 +450,7 @@ if (isset($_SESSION['admin_id'])) {
           </li>
           
           <li class="<?php echo ($activePage == 'page8') ? 'active2' : 'item'; ?>">
-            <a href="DeliveryFunction.php">
+            <a href="../orders/OrderModule.php">
               <i class='bx bxs-truck icon'></i>
               <span class="text nav-text">Orders</span>
             </a>

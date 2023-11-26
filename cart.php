@@ -116,7 +116,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                         echo "<td>" . $item['name'] . "</td>";
                         echo "<td>₱" . $item['price'] . "</td>";
                         echo "<td>" . $item['quantity'] . "</td>";
-                        echo "<td>₱" . number_format($item['price'] * $item['quantity'], 2) . "</td>"; // Calculate and display the amount for each item
+                        echo "<td>₱" . number_format($item['price'] * $item['quantity']) .  "</td>"; // Calculate and display the amount for each item
                         echo "<td><a href='cart.php?remove=" . $index . "'>Remove</a></td>";
                         echo "</tr>";
 
