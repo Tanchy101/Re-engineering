@@ -13,15 +13,16 @@ if (isset($_POST['ChangeProfile'])) {
   $admin_id = $_SESSION['admin_id'];
   $admin_name = $_POST['admin_name'];
   $admin_email = $_POST['admin_email'];
+  $address = $_POST['address'];
   $bio = $_POST['bio'];
   $profileImage = $_FILES['profileImage']['name'];
   move_uploaded_file($_FILES["profileImage"]["tmp_name"], "assets/img/profile/" . $_FILES["profileImage"]["name"]);
 
-  $Qry = "UPDATE admin SET admin_name = ?, admin_email = ? WHERE admin_id = ?";
+  $Qry = "UPDATE admin SET admin_name = ?, admin_email = ?, address = ? WHERE admin_id = ?";
   $postStmt = $mysqli->prepare($Qry);
 
   // Bind parameters
-  $postStmt->bind_param('sss', $admin_name, $admin_email, $admin_id);
+  $postStmt->bind_param('ssss', $admin_name, $admin_email, $address, $admin_id);
   $postStmt->execute();
 
   if ($postStmt) {
@@ -268,7 +269,17 @@ require_once('partials/_head.php');
                           <label class="form-control-label" for="input-email">Email address</label>
                           <input type="email" id="input-email" value="<?php echo $admin->admin_email; ?>" name="admin_email" class="form-control form-control-alternative">
                         </div>
-                      </div>       
+                      </div>
+                      
+                      <!-- Address -->
+                      <div class="col-lg-6">
+                        <div class="form-group">
+                          <label class="form-control-label" for="input-address">Address</label>
+                          <input type="text" name="address" value="<?php echo $admin->address; ?>" id="input-address" class="form-control form-control-alternative">
+                        </div>
+                      </div>
+
+
                       <div class="col-lg-12">
                         <div class="form-group">
                           <input type="submit" id="input-email" name="ChangeProfile" class="btn btn-success form-control-alternative" value="Submit">
