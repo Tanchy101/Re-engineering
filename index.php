@@ -7,18 +7,25 @@ include('config/checklogin.php');
 if (isset($_POST['login'])) {
   $admin_email = $_POST['admin_email'];
   $admin_password = $_POST['admin_password']; //double encrypt to increase security
-  $stmt = $mysqli->prepare("SELECT admin_email, admin_password, admin_id  FROM admin WHERE (admin_email =? AND admin_password =?)"); //sql to log in user
+  
+
+  $stmt = $mysqli->prepare("SELECT admin_id, usertype  FROM admin WHERE (admin_email =? AND admin_password =?)"); //sql to log in user
   $stmt->bind_param('ss',$admin_email, $admin_password); //bind fetched parameters
   $stmt->execute(); //execute bind 
-  $stmt->bind_result($admin_email, $admin_password, $admin_id); //bind result
-  $rs = $stmt->fetch();
+  $stmt->bind_result($admin_id, $usertype); //bind result into the variables
+  $rs = $stmt->fetch(); // returns whether true or not
   $_SESSION['admin_id'] = $admin_id;
   
-  if ($rs) {
+  //check if the field usertype is a user
+  if ($usertype == "user") {
     //if its sucessfull
-	
     header("location:dashboard.php");
-  } else {
+// check if the field usertype is admin
+  } else if($usertype == "admin"){
+    header("location:admin.php");
+  } 
+  
+  else {
     $err = "Incorrect Authentication Credentials ";
   }
 }
@@ -79,6 +86,7 @@ require_once('partials/_head.php');
                                                     </div>
                                                     <input class="form-control" required name="admin_password"
                                                         placeholder="Enter Password" type="password" style="background-color: black;">
+
                                                 </div>
                                                 </div>
                                         <div class="text-center">

@@ -93,7 +93,15 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
         <div class="col">
           <div class="card shadow">
             <div class="card-header border-0">
-              <label> Cart </label>
+              <?php $admin_id = $_SESSION['admin_id'];
+                $ret = "SELECT * FROM admin WHERE admin_id = ?";
+                $stmt = $mysqli->prepare($ret);
+                $stmt->bind_param('s', $admin_id);
+                $stmt->execute();
+                $res = $stmt->get_result();
+                while ($admin = $res->fetch_object()) {
+                ?>
+              <label><?php echo $admin ->admin_name; ?> 's Cart </label>
               <div class="col-md-12">
                 <table class="table align-items-center table-flush" id="table-data-product">
                   <thead class="thead-light">
@@ -119,10 +127,9 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                         echo "<td>₱" . number_format($item['price'] * $item['quantity']) .  "</td>"; // Calculate and display the amount for each item
                         echo "<td><a href='cart.php?remove=" . $index . "'>Remove</a></td>";
                         echo "</tr>";
-
                         $totalAmount += $item['price'] * $item['quantity']; // Update the total amount
                       }
-
+                     
                       echo "<tr><td colspan='4' style='text-align: right; font-weight: bold;'>Total Amount:</td>";
                       echo "<td>₱" . number_format($totalAmount, 2) . "</td></tr>";
                       echo "<tr> <td> <form action='purchase.php' method='POST'> <button class='btn btn-primary' name='purchase'>Place Order</button>
@@ -132,6 +139,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
 
                     } else {
                       echo "<tr><td colspan='6'>Cart is empty</td></tr>";
+                    }
                     }
                     ?>
 

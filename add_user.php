@@ -12,6 +12,7 @@ if (isset($_POST['adduser'])) {
     $admin_name = $_POST['admin_name'];
     $admin_email = $_POST['admin_email'];
     $admin_password = $_POST['admin_password']; //Hash This   
+    $usertype = $_POST['usertype'];
     $profileImage = $_FILES['profileImage']['name'];
     move_uploaded_file($_FILES["profileImage"]["tmp_name"], "assets/img/profile/" . $_FILES["profileImage"]["name"]);
 
@@ -33,12 +34,12 @@ if (isset($_POST['adduser'])) {
     if (mysqli_num_rows($res) > 0) {
       $err ="Email Taken Please Try Again";
     }else{
-
+    
     //Insert Captured information to a database table
-    $postQuery = "INSERT INTO admin (admin_id, admin_name, admin_email, admin_password, profileImage) VALUES(?,?,?,?,?)";
+    $postQuery = "INSERT INTO admin (admin_id, admin_name, admin_email, admin_password, profileImage, usertype) VALUES(?,?,?,?,?,?)";
     $postStmt = $mysqli->prepare($postQuery);
     //bind paramaters
-    $rc = $postStmt->bind_param('sssss', $admin_id, $admin_name, $admin_email, $admin_password, $profileImage);
+    $rc = $postStmt->bind_param('ssssss', $admin_id, $admin_name, $admin_email, $admin_password, $profileImage, $usertype);
     $postStmt->execute();
     //declare a varible which will be passed to alert function
     if ($postStmt) {
@@ -116,7 +117,7 @@ require_once('partials/_head.php');
             </div>
             <input type="password" name="admin_password" class="form-control" value="" placeholder="Create Password" style="margin-bottom: 15px; background-color: black;">
           </div>
-          
+          <input type="hidden" name="usertype" value="user">
           <button type="submit" name="adduser"class="btn" style="width: 317px; border-radius: 25px; color: white; background-color: #7ED957;
           font-family: 'Montserrat';">Sign Up</button>
             <hr class="my-3">

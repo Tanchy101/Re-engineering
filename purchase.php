@@ -14,8 +14,19 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
     if(isset($_POST['purchase'])){
         $order_status = "Pending";
 
+        $admin_id = $_SESSION['admin_id'];
+        $ret = "SELECT * FROM admin WHERE admin_id = ?";
+        $stmt = $mysqli->prepare($ret);
+        $stmt->bind_param('s', $admin_id);
+        $stmt->execute();
+        $res = $stmt->get_result();
+        while ($admin = $res->fetch_object()) {
+        $admin -> admin_name;
+        
+        $order_username = $admin -> admin_name;}
+
         // Prepare insert order sql statement
-        $insertOrderSql="INSERT INTO orders (order_status, total) VALUES(?,?)";
+        $insertOrderSql="INSERT INTO orders (order_status, total, order_username) VALUES(?,?,?)";
         $insertOrderSqlStmt=mysqli_prepare($mysqli, $insertOrderSql);
 
         if($insertOrderSqlStmt){
@@ -25,22 +36,22 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             }, 0);
 
             // Execute insert order sql statement with parameters
-            mysqli_stmt_bind_param($insertOrderSqlStmt, "si", $order_status, $total);
+            mysqli_stmt_bind_param($insertOrderSqlStmt, "sis", $order_status, $total, $order_username);
             mysqli_stmt_execute($insertOrderSqlStmt);
 
             // Get the ID of the last query (insert order query)
             $order_id=mysqli_insert_id($mysqli);
 
             // Prepare insert order_item sql statement
-            $insertOrderItemSql="INSERT INTO order_item (price, name, quantity, order_id) VALUES(?,?,?,?)";
+            $insertOrderItemSql="INSERT INTO order_item (price, name, quantity, order_id, image) VALUES(?,?,?,?,?)";
             $insertOrderItemSqlStmt=mysqli_prepare($mysqli, $insertOrderItemSql);
 
             // Insert each cart item using the insert order_sql statement
             foreach($_SESSION['cart'] as $key => $cartItems){
-                mysqli_stmt_bind_param($insertOrderItemSqlStmt, "isii", $cartItems['price'], $cartItems['name'], $cartItems['quantity'], $order_id);
+                mysqli_stmt_bind_param($insertOrderItemSqlStmt, "isiis", $cartItems['price'], $cartItems['name'], $cartItems['quantity'], $order_id, $cartItems['image']);
                 mysqli_stmt_execute($insertOrderItemSqlStmt);
             }
-
+            
             unset($_SESSION['cart']);
             echo"<script>
             alert('Your Order Has Been Placed');
