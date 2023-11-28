@@ -77,18 +77,21 @@ require_once('partials/_head.php');
   <div class="main-content">
     <!-- Top navbar -->
     <body class="bg-image" style="display: flex; overflow: hidden; background-image: url('assets/img/brand/Index BG.png'); background-size: cover;">
-        <img src="assets/img/brand/LogoIndex.png" class="logoindex" style="position: fixed; top: 32%; left: 35%; color: white; width: 120px; height: 120px;">
-        <div class="nlas" style="font-family: 'Blanka-Regular'; position: fixed; top: 47%; left: 18%; color: white; 
+        
+      <div><img src="assets/img/brand/LogoIndex.png" class="logoindex" style="position: relative; margin-top: 14.8em; left: 33.6em; 
+      color: white; width: 120px; height: 120px;"></div>
+        
+        <div class="nlas" style="font-family: 'Blanka-Regular'; position: relative; margin-top: -0.15em; left: 4.26em; color: white; 
         font-size: 65px; text-align: center;">Network Layout<br>Assessment System</div>
 
-        <div class="text" style="position: fixed; top: 2%; left: 3%; color: white; font-size: 20px; font-family: 'Montserrat'; 
+        <div class="text" style="position: absolute; top: 0.7em; left: 7%; color: white; font-size: 20px; font-family: 'Montserrat'; 
         font-weight: bold;">Sign Up</div>
 
       <div class="align-items-center" style="position: absolute; top: 0; left: 0; 
       background-color: transparent; width: 351px; height: 374px; border-radius: 25px;"></div>
 
-        <form class="card border-white w-400 p-3 form-style" method="POST" enctype="multipart/form-data" style="position: fixed; background-color: #161B22; 
-        border-radius: 25px; width: 351px; top: 24%; left: 72%">
+        <form class="card border-white w-400 p-3 form-style" method="POST" enctype="multipart/form-data" style="position: relative; background-color: #161B22; 
+        border-radius: 25px; width: 351px; margin-top: -22em; left: 174%">
 
           <h4 class="display" style="font-family:'Montserrat'; color: white; font-size: 20px; margin-bottom: -10px; margin-top:10px;">Create Account</h4><br>
 

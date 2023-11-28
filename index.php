@@ -54,12 +54,19 @@ require_once('partials/_head.php');
 
 
 
-<body class="bg-image" style="display: flex; overflow: hidden; background-image: url('assets/img/brand/Index BG.png'); background-size: cover">
-    <img src="assets/img/brand/LogoIndex.png" class="logoindex" style="position: fixed; top: 32%; left: 35%; color: white; width: 120px; height: 120px;">
-    <div class="nlas" style="font-family: 'Blanka-Regular'; position: fixed; top: 47%; left: 18%; color: white; 
+<body class="bg-image" style="display: flex; background-image: url('assets/img/brand/Index BG.png'); background-size: cover;  height: 100vh;">
+    
+    <div>
+    <img src="assets/img/brand/LogoIndex.png" class="logoindex" style="position: relative; margin-top:14.8em; left: 448%; color: white; 
+    width: 120px; height: 120px;"></div>
+
+    <div class="nlas" style="font-family: 'Blanka-Regular'; position: relative; margin-top: 5.34em; left: 2.41em; color: white; 
     font-size: 65px; text-align: center;">Network Layout<br>Assessment System</div>
-        <div class="text" style="position: fixed; top: 2%; left: 3%; color: white; font-size: 20px; font-family: 'Montserrat'; font-weight: bold;">Log In</div>
-            <div class="container" style="position: fixed; top: 30%; left: 70%; width: 345px;">
+
+        <div class="text" style="position: absolute; margin-top: 0.7em; left: 3%; color: white; font-size: 20px; font-family: 'Montserrat'; 
+        font-weight: bold;">Log In</div>
+
+            <div class="container" style="position: relative; margin-top: 14em; margin-left: 20em; width: 345px;">
                 <div class="header-body text-center mb-7">
                     <div class="col">
                         <!-- Move the h1 tag inside the col-lg-5 col-md-7 div -->
