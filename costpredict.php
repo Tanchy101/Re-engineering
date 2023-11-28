@@ -18,18 +18,29 @@ require_once('partials/_head.php');
   <!-- Main content -->
   <div class="main-content">
     <!-- Top navbar -->
-    <?php
-    require_once('partials/_topnav.php');
-    ?>
+
     <!-- Header -->
-    <div style="background-image: url(assets/img/theme/bg4.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
-    <span class="mask bg-gradient-dark opacity-8"></span>
+    <div style="background-image: url(assets/img/theme/generatebg2.png); background-size: cover; height: 100vh" class="header  pb-8 pt-5 pt-md-8">
+    <style>
+        h3 {
+            color: white; 
+        }
+    </style>
+    <style>
+        label {
+            color: white; 
+        }
+
+        
+    </style>
+    
       <div class="container-fluid">
         <div class="header-body">
         </div>
       </div>
     </div>
-    
+
+
     <!-- wag pi
     <script>
         window.onload = function() {
@@ -43,11 +54,12 @@ require_once('partials/_head.php');
       <!-- Table -->
       <div class="row">
         <div class="col">
-          <div class="card shadow">
-            <div class="card-header border-6">
+          <div class="card shadow" style= "background-color: transparent;">
+            <div class="card-header border-6" style= "background-color: rgba(22,27,34,.8); margin-top: -28em; 
+            border-top-right-radius: 25px; border-top-left-radius: 25px;">
               <h3>Please Select Institution</h3>
             </div>
-            <div class="card-body">
+            <div class="card-body" style= "background-color: rgba(22,27,34,.8); border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;" >
             <div class="form-row">
             <div class="col-md-6"><div class="text-center">
             <b><label>Predict Cost for School</label></b><br><a href = predictschool.php>
