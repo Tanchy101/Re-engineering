@@ -34,31 +34,35 @@ while ($admin = $res->fetch_object()) {
 <style>
 
 .form-container {
-  padding: 33px 5px; 
+  padding-top: 100vh 100vh;
   flex-direction: column;
   align-items: left;
   position: relative;
+  width: 3px;
+  height: 0;
 }
 
 p.text {
   text-align: left;
-  margin-top: 30px;
-  margin-bottom: 30px;
-  margin-left: 100px;
-  font-size: 50px;
+  margin-top: 1.7em;
+  margin-bottom: 2%;
+  margin-left: 0.8em;
+  font-size: 70px;
   font-weight: bold;
   font-family: Montserrat;
   line-height: 1.4;
   color:white;
+  width: 80%;
+  inline-size: 170%;
 }
 
 .card{
   background-color:#161b22;
-  width: 350px;
+  width: 470px;
 }
 
 p.caption {
-  font-size: medium;
+  font-size: 20px;
   font-family: Montserrat;
   color: white;
   margin-top: 10px;
@@ -75,7 +79,7 @@ p.caption {
   font-weight: bold;
   color: white;
   width: 250px;
-  margin-left: 50px;
+  margin-left: 5.8em;
   
 }
 </style>
@@ -89,17 +93,17 @@ p.caption {
     </script> -->
   
   <!-- Header -->
-  <div style="background-image: url(assets/img/theme/dashboardbggif.gif); background-size: cover; display: flex;">
+  <div style="background-image: url(assets/img/theme/dashboardbggif.gif); background-size: cover; display: flex; height: 100vh; ">
     <span class="mask bg-gradient-dark opacity-3"></span>
     <!-- Page content -->
     <div class="container-fluid">
       <div class = "row">
         <div class= "form-container col-7">   
-          <p  class= "text">Visualize Your Network, <br> Optimize Your <br> Performance</p>
-            <div class= "form-container" style = "margin-left: 100px">
+          <p class= "text">Visualize Your Network, <br> Optimize Your <br> Performance</p>
+            <div class= "form-container" style = "margin-left: 3.8em;">
             <div class="card">
               <div class="container">
-                <p style="opacity:0.8;" class= "caption">
+                <p style="margin: 0.8em 0.6em 0.8em" class= "caption">
                   Revamp your network layout with ease: <br>
                   Generate a network floor plan and <br>
                   corresponding costs in seconds.
