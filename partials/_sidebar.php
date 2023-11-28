@@ -424,7 +424,7 @@ if (isset($_SESSION['admin_id'])) {
           </li>
 
           <li class="<?php echo ($activePage == 'page2') ? 'active2' : 'item'; ?>">
-            <a href="generateplantestt.php">
+            <a href="generateplantest.php">
               <i class='bx bx-network-chart icon'></i>
               <span class="text nav-text">Generate a Plan</span>
             </a>

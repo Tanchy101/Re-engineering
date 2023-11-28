@@ -67,7 +67,7 @@ if (isset($_POST['input'])) {
                     <td><?php echo $prod_name; ?></td>
                     <td>₱<?php echo $prod_price; ?></td>
                     <td>
-                        <input type="number" class="form-control quantity-input" min="1" value="1">
+                        <input type="number" class="form-control quantity-input" min="1" value="1" max="999" style="width:70px;">
                     </td>
                     <td><?php echo $prod_type; ?></td>
                     <td>

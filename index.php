@@ -54,7 +54,7 @@ require_once('partials/_head.php');
 
 
 
-<body class="bg-image" style="display: flex; background-image: url('assets/img/brand/Index BG.png'); background-size: cover;  height: 100vh;">
+<body class="bg-image" style="display: flex; background-image: url('assets/img/brand/Index BG.png'); background-size: cover; height: 100vh;">
     
     <div>
     <img src="assets/img/brand/LogoIndex.png" class="logoindex" style="position: relative; margin-top:14.8em; left: 448%; color: white; 

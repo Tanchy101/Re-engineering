@@ -76,7 +76,7 @@ require_once('partials/_head.php');
   <!-- Main content -->
   <div class="main-content">
     <!-- Top navbar -->
-    <body class="bg-image" style="display: flex; overflow: hidden; background-image: url('assets/img/brand/Index BG.png'); background-size: cover;">
+    <body class="bg-image" style="display: flex; overflow: hidden; background-image: url('assets/img/brand/Index BG.png'); background-size: cover; height: 100vh;">
         
       <div><img src="assets/img/brand/LogoIndex.png" class="logoindex" style="position: relative; margin-top: 14.8em; left: 33.6em; 
       color: white; width: 120px; height: 120px;"></div>
