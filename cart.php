@@ -36,13 +36,10 @@ require_once('partials/_head.php');
   ?>
   <!-- Main content -->
   <div class="main-content">
-    <!-- Top navbar -->
-    <?php
-    require_once('partials/_topnav.php');
-    ?>
+
     <!-- Header -->
-    <div style="background-image: url(assets/img/theme/bg4.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
-      <span class="mask bg-gradient-dark opacity-8"></span>
+    <div style="background-image: url(assets/img/theme/productsbg.png); height: 100vh; background-size: cover; display: flex;" class="header  pb-8 pt-5 pt-md-8">
+      <span class="mask bg-gradient-dark opacity-5"></span>
       <div class="container-fluid">
         <div class="header-body">
         </div>
@@ -91,8 +88,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
       <!-- Table -->
       <div class="row">
         <div class="col">
-          <div class="card shadow">
-            <div class="card-header border-0">
+            <div class="card-header border-0" style="margin-top: -31em; border-radius: 25px;">
               <?php $admin_id = $_SESSION['admin_id'];
                 $ret = "SELECT * FROM admin WHERE admin_id = ?";
                 $stmt = $mysqli->prepare($ret);

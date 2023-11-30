@@ -56,8 +56,8 @@
         <div class="row">
           <div class="col">
               <div class="card-header" style="overflow-x: hidden; overflow-y: scroll; visible; height: 75vh; border-radius: 25px;
-              margin-top: -40em;">
-                <label style="font-size: x-large; font-weight: bold;"> Products </label>
+              margin-top: -32.5em;">
+                <label style="font-size: x-large; font-weight: bold; margin-left: 0.6em;"> Products </label>
                 <div class="col-md-12">
                 <div class="row">
                   <!-- Search input -->
