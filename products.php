@@ -39,13 +39,8 @@
   ?>
   <!-- Main content -->
   <div class="main-content">
-    <!-- Top navbar -->
-    <?php
-    require_once('partials/_topnav.php');
-    ?>
     <!-- Header -->
-    <div style="background-image: url(assets/img/theme/bg4.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
-      <span class="mask bg-gradient-dark opacity-8"></span>
+    <div style="background-image: url(assets/img/theme/productsbg.png); background-size: cover; height: 100vh;">
       <div class="container-fluid">
         <div class="header-body">
         </div>
@@ -60,9 +55,9 @@
         <!-- Table -->
         <div class="row">
           <div class="col">
-            <div class="card shadow">
-              <div class="card-header border-0">
-                <label> Products </label>
+              <div class="card-header" style="overflow-x: hidden; overflow-y: scroll; visible; height: 75vh; border-radius: 25px;
+              margin-top: -40em;">
+                <label style="font-size: x-large; font-weight: bold;"> Products </label>
                 <div class="col-md-12">
                 <div class="row">
                   <!-- Search input -->
@@ -100,13 +95,13 @@
                         $res = $stmt->get_result();
                         ?>
                         <tr>
-                          <th scope="col">Image</th>
-                          <th scope="col">Name</th>
-                          <th scope="col">Price</th>
-                          <th scope="col">Quantity</th>
-                          <th scope="col">Product Type</th>
-                          <th scope="col">Action</th>                      
-                          <th scope="col">Product Link</th>
+                            <th scope="col">Image</th>
+                            <th scope="col">Name</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Product Type</th>
+                            <th scope="col">Action</th>                      
+                            <th scope="col">Product Link</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -153,7 +148,6 @@
                   </div>
                 </div>
               </div>
-            </div>
           </div>
         </div>
       </div>
