@@ -114,12 +114,13 @@ function isValidComputers($computers, $roomSize)
     <?php
     require_once('partials/_head.php');
     ?>
+    <!-- wag pi
     <script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "75%";
         };
-    </script>
+    </script>-->
 <body>
   <!-- Sidenav -->
   <?php
@@ -132,8 +133,22 @@ function isValidComputers($computers, $roomSize)
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
-        <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header pb-8 pt-5 pt-md-8">
-            <span class="mask bg-gradient-dark opacity-8"></span>
+
+        <style>
+        h3 {
+            color: white; 
+        }
+    </style>
+
+<style>
+        label {
+            color: white; 
+        }
+
+        
+    </style>
+        <div style="background-image: url(assets/img/theme/costpredictbg.png); background-size: cover; height: 100vh" class="header  pb-8 pt-5 pt-md-8">
+            <span class="mask bg-gradient-dark opacity-5"></span>
             <div class="container-fluid">
                 <div class="header-body"></div>
             </div>
@@ -168,20 +183,22 @@ function isValidComputers($computers, $roomSize)
             <!-- Table -->
             <div class="row">
                 <div class="col">
-                    <div class="card shadow">
-                    <div class="card-header border-0">
+                    <div class="card shadow" style= "background-color: transparent;">
+                    <div class="card-header border-0" style= "background-color: rgba(22,27,34,.8); margin-top: -28em; 
+            border-top-right-radius: 25px; border-top-left-radius: 25px; height: 5em;">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h3 class="card-title">Please Fill All Fields</h3>
-                        <div class="icon-info" id="infoBtn">
+                        <h3 class="card-title" style="margin-top: 0.7em;">Please Fill All Fields</h3>
+                        <div class="icon-info" id="infoBtn" style="margin-top: -0.7em;">
                             <i class="bx bxs-info-circle"></i>
                         </div>
                     </div>
                 </div>
-                <div class="alert alert-info mt-3 <?php if ($_SERVER["REQUEST_METHOD"] !== "POST" || !empty($errors)) echo 'show'; ?>" id="infoBox">
+                <div class="alert alert-info mt <?php if ($_SERVER["REQUEST_METHOD"] !== "POST" || !empty($errors)) echo 'show'; ?>" 
+                id="infoBox" style="display: none; margin-bottom: 0em; border-radius: 0px;">
                             <p><strong>Room Size:</strong> Minimum: 54 sqm, Maximum: 160 sqm</p>
                             <p><strong>Number of Computers:</strong> Minimum: 5, Maximum: 118</p>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" style= "background-color: rgba(22,27,34,.8); border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;">
                             <!-- Add this button and information box before the form -->
                             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                                 <div class="row mb-3">
@@ -196,8 +213,8 @@ function isValidComputers($computers, $roomSize)
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="submit" value="Predict" class="btn btn-primary">
-                                        <button onclick="goToCostPredict()" class="btn btn-success">Go Back</button>
+                                        <input type="submit" value="Predict" class="btn" style="background-color: #7ED957; color: white;">
+                                        <button onclick="goToCostPredict()" class="btn" style="background-color: #F5365C; color: white;">Go Back</button>
                                     </div>
                                 </div>
                             </form>
@@ -251,9 +268,6 @@ function isValidComputers($computers, $roomSize)
   }
 </script>
 
-        <!-- Footer -->
-        <?php require_once('partials/_footer.php'); ?>
-    </div>
 
     <?php require_once('partials/_scripts.php'); ?>
 </body>

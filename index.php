@@ -7,18 +7,25 @@ include('config/checklogin.php');
 if (isset($_POST['login'])) {
   $admin_email = $_POST['admin_email'];
   $admin_password = $_POST['admin_password']; //double encrypt to increase security
-  $stmt = $mysqli->prepare("SELECT admin_email, admin_password, admin_id  FROM admin WHERE (admin_email =? AND admin_password =?)"); //sql to log in user
+  
+
+  $stmt = $mysqli->prepare("SELECT admin_id, usertype  FROM admin WHERE (admin_email =? AND admin_password =?)"); //sql to log in user
   $stmt->bind_param('ss',$admin_email, $admin_password); //bind fetched parameters
   $stmt->execute(); //execute bind 
-  $stmt->bind_result($admin_email, $admin_password, $admin_id); //bind result
-  $rs = $stmt->fetch();
+  $stmt->bind_result($admin_id, $usertype); //bind result into the variables
+  $rs = $stmt->fetch(); // returns whether true or not
   $_SESSION['admin_id'] = $admin_id;
   
-  if ($rs) {
+  //check if the field usertype is a user
+  if ($usertype == "user") {
     //if its sucessfull
-	
     header("location:dashboard.php");
-  } else {
+// check if the field usertype is admin
+  } else if($usertype == "admin"){
+    header("location:admin.php");
+  } 
+  
+  else {
     $err = "Incorrect Authentication Credentials ";
   }
 }
@@ -47,12 +54,19 @@ require_once('partials/_head.php');
 
 
 
-<body class="bg-image" style="display: flex; overflow: hidden; background-image: url('assets/img/brand/Index BG.png'); background-size: cover">
-    <img src="assets/img/brand/LogoIndex.png" class="logoindex" style="position: fixed; top: 32%; left: 35%; color: white; width: 120px; height: 120px;">
-    <div class="nlas" style="font-family: 'Blanka-Regular'; position: fixed; top: 47%; left: 18%; color: white; 
+<body class="bg-image" style="display: flex; background-image: url('assets/img/brand/Index BG.png'); background-size: cover; height: 100vh;">
+    
+    <div>
+    <img src="assets/img/brand/LogoIndex.png" class="logoindex" style="position: relative; margin-top:14.8em; left: 448%; color: white; 
+    width: 120px; height: 120px;"></div>
+
+    <div class="nlas" style="font-family: 'Blanka-Regular'; position: relative; margin-top: 5.34em; left: 2.41em; color: white; 
     font-size: 65px; text-align: center;">Network Layout<br>Assessment System</div>
-        <div class="text" style="position: fixed; top: 2%; left: 3%; color: white; font-size: 20px; font-family: 'Montserrat'; font-weight: bold;">Log In</div>
-            <div class="container" style="position: fixed; top: 30%; left: 70%; width: 345px;">
+
+        <div class="text" style="position: absolute; margin-top: 0.7em; left: 3%; color: white; font-size: 20px; font-family: 'Montserrat'; 
+        font-weight: bold;">Log In</div>
+
+            <div class="container" style="position: relative; margin-top: 14em; margin-left: 20em; width: 345px;">
                 <div class="header-body text-center mb-7">
                     <div class="col">
                         <!-- Move the h1 tag inside the col-lg-5 col-md-7 div -->
@@ -79,6 +93,7 @@ require_once('partials/_head.php');
                                                     </div>
                                                     <input class="form-control" required name="admin_password"
                                                         placeholder="Enter Password" type="password" style="background-color: black;">
+
                                                 </div>
                                                 </div>
                                         <div class="text-center">

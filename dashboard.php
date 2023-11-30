@@ -32,100 +32,55 @@ while ($admin = $res->fetch_object()) {
     ?>
 
 <style>
-  .pb-12 {
-    padding-bottom: 12rem;
-  }
-
-  .pt-md-12 {
-    padding-top: 12rem;
-  }
-
-  .mask {
-    background-image: url(assets/img/theme/bg4.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center;
-  }
 
 .form-container {
-  width: 100%;
-  max-width: 1100px;
+  padding-top: 100vh 100vh;
   flex-direction: column;
   align-items: left;
-  display: flex;
   position: relative;
- 
+  width: 3px;
+  height: 0;
 }
 
 p.text {
   text-align: left;
-  margin-top:-110px ;
-  margin-left: 100px;
-  margin-bottom: 30px;
-  font-weight: 800;
+  margin-top: 1.7em;
+  margin-bottom: 2%;
+  margin-left: 0.8em;
+  font-size: 70px;
+  font-weight: bold;
+  font-family: Montserrat;
   line-height: 1.4;
   color:white;
+  width: 80%;
+  inline-size: 170%;
 }
 
-.picture-container {
-  width: 6rem;
-  margin-left: 1000px;
-  object-fit: none;  
-  object-position:right;
-}
-
-.picture {
-  width: 150px;
-}
-
-.form-container-2 {
-  width: 100%;
-  max-width: 450px;
-  text-align: left;
-  flex-direction: column;
-  align-items: left;
-  display: flex;
-  position: relative;
-  margin-top:-30px ;
-  margin-bottom: -50px;
-  margin-left: 100px;
+.card{
+  background-color:#161b22;
+  width: 470px;
 }
 
 p.caption {
-  font-weight: 600;
-  color:white;
+  font-size: 20px;
+  font-family: Montserrat;
+  color: white;
+  margin-top: 10px;
 }
 
-.submit-btn-container {
-  display: grid;
-  padding-left: center;
-  width:300px ;
-  margin-top: 3rem;
-  margin-left: 0px;
-}
 .submit-btn {
+  font-weight: bold;
   padding: 10px 20px;
   cursor: pointer;
-  border-radius: 30px;
-  outline: none;
-  position: relative;
-  font-weight: 900;
-  font-size: 1rem;
-  outline: none;
+  border-radius: 25px;
   border: none;
-}
-
-.submit-btn {
-  width: 100%;
-  border: 1px solid white;
-  background-color: white;
-  color:#0F6973;
-}
-
-.submit-btn {
-  background: #0F6973;
-  color: #fff;
-  width: 100%;
+  background-color: #7ed957;
+  font-family: Montserrat;
+  font-weight: bold;
+  color: white;
+  width: 250px;
+  margin-left: 5.8em;
+  
 }
 </style>
 
@@ -138,29 +93,26 @@ p.caption {
     </script> -->
   
   <!-- Header -->
-  <div style="background-image: url(assets/img/theme/bg4.jpg); background-size: cover;" class="pb-12 pt-md-12">
-    <span class="mask bg-gradient-dark opacity-6"></span>
+  <div style="background-image: url(assets/img/theme/dashboardbggif.gif); background-size: cover; display: flex; height: 100vh; ">
+    <span class="mask bg-gradient-dark opacity-3"></span>
     <!-- Page content -->
     <div class="container-fluid">
-      <!-- Table -->
-      <div class="row">
-        <div class="col-4">
-              <div class="card-body">
-              </div>
-              </div>
-      </div>
       <div class = "row">
-        <div class= "form-container col-12">
-    
-          <p style="font-size: 70px; " class= "text">Visualize Your Network, <br> Optimize Your Performance</p>
-            <div class= "form-container" style = "margin-left: 100px">
-              <p style="font-size: 19px; opacity:0.8;" class= "caption">
-                Revamp your network layout with ease: <br>
-                Generate a network floor plan and <br>
-                corresponding costs in seconds.</p>
+        <div class= "form-container col-7">   
+          <p class= "text">Visualize Your Network, <br> Optimize Your <br> Performance</p>
+            <div class= "form-container" style = "margin-left: 3.8em;">
+            <div class="card">
+              <div class="container">
+                <p style="margin: 0.8em 0.6em 0.8em" class= "caption">
+                  Revamp your network layout with ease: <br>
+                  Generate a network floor plan and <br>
+                  corresponding costs in seconds.
+                </p>
+              </div>
+            </div>
                 <div class="submit-btn-container"><br>
                   <a href="generateplantestt.php">
-                  <button type="submit" name="login" class="submit-btn">GENERATE A PLAN</button>
+                  <button type="submit" name="login" class="submit-btn">Generate Now!</button>
                   </a>
                 </div>
           </div>

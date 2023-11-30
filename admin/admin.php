@@ -14,7 +14,7 @@
 
 <h1><center><p style= "font-family:Arial Rounded MT"><font size="+5"> Network Layout Assessment </font></p></center></h1>
 
-<h2><center><p style= "font-family:Arial"> Welcome, Admin! </p></center></h2>
+<h2><center><p style= "font-family:Arial"> Welcome, Admin Jenie! </p></center></h2>
 
 </body>
 </html>
