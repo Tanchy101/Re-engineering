@@ -138,9 +138,6 @@ function isValidComputers($computers, $roomSize)
         h3 {
             color: white; 
         }
-    </style>
-
-<style>
         label {
             color: white; 
         }
@@ -154,6 +151,12 @@ function isValidComputers($computers, $roomSize)
             </div>
         </div>
         <style>
+    h3 {
+        color: white; 
+    }
+    label {
+        color: white; 
+    }
     .icon-info {
         display: inline-block;
         cursor: pointer;
@@ -183,8 +186,8 @@ function isValidComputers($computers, $roomSize)
             <!-- Table -->
             <div class="row">
                 <div class="col">
-                    <div class="card shadow" style= "background-color: transparent;">
-                    <div class="card-header border-0" style= "background-color: rgba(22,27,34,.8); margin-top: -28em; 
+                    <div class="card shadow" style= "border-color: transparent; border: 0px;">
+                    <div class="card-header border-0" style= "background-color: rgba(22,27,34,.8); margin-top: -32em; 
             border-top-right-radius: 25px; border-top-left-radius: 25px; height: 5em;">
                     <div class="d-flex justify-content-between align-items-center">
                         <h3 class="card-title" style="margin-top: 0.7em;">Please Fill All Fields</h3>
@@ -194,11 +197,13 @@ function isValidComputers($computers, $roomSize)
                     </div>
                 </div>
                 <div class="alert alert-info mt <?php if ($_SERVER["REQUEST_METHOD"] !== "POST" || !empty($errors)) echo 'show'; ?>" 
-                id="infoBox" style="display: none; margin-bottom: 0em; border-radius: 0px;">
-                            <p><strong>Room Size:</strong> Minimum: 54 sqm, Maximum: 160 sqm</p>
-                            <p><strong>Number of Computers:</strong> Minimum: 5, Maximum: 118</p>
+                id="infoBox" style="display: none; margin-bottom: 0em; border-radius: 5px;">
+                            <p style="margin-top: 1.2em; font-weight: bold;"><strong>Number of Computers:</strong> Minimum: 5, Maximum: 118</p>
+                            <p style="font-weight: bold;"><strong>Room Size:</strong> Minimum: 54 sqm, Maximum: 160 sqm</p>
+                            
                         </div>
-                        <div class="card-body" style= "background-color: rgba(22,27,34,.8); border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;">
+                        <div class="card-body" style= "background-color: rgba(22,27,34,.8); border-bottom-right-radius: 25px; 
+                        border-bottom-left-radius: 25px; margin-bottom: 5.5em;">
                             <!-- Add this button and information box before the form -->
                             <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                                 <div class="row mb-3">
@@ -213,8 +218,8 @@ function isValidComputers($computers, $roomSize)
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <input type="submit" value="Predict" class="btn" style="background-color: #7ED957; color: white;">
-                                        <button onclick="goToCostPredict()" class="btn" style="background-color: #F5365C; color: white;">Go Back</button>
+                                        <input type="submit" value="Predict" class="btn" style="background-color: #7ED957; color: white; font-weight: bold;">
+                                        <button onclick="goToCostPredict()" class="btn" style="background-color: #F5365C; color: white; font-weight: bold;">Go Back</button>
                                     </div>
                                 </div>
                             </form>

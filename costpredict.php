@@ -1,6 +1,7 @@
 <!DOCTYPE html> 
 <html>
 <?php
+
 session_start();
 include('config/config.php');
 include('config/checklogin.php');
@@ -17,29 +18,25 @@ require_once('partials/_head.php');
   ?>
   <!-- Main content -->
   <div class="main-content">
-    <!-- Top navbar -->
-
+      <!-- Top navbar -->
+      <?php
+      require_once('partials/_topnav.php');
+      ?>
     <!-- Header -->
-    <div style="background-image: url(assets/img/theme/generatebg2.png); background-size: cover; height: 100vh" class="header  pb-8 pt-5 pt-md-8">
-    <style>
-        h3 {
-            color: white; 
-        }
-    </style>
-    <style>
-        label {
-            color: white; 
-        }
-
-        
-    </style>
-    
+    <div style="background-image: url(assets/img/theme/costpredictbg.png); background-size: cover; height: 100vh;">    
       <div class="container-fluid">
         <div class="header-body">
         </div>
       </div>
     </div>
-
+    <style>
+        h3 {
+            color: white; 
+        }
+        label {
+            color: white; 
+        }
+    </style>
 
     <!-- wag pi
     <script>
@@ -52,14 +49,15 @@ require_once('partials/_head.php');
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
-      <div class="row">
+      <div class="row" >
         <div class="col">
-          <div class="card shadow" style= "background-color: transparent;">
-            <div class="card-header border-6" style= "background-color: rgba(22,27,34,.8); margin-top: -28em; 
-            border-top-right-radius: 25px; border-top-left-radius: 25px;">
-              <h3>Please Select Institution</h3>
+          <div class="card" style= "background-color: transparent; border: 0px; margin-left: 3em;">
+            <div class="card-header border-6" style= "background-color: rgba(22,27,34,.8); margin-top: -31em; 
+            border-top-right-radius: 25px; border-top-left-radius: 25px; margin-right: 3em;">
+              <h3 style="margin-top: 1em;">Please Select Institution</h3>
             </div>
-            <div class="card-body" style= "background-color: rgba(22,27,34,.8); border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;" >
+            <div class="card-body" style= "background-color: rgba(22,27,34,.8); border-bottom-right-radius: 25px; 
+            border-bottom-left-radius: 25px; margin-bottom: 9em; margin-right: 3em;">
             <div class="form-row">
             <div class="col-md-6"><div class="text-center">
             <b><label>Predict Cost for School</label></b><br><a href = predictschool.php>
@@ -80,7 +78,7 @@ require_once('partials/_head.php');
                 </div>
               </div>  
             </div>
-            <div class="form-row">
+            <div class="form-row" style="margin-bottom: -2em;">
             <div class="col-md-6"><div class="text-center"><a href = predictschoolhigh.php>
                 <input type="" value="High Budget" class="btn btn-danger value=" style = "margin:10px" readonly></a>
                 </div>
@@ -90,12 +88,12 @@ require_once('partials/_head.php');
                 </div>
             
             <hr>
-
             </div>
           </div>
         </div>
       </div>
       <!-- Footer -->
+      <div class="footers" style="margin-left: 2.7em; margin-top: -10em;">
       <?php
       require_once('partials/_footer.php');
       ?>
@@ -107,7 +105,7 @@ require_once('partials/_head.php');
   require_once('partials/_scripts.php');
   ?>
   
-<script>
+  <script>
   function validateForm() {
     let lengthInput = document.getElementById("length");
     let widthInput = document.getElementById("width");

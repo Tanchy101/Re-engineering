@@ -3,6 +3,8 @@ session_start();
 include('config/config.php');
 include('config/checklogin.php');
 
+require 'vendor/autoload.php';
+
 //login 
 if (isset($_POST['login'])) {
   $admin_email = $_POST['admin_email'];
