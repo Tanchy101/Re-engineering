@@ -94,12 +94,13 @@ function isValidComputers($computers, $roomSize)
   <!-- Add Bootstrap CSS link here -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
-<script>
+<!--wag pi
+    <script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
             document.body.style.zoom = "75%";
         };
-    </script>
+    </script>-->
 
 <body>
   <!-- Sidenav -->
@@ -113,13 +114,20 @@ function isValidComputers($computers, $roomSize)
     <!-- Main content -->
     <div class="main-content">
         <!-- Header -->
-        <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header pb-8 pt-5 pt-md-8">
-            <span class="mask bg-gradient-dark opacity-8"></span>
+        <div style="background-image: url(assets/img/theme/costpredictbg.png); background-size: cover; height: 100vh;" class="header pb-8 pt-5 pt-md-8">
+        <span class="mask bg-gradient-dark opacity-5"></span>
             <div class="container-fluid">
             <div class="header-body"></div>
             </div>
         </div>
         <style>
+    
+    h3 {
+        color: white;
+    }
+    label {
+        color: white; 
+    }  
     .icon-info {
         display: inline-block;
         cursor: pointer;
@@ -145,24 +153,26 @@ function isValidComputers($computers, $roomSize)
     }
 </style>
         <!-- Page content -->
-         <div class="container-fluid mt--8">
-      <!-- Table -->
-      <div class="row">
-        <div class="col">
-          <div class="card shadow">
-          <div class="card-header border-0">
+        <div class="container-fluid mt--8">
+            <!-- Table -->
+            <div class="row">
+                <div class="col">
+                    <div class="card shadow" style= "background-color: transparent;">
+                    <div class="card-header border-0" style= "background-color: rgba(22,27,34,.8); margin-top: -28em; 
+            border-top-right-radius: 25px; border-top-left-radius: 25px; height: 5em;">
                     <div class="d-flex justify-content-between align-items-center">
-                        <h3 class="card-title">Please Fill All Fields</h3>
-                        <div class="icon-info" id="infoBtn">
+                        <h3 class="card-title" style="margin-left: 0.2em; margin-top: 1.3em; font-size: 17px; font-weight: bold;">Please Fill All Fields</h3>
+                        <div class="icon-info" id="infoBtn" style="margin-top: 0.6em;">
                             <i class="bx bxs-info-circle"></i>
                         </div>
                     </div>
                 </div>
-                <div class="alert alert-info mt-3 <?php if ($_SERVER["REQUEST_METHOD"] !== "POST" || !empty($errors)) echo 'show'; ?>" id="infoBox">
+                <div class="alert alert-info mt-0 <?php if ($_SERVER["REQUEST_METHOD"] !== "POST" || !empty($errors)) echo 'show'; ?>" 
+                id="infoBox"style="display: none; margin-bottom: 0em; border-radius: 5px;">
                             <p><strong>Room Size:</strong> Minimum: 25 sqm, Maximum: 700 sqm</p>
                             <p><strong>Number of Computers:</strong> Minimum: 5, Maximum: 118</p>
                         </div>
-                        <div class="card-body">
+                        <div class="card-body" style= "background-color: rgba(22,27,34,.8); border-bottom-right-radius: 25px; border-bottom-left-radius: 25px;">
               <form method="post" action="<?php echo $_SERVER['PHP_SELF']; ?>">
                 <div class="form-row">
                   <div class="col-md-6">
@@ -187,8 +197,8 @@ function isValidComputers($computers, $roomSize)
                 </div>
                 <div class="form-row">
                   <div class="col-md-6"> 
-                    <button type="submit" class="btn btn-primary">Predict</button>
-                    <button onclick="goToCostPredict()" class="btn btn-success">Go Back</button>
+                    <button type="submit" class="btn" style="background-color: #7ED957; color: white;">Predict</button>
+                    <button onclick="goToCostPredict()" class="btn" style="background-color: #F5365C; color: white;">Go Back</button>
                   </div>
                 </div>
               </form>
@@ -221,19 +231,8 @@ function isValidComputers($computers, $roomSize)
                 echo '</div>';
             }
             ?>
-        </div>
-        <script>
-            document.getElementById("infoBtn").addEventListener("click", function() {
-                var infoBox = document.getElementById("infoBox");
-                if (infoBox.style.display === "none") {
-                    infoBox.style.display = "block";
-                } else {
-                    infoBox.style.display = "none";
-                }
-            });
-        </script>
               <script>
-            document.getElementById("infoBtn").addEventListener("click", function() {
+                document.getElementById("infoBtn").addEventListener("click", function() {
                 var infoBox = document.getElementById("infoBox");
                 if (infoBox.style.display === "none") {
                     infoBox.style.display = "block";
@@ -248,9 +247,6 @@ function isValidComputers($computers, $roomSize)
   }
 </script>
       
-
-  <!-- Footer -->
-  <?php require_once('partials/_footer.php'); ?>
 
   <!-- Bootstrap Scripts -->
   <!-- Add Bootstrap JS links here -->

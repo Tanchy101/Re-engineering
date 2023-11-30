@@ -134,26 +134,21 @@ function isValidComputers($computers, $roomSize)
     <div class="main-content">
         <!-- Header -->
 
-        <style>
-        h3 {
-            color: white; 
-        }
-    </style>
 
-<style>
-        label {
-            color: white; 
-        }
-
-        
-    </style>
         <div style="background-image: url(assets/img/theme/costpredictbg.png); background-size: cover; height: 100vh" class="header  pb-8 pt-5 pt-md-8">
             <span class="mask bg-gradient-dark opacity-5"></span>
             <div class="container-fluid">
                 <div class="header-body"></div>
             </div>
         </div>
-        <style>
+
+    <style>
+    h3 {
+        color: white; 
+    }
+    label {
+        color: white; 
+        }  
     .icon-info {
         display: inline-block;
         cursor: pointer;
@@ -194,7 +189,7 @@ function isValidComputers($computers, $roomSize)
                     </div>
                 </div>
                 <div class="alert alert-info mt <?php if ($_SERVER["REQUEST_METHOD"] !== "POST" || !empty($errors)) echo 'show'; ?>" 
-                id="infoBox" style="display: none; margin-bottom: 0em; border-radius: 0px;">
+                id="infoBox" style="display: none; margin-bottom: 0em; border-radius: 5px;">
                             <p><strong>Room Size:</strong> Minimum: 54 sqm, Maximum: 160 sqm</p>
                             <p><strong>Number of Computers:</strong> Minimum: 5, Maximum: 118</p>
                         </div>
