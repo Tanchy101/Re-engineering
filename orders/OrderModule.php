@@ -12,37 +12,130 @@ include('../config/config.php');
     <title>Tabs</title>
 
 </head>
+<style>
 
+    th, td {
+        padding-right: 8px;
+    }
 
+    th {
+        padding-right: auto;
+    }
+
+    td {
+        padding: auto;
+    }
+</style>
 <body>
     <?php
         require_once('../partials/_sidebar.php');
+        $activePage = 'page8'; require_once('../partials/_sidebar.php'); 
+    ?>
+
+    <?php
+     $admin_id = $_SESSION['admin_id'];
+     $ret = "SELECT * FROM admin WHERE admin_id = ?";
+     $stmt = $mysqli->prepare($ret);
+     $stmt->bind_param('s', $admin_id);
+     $stmt->execute();
+     $res = $stmt->get_result();
+     $admin = $res->fetch_object();
+
+    $username = $admin->admin_name;
+    $retri = "SELECT orders.order_id, order_item.price, order_item.name, order_item.quantity, orders.order_status, orders.total, orders.order_username 
+    FROM orders JOIN order_item ON orders.order_id = order_item.order_id AND order_username = '" . $username . "';";
+    
+    $res = mysqli_query($mysqli, $retri);
+    $allOrderItems = mysqli_fetch_all($res, MYSQLI_ASSOC);
+    mysqli_free_result($res);
+    
+    $pendingOrderItems = array_filter($allOrderItems, function($orderItem) {
+        return $orderItem['order_status'] == "Pending";
+    });
+
+    $toShipOrderItems = array_filter($allOrderItems, function($orderItem) {
+        return $orderItem['order_status'] == "To Ship";
+    });
+
+    $toReceiveOrderItems = array_filter($allOrderItems, function($orderItem) {
+        return $orderItem['order_status'] == "To Receive";
+    });
+    
     ?>
   <div class="mytabs">
     <input type="radio" id="tabfree" name="mytabs" checked="checked">
     <label for="tabfree">Pending Orders</label>
     <div class="tab">
    
-   
-    <table border-collapse: collapse; width: 100%;>
-        <thead> <tr>
+   <!-- <div style = "overflow-x:auto;"> -->
+    <table class = "table table-responsive" style ="width: 100%; border: collapse; zoom:80%" >
+        <thead> 
+            <tr>
             <th>Product</th>
             <th>Price</th>
             <th>Quantity</th>
-            <th width="2em">Amount</th>
-        </tr></thead>
+            <th>Amount</th>
+            </tr>
+        </thead>
         <tbody>
-            <tr>
-                <td>Product Pending</td>
-                <td>$10.00</td>
-                <td>2</td>
-                <td>$20.00</td>
-            </tr> <tr> <td></td> </tr>
-       <!-- Total Amount-->     <tr class="total-row">
-        <td colspan="3">Total Amount:</td>
-        <td>$65.00</td>
-      </tr>
+            <?php  
+
+                $pendingByOrderId = [];
+                // Group each pending order items by their orders (using order_id)
+                foreach($pendingOrderItems as $pendingOrderItem) {
+                    $pendingByOrderId[$pendingOrderItem['order_id']][] = $pendingOrderItem;
+                }
+
+                
+                if (count($pendingByOrderId) == 0){
+                    echo "<tr><td colspan = '4'><center>You don't have any current orders for now</center></tr></td>";
+                }else {
+                    // Loop through each order 
+                    foreach($pendingByOrderId as $pendingByOrderIdKey => $pendingByOrderIdItems) {
+                        echo "
+                                <tr>
+                                    <td colspan = '4'>
+                                        <div>Order ID: " . $pendingByOrderIdKey . "</div>
+                                    </td>
+                                </tr>
+                            ";
+
+                        // Loop through each of the current order's order items
+                        foreach($pendingByOrderIdItems as $pendingByOrderIdItem) {
+                            echo "
+                                    <tr>
+                                        <td>
+                                            <span>" . $pendingByOrderIdItem['name'] . "</span>
+                                        </td>
+
+                                        <td>
+                                            <span> ₱" . number_format($pendingByOrderIdItem['price'], 0) . "</span>
+                                        </td>
+
+                                        <td>
+                                            <span>" . $pendingByOrderIdItem['quantity'] . "</span>
+                                        </td>
+
+                                        <td>
+                                            <span> ₱" . number_format($pendingByOrderIdItem['price'] * $pendingByOrderIdItem['quantity'], 0) . "</span>
+                                        </td>
+                                    </tr>";     
+                        }
+
+                        echo "
+                            <tr>
+                                <td colspan = '4'>
+                                    <span style = 'float: right;'> Total Amount: ₱" . number_format($pendingByOrderIdItem['total'], 0). "</span>
+                                </td>
+                            </tr>";
+                    }
+                }
+                ?>
+              
+             
+    </tbody>
 </table>
+
 
 
         </div>
@@ -59,18 +152,48 @@ include('../config/config.php');
             <th>Amount</th>
         </tr></thead>
         <tbody>
-            <tr>
-                <td>Product Packing</td>
-                <td>$10.00</td>
-                <td>2</td>
-                <td>$20.00</td>
-            </tr> <tr> <td></td> </tr>
-       <!-- Total Amount-->     <tr class="total-row">
-        <td colspan="3">Total Amount:</td>
-        <td>$65.00</td>
-      </tr>
+        <?php 
+                // // Loop through each order 
+                // foreach($toShipOrderItems as $pendingByOrderIdKey => $pendingByOrderIdItems) {
+                //     echo "
+                //             <tr>
+                //                 <td colspan = '4'>
+                //                     <div>Order ID: " . $pendingByOrderIdKey . "</div>
+                //                 </td>
+                //             </tr>
+                //         ";
 
+                //     // Loop through each of the current order's order items
+                //     foreach($pendingByOrderIdItems as $pendingByOrderIdItem) {
+                //         echo "
+                //                 <tr>
+                //                     <td>
+                //                         <span>" . $pendingByOrderIdItem['name'] . "</span>
+                //                     </td>
 
+                //                     <td>
+                //                         <span> ₱" . number_format($pendingByOrderIdItem['price'], 0) . "</span>
+                //                     </td>
+
+                //                     <td>
+                //                         <span>" . $pendingByOrderIdItem['quantity'] . "</span>
+                //                     </td>
+
+                //                     <td>
+                //                         <span> ₱" . number_format($pendingByOrderIdItem['price'] * $pendingByOrderIdItem['quantity'], 0) . "</span>
+                //                     </td>
+                //                 </tr>";     
+                //     }
+
+                //     echo "
+                //         <tr>
+                //             <td colspan = '4'>
+                //                 <span style = 'float: right;'> Total Amount: ₱" . number_format($pendingByOrderIdItem['total'], 0). "</span>
+                //             </td>
+                //         </tr>";
+                // }
+                ?>
+    </tbody>
 </table>
 
     
@@ -115,9 +238,9 @@ include('../config/config.php');
 .mytabs {
     display: flex;
     flex-wrap: wrap;
-    max-width: 65%;
+    max-width: 68%;
     margin: 1em auto;
-    padding: 2em;
+    position: center;
 }
 .mytabs input[type="radio"] {
     display: none;
@@ -170,36 +293,7 @@ table {
         text-align: right;
     }
 </style>
-   <!-- <div class="main-content">
-        
-            <div class="container">
-                <div class="row">
-                    <div class="col">
-                        <table class="table table-bordered table-striped">
-                        <thead>
-                            <tr>
-                            <th scope="col">#</th>
-                            <th scope="col">To Pack</th>
-                            <th scope="col">To Ship</th>
-                            <th scope="col">To Receive</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                            <th scope="row" <?php ?> > </th>
-                            <td> </td>
-                            <td> </td>
-                            <td> </td>
-                            </tr>
-                            
-                        </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        
-    </div>-->
-    
+ 
     
 </body>
 <?php include('../partials/_BootStrap.php'); ?>

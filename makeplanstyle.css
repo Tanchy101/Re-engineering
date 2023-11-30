@@ -139,17 +139,16 @@ width: 200px;
   border-radius: 4px;
   outline: none;
   font-size: 15px;
+  transition: 1.2s;
 }
-.active, .collapsible:hover {
-  background-color: black;
-  color: white;
-}
+
 
 .content {
   padding: 0 18px;
-  background-color: white;
+  background-color: white;  
   max-height: 0;
-  transition: max-height 0.2s ease-out;
+  overflow: hidden;
+  transition: max-height 1.4s ease-out;
 }
 
 .collapsible:after {

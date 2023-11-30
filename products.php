@@ -111,7 +111,7 @@
                           $prod_name = $row['prod_name'];
                           $prod_price = $row['prod_price'];
                           $prod_type = $row['prod_type'];
-                          // $prod_url= $row['prod_url'];
+                          $prod_url= $row['prod_url'];
                         ?>
                           <tr>
                             <td>
@@ -131,12 +131,12 @@
                             <td><?php echo $prod_type; ?></td>
                             <td>
                               <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>" data-name="<?php echo $prod_name; ?>" data-image="<?php echo $prod_img; ?>">
-                                <i class="fas fa-cart-plus"></i>
+                                <i class="fas fa-cart-plus link-click"></i>
                                 Add to Cart
                               </button>
                             </td>
                             <td>
-                              <button class="btn btn-sm btn-primary">
+                              <button class="btn btn-sm btn-primary link-click" onclick = "alert('Here is the link for the product <?php echo $prod_url; ?>')">
                                 <i class="fas fa-link"></i>
                                 Link
                               </button>
@@ -156,6 +156,7 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
   <script type="text/javascript">
   $(document).ready(function() {
+
     // Add to Cart button click event
     $(".add-to-cart").click(function() {
       console.log("Add to Cart button clicked"); // Log a message when the button is clicked

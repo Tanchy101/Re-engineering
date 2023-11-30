@@ -148,7 +148,7 @@ require_once('partials/_head.php');
     <?php
      require_once('partials/_topnav.php');
     
-     $admin_id = $_SESSION['admin_id'];
+    $admin_id = $_SESSION['admin_id'];
     $ret = "SELECT * FROM admin WHERE admin_id = ?";
     $stmt = $mysqli->prepare($ret);
     $stmt->bind_param('s', $admin_id);

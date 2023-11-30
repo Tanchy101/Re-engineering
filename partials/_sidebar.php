@@ -417,61 +417,60 @@ if (isset($_SESSION['admin_id'])) {
 
         <ul class="menu-links" id = "menuu">
           <li class="<?php echo ($activePage == 'page1') ? 'active2' : 'item'; ?>">
-            <a href="dashboard.php">
+            <a href="/Re-engineering/dashboard.php">
               <i class='bx bx-bar-chart-alt-2 icon'></i>
               <span class="text nav-text">Home</span>
             </a>
           </li>
 
           <li class="<?php echo ($activePage == 'page2') ? 'active2' : 'item'; ?>">
-            <a href="generateplantest.php">
+            <a href="/Re-engineering/generateplantest.php">
               <i class='bx bx-network-chart icon'></i>
               <span class="text nav-text">Generate a Plan</span>
             </a>
           </li>
 
           <li class="<?php echo ($activePage == 'page3') ? 'active2' : 'item'; ?>">
-            <a href="costpredict.php">
+            <a href="/Re-engineering/costpredict.php">
               <i class='bx bxs-bot icon'></i>
               <span class="text nav-text">Cost Prediction</span>
             </a>
           </li>         
           <li class="<?php echo ($activePage == 'page4') ? 'active2' : 'item'; ?>">
-            <a href="products.php">
+            <a href="/Re-engineering/products.php">
               <i class='bx bxs-cart icon'></i>
               <span class="text nav-text">Products</span>
             </a>
           </li>
           <li class="<?php echo ($activePage == 'page5') ? 'active2' : 'item'; ?>">
-            <a href="cart.php">
+            <a href="/Re-engineering/cart.php">
               <i class='bx bxs-cart-add icon'></i>
               <span class="text nav-text">Cart</span>
             </a>
           </li>
           
-          <li class="<?php echo ($activePage == 'page8') ? 'active2' : 'item'; ?>">
-            <a href="../orders/OrderModule.php">
-              <i class='bx bxs-truck icon'></i>
-              <span class="text nav-text">Orders</span>
-            </a>
-          </li>
-          
           <li class="<?php echo ($activePage == 'page6') ? 'active2' : 'item'; ?>">
-            <a href="forum.php">
+            <a href="/Re-engineering/forum.php">
               <i class='bx bxs-chat icon'></i>
               <span class="text nav-text">Forum</span>
             </a>
           </li>
 
           <li class="<?php echo ($activePage == 'page7') ? 'active2' : 'item'; ?>">
-            <a href="change_profile.php">
+            <a href="/Re-engineering/change_profile.php">
               <i class='bx bxs-user-circle icon'></i>
               <span class="text nav-text">My Profile</span>
             </a>
           </li>
 
+          <li class="<?php echo ($activePage == 'page8') ? 'active2' : 'item'; ?>">
+            <a href="/Re-engineering/orders/OrderModule.php">
+              <i class='bx bxs-truck icon'></i>
+              <span class="text nav-text">Orders</span>
+            </a>
+          </li>
           <li class="item">
-            <a href="logout.php">
+            <a href="/Re-engineering/logout.php">
               <i class='bx bx-log-out icon'></i>
               <span class="text nav-text">Logout</span>
             </a>

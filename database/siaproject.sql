@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2023 at 05:05 AM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.2.9
+-- Generation Time: Nov 28, 2023 at 06:31 PM
+-- Server version: 10.4.28-MariaDB
+-- PHP Version: 8.2.4
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -34,21 +34,24 @@ CREATE TABLE `admin` (
   `admin_email` varchar(100) NOT NULL,
   `admin_id` varchar(255) NOT NULL,
   `bio` text NOT NULL,
-  `profileImage` varchar(255) NOT NULL
+  `profileImage` varchar(255) NOT NULL,
+  `usertype` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `admin`
 --
 
-INSERT INTO `admin` (`admin_name`, `admin_uname`, `admin_password`, `admin_email`, `admin_id`, `bio`, `profileImage`) VALUES
-('test', '', 'test!!', 'test@mail.com', '7', 'Innovate || Create hakgod', ''),
-('test10', '', 'test', 'test10@mail.com', 'CYAGJN-302185', '', ''),
-('test2', '', 'test', 'test3@mail.com', 'DQWZPE-805792', 'hellllllllo', 'favicon-32x32.png'),
-('test4', '', 'test', 'test4@mail.com', 'LYRVTX-739564', 'hello', ''),
-('testme', '', 'test', 'testme@mail.com', 'RJPQXC-498126', 'Hello', 'HRDW-017-007.jpg'),
-('test2', '', 'test!', 'test2@mail.com', 'RMSADF-153269', '', ''),
-('test5', '', 'test', 'test5@mail.com', 'ZMCHJB-458097', '', '');
+INSERT INTO `admin` (`admin_name`, `admin_uname`, `admin_password`, `admin_email`, `admin_id`, `bio`, `profileImage`, `usertype`) VALUES
+('test', '', 'test!!', 'test@mail.com', '7', 'Innovate || Create hakgod', '', 'user'),
+('Tanchy', '', 'elecpass1', 'angelo.tancioco@gmail.com', 'BFRTAK-237805', '', '0919eade-a68c-45fa-8229-5cc3fd636148.jpg', 'admin'),
+('test10', '', 'test', 'test10@mail.com', 'CYAGJN-302185', '', '', 'user'),
+('test2', '', 'test', 'test3@mail.com', 'DQWZPE-805792', 'hellllllllo', 'favicon-32x32.png', 'user'),
+('test4', '', 'test', 'test4@mail.com', 'LYRVTX-739564', 'hello', '', 'user'),
+('testme', '', 'test', 'testme@mail.com', 'RJPQXC-498126', 'Hello', 'HRDW-017-007.jpg', 'user'),
+('test2', '', 'test!', 'test2@mail.com', 'RMSADF-153269', '', '', 'user'),
+('TAEMO', '', 'taetaepass', 'jackspidicey02@gmail.com', 'URDTGP-603729', '', '', 'user'),
+('test5', '', 'test', 'test5@mail.com', 'ZMCHJB-458097', '', '', 'user');
 
 -- --------------------------------------------------------
 
@@ -318,6 +321,55 @@ INSERT INTO `netlayout` (`net_layout_id`, `net_layout_area`, `net_institution`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `orders`
+--
+
+CREATE TABLE `orders` (
+  `order_id` int(11) NOT NULL,
+  `order_status` varchar(255) NOT NULL,
+  `total` int(11) NOT NULL,
+  `order_username` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `orders`
+--
+
+INSERT INTO `orders` (`order_id`, `order_status`, `total`, `order_username`) VALUES
+(4, 'Pending', 15270, ''),
+(5, 'To Ship', 5995, 'Tanchy'),
+(6, 'To Receive', 10575, 'Tanchy');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `order_item`
+--
+
+CREATE TABLE `order_item` (
+  `id` int(11) NOT NULL,
+  `price` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `quantity` int(11) NOT NULL,
+  `order_id` int(11) NOT NULL,
+  `image` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `order_item`
+--
+
+INSERT INTO `order_item` (`id`, `price`, `name`, `quantity`, `order_id`, `image`) VALUES
+(6, 5995, 'Intel Core i5-9400 Desktop Processor 6 Cores 2. 90 GHz', 1, 4, ''),
+(7, 4695, 'Intel Core I3 10100F 4C/8T 6mb UHD630 65W LGA1200\n\n', 1, 4, ''),
+(8, 4580, 'Intel Core I3 10105F', 1, 4, ''),
+(9, 5995, 'Intel Core i5-9400 Desktop Processor 6 Cores 2. 90 GHz', 1, 5, ''),
+(10, 5995, 'Intel Core i5-9400 Desktop Processor 6 Cores 2. 90 GHz', 1, 6, '1135940.jpg'),
+(11, 4580, 'Intel Core I3 10105F', 1, 6, '1143106.jpg');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `product`
 --
 
@@ -575,6 +627,18 @@ ALTER TABLE `netlayout`
   ADD PRIMARY KEY (`net_layout_id`);
 
 --
+-- Indexes for table `orders`
+--
+ALTER TABLE `orders`
+  ADD PRIMARY KEY (`order_id`);
+
+--
+-- Indexes for table `order_item`
+--
+ALTER TABLE `order_item`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `product`
 --
 ALTER TABLE `product`
@@ -631,6 +695,18 @@ ALTER TABLE `discussion4`
 --
 ALTER TABLE `netlayout`
   MODIFY `net_layout_id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=134;
+
+--
+-- AUTO_INCREMENT for table `orders`
+--
+ALTER TABLE `orders`
+  MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `order_item`
+--
+ALTER TABLE `order_item`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `product`
