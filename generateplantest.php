@@ -104,20 +104,20 @@ h3{
             <div class="form-row">
               <div class="col-md-12">
                 <label>Length (meter/s)</label><span id="lengthError" style="color: red;"></span>
-                <input type="text" name="length" class="form-control" id="length" value="">
+                <input type="text" name="length" class="form-control" id="length" value="" required>
              
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-12" style="margin-top:10px;">
               <label>Width (meter/s)</label><span id="widthError" style="color: red;"></span>
-              <input type="text" name="width" class="form-control" id="width" value="">
+              <input type="text" name="width" class="form-control" id="width" value="" required>
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-12" style="margin-top:10px;">
                 <label for="net_institution">Institution</label>
-                <select id="net_institution" name="net_institution" class="form-control">
+                <select id="net_institution" name="net_institution" class="form-control" required>
                 <option value="">-- Select --</option>
                 <option value="Office">Office</option>
                 <option value="School">School</option>
