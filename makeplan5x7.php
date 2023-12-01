@@ -8,7 +8,10 @@ check_login();
 require_once('partials/_head.php');
 
 ?>
-<head><link rel="stylesheet" href="makeplanstyle.css"></head>
+<head>
+  <link rel="stylesheet" href="makeplanstyle.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous" />
+</head>
 <!-- wag pi <script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
@@ -268,8 +271,13 @@ function captureAndPrint() {
 
                     </div>   
                     <div class = "row">
-                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 1300px; margin-top: -300px; height: 300px">
-                      <div style = "text-align:center; font-size:smaller; height: 260px;"><b>DROP TO DELETE</b></div>
+                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 1170px; margin-top: -120px; height: 120px;">
+                    <div style="text-align: left; color: black;">
+                    <div style="font-size: 40px;">
+                      <i class="fas fa-trash-alt"></i>
+                    </div>
+                      <span style="font-size: 16px;"><b>DROP TO</b></span><br>
+                      <span style="font-size: 16px;"><b>DELETE</b></span>
                     </div>
 
               </div>  
