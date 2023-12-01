@@ -28,8 +28,8 @@ include('../config/config.php');
 </style>
 <body>
     <?php
+        $activePage = 'page8';
         require_once('../partials/_sidebar.php');
-        $activePage = 'page8'; require_once('../partials/_sidebar.php'); 
     ?>
 
     <?php
@@ -68,13 +68,13 @@ include('../config/config.php');
     <div class="tab">
    
    <!-- <div style = "overflow-x:auto;"> -->
-    <table class = "table table-responsive" style ="width: 100%; border: collapse; zoom:80%" >
+    <table class = "table table-responsive" style ="width: 100%; border: collapse; zoom:85%" >
         <thead> 
             <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Amount</th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Amount</th>
             </tr>
         </thead>
         <tbody>
@@ -144,56 +144,68 @@ include('../config/config.php');
     <label for="tabsilver">To Pack</label>
     <div class="tab">
     
-      <table border-collapse: collapse; width: 100%;>
-        <thead> <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Amount</th>
-        </tr></thead>
+      <table class = "table table-responsive" style ="width: 100%; border: collapse; zoom:85%">
+        <thead> 
+            <tr>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+            </tr>
+        </thead>
         <tbody>
-        <?php 
-                // // Loop through each order 
-                // foreach($toShipOrderItems as $pendingByOrderIdKey => $pendingByOrderIdItems) {
-                //     echo "
-                //             <tr>
-                //                 <td colspan = '4'>
-                //                     <div>Order ID: " . $pendingByOrderIdKey . "</div>
-                //                 </td>
-                //             </tr>
-                //         ";
+            <?php 
+                    $toShipByOrderId = [];
+                // Group each pending order items by their orders (using order_id)
+                foreach($toShipOrderItems as $toShipOrderItem) {
+                    $toShipByOrderId[$toShipOrderItem['order_id']][] = $toShipOrderItem;
+                }
+                
+                if (count($toShipByOrderId) == 0){
+                    echo "<tr><td colspan = '4'><center>You don't have any current orders for now</center></tr></td>";
+                }else {
+                    // Loop through each order 
+                    foreach($toShipByOrderId as $toShipByOrderIdKey => $toShipByOrderIdItems) {
+                        echo "
+                                <tr>
+                                    <td colspan = '4'>
+                                        <div>Order ID: " . $toShipByOrderIdKey . "</div>
+                                    </td>
+                                </tr>
+                            ";
 
-                //     // Loop through each of the current order's order items
-                //     foreach($pendingByOrderIdItems as $pendingByOrderIdItem) {
-                //         echo "
-                //                 <tr>
-                //                     <td>
-                //                         <span>" . $pendingByOrderIdItem['name'] . "</span>
-                //                     </td>
+                        // Loop through each of the current order's order items
+                        foreach($toShipByOrderIdItems as $toShipByOrderIdItem) {
+                            echo "
+                                    <tr>
+                                        <td>
+                                            <span>" . $toShipByOrderIdItem['name'] . "</span>
+                                        </td>
 
-                //                     <td>
-                //                         <span> ₱" . number_format($pendingByOrderIdItem['price'], 0) . "</span>
-                //                     </td>
+                                        <td>
+                                            <span> ₱" . number_format($toShipByOrderIdItem['price'], 0) . "</span>
+                                        </td>
 
-                //                     <td>
-                //                         <span>" . $pendingByOrderIdItem['quantity'] . "</span>
-                //                     </td>
+                                        <td>
+                                            <span>" . $toShipByOrderIdItem['quantity'] . "</span>
+                                        </td>
 
-                //                     <td>
-                //                         <span> ₱" . number_format($pendingByOrderIdItem['price'] * $pendingByOrderIdItem['quantity'], 0) . "</span>
-                //                     </td>
-                //                 </tr>";     
-                //     }
+                                        <td>
+                                            <span> ₱" . number_format($toShipByOrderIdItem['price'] * $toShipByOrderIdItem['quantity'], 0) . "</span>
+                                        </td>
+                                    </tr>";     
+                        }
 
-                //     echo "
-                //         <tr>
-                //             <td colspan = '4'>
-                //                 <span style = 'float: right;'> Total Amount: ₱" . number_format($pendingByOrderIdItem['total'], 0). "</span>
-                //             </td>
-                //         </tr>";
-                // }
+                        echo "
+                            <tr>
+                                <td colspan = '4'>
+                                    <span style = 'float: right;'> Total Amount: ₱" . number_format($toShipByOrderIdItem['total'], 0). "</span>
+                                </td>
+                            </tr>";
+                    }
+                }
                 ?>
-    </tbody>
+        </tbody>
 </table>
 
     
@@ -203,28 +215,69 @@ include('../config/config.php');
     <label for="tabgold">To Receive</label>
     <div class="tab">
    
-    <table border-collapse: collapse; width: 100%;>
-        <thead> <tr>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Amount</th>
-        </tr></thead>
-        <tbody>
-            <tr>
-                <td>Product Receiving</td>
-                <td>$10.00</td>
-                <td>2</td>
-                <td>$20.00</td>
-            </tr>
-            </tr> <tr> <td></td> </tr>
-       <!-- Total Amount-->     <tr class="total-row">
-        <td colspan="3">Total Amount:</td>
-        <td>$65.00</td>
-      </tr>
+        <table class = "table table-responsive" style ="width: 100%; border: collapse; zoom:85%">
+            <thead> 
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php 
+                        $toReceiveByOrderId = [];
+                    // Group each pending order items by their orders (using order_id)
+                    foreach($toReceiveOrderItems as $toReceiveOrderItem) {
+                        $toReceiveByOrderId[$toReceiveOrderItem['order_id']][] = $toReceiveOrderItem;
+                    }
+                    
+                    if (count($toReceiveByOrderId) == 0){
+                        echo "<tr><td colspan = '4'><center>You don't have any current orders for now</center></tr></td>";
+                    }else {
+                        // Loop through each order 
+                        foreach($toReceiveByOrderId as $toReceiveByOrderIdKey => $toReceiveByOrderIdItems) {
+                            echo "
+                                    <tr>
+                                        <td colspan = '4'>
+                                            <div>Order ID: " . $toReceiveByOrderIdKey . "</div>
+                                        </td>
+                                    </tr>
+                                ";
 
+                            // Loop through each of the current order's order items
+                            foreach($toReceiveByOrderIdItems as $toReceiveByOrderIdItem) {
+                                echo "
+                                        <tr>
+                                            <td>
+                                                <span>" . $toReceiveByOrderIdItem['name'] . "</span>
+                                            </td>
 
-</table>
+                                            <td>
+                                                <span> ₱" . number_format($toReceiveByOrderIdItem['price'], 0) . "</span>
+                                            </td>
+
+                                            <td>
+                                                <span>" . $toReceiveByOrderIdItem['quantity'] . "</span>
+                                            </td>
+
+                                            <td>
+                                                <span> ₱" . number_format($toReceiveByOrderIdItem['price'] * $toReceiveByOrderIdItem['quantity'], 0) . "</span>
+                                            </td>
+                                        </tr>";     
+                            }
+
+                            echo "
+                                <tr>
+                                    <td colspan = '4'>
+                                        <span style = 'float: right;'> Total Amount: ₱" . number_format($toReceiveByOrderIdItem['total'], 0). "</span>
+                                    </td>
+                                </tr>";
+                        }
+                    }
+                    ?>
+            </tbody>
+        </table>
     </div>
 
   </div>

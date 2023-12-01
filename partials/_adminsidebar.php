@@ -59,7 +59,7 @@ body.dark {
   top: 0;
   left: 0;
   height: 100%;
-  width: 250px;
+  width: 180px;
   padding: 10px 14px;
   background: var(--sidebar-color);
   transition: var(--tran-05);
@@ -227,6 +227,7 @@ body.dark .sidebar header .toggle {
   background-color: transparent;
   display: flex;
   align-items: center;
+  margin-left: -5px;
   height: 100%;
   width: 100%;
   border-radius: 6px;
@@ -420,21 +421,7 @@ body.dark .switch::before {
 
         <ul class="menu-links" id = "menuu">
           
-          
-        <li class="<?php echo ($activePage == 'page8') ? 'active2' : 'item'; ?>">
-            <a href="../orders/OrderModule.php" style="margin-bottom: -50.25em;">
-              <i class='bx bxs-truck icon'></i>
-              <span class="text nav-text">Orders</span>
-            </a>
-          </li>
-          
-          <li class="<?php echo ($activePage == 'page6') ? 'active2' : 'item'; ?>">
-            <a href="forum.php" style="margin-bottom: -50.25em;">
-              <i class='bx bxs-chat icon'></i>
-              <span class="text nav-text">Forum</span>
-            </a>
-          </li>
-             
+        
           <li class="item">
             <a href="logout.php" style="margin-bottom: -50.25em;">
               <i class='bx bx-log-out icon'></i>
@@ -448,49 +435,49 @@ body.dark .switch::before {
 
   <script>
     
-//   const body = document.querySelector('body'),
-//     sidebar = body.querySelector('nav'),
-//     toggle = body.querySelector(".toggle"),
-//     modeSwitch = body.querySelector(".toggle-switch"),
-//     modeText = body.querySelector(".mode-text"),
-//     logo = document.querySelector('.img');
+  const body = document.querySelector('body'),
+    sidebar = body.querySelector('nav'),
+    toggle = body.querySelector(".toggle"),
+    modeSwitch = body.querySelector(".toggle-switch"),
+    modeText = body.querySelector(".mode-text"),
+    logo = document.querySelector('.img');
     
 
-//   toggle.addEventListener("click", () => {
-//     sidebar.classList.toggle("sb-close");
-//     if (logo.classList.contains('img')) {
-//       logo.classList.remove('img');
-//       logo.classList.add('img-navbar-close');
-//     } else {
-//       logo.classList.add('img');
-//       logo.classList.remove('img-navbar-close');
-//     }
-//   });
+  toggle.addEventListener("click", () => {
+    sidebar.classList.toggle("sb-close");
+    if (logo.classList.contains('img')) {
+      logo.classList.remove('img');
+      logo.classList.add('img-navbar-close');
+    } else {
+      logo.classList.add('img');
+      logo.classList.remove('img-navbar-close');
+    }
+  });
   </script>
 
 
 <script>
-    // // Get all the anchor elements with class "item"
-    // const links = document.querySelectorAll("#menuu .item");
+    // Get all the anchor elements with class "item"
+    const links = document.querySelectorAll("#menuu .item");
 
-    // // Loop through the links
-    // links.forEach(link => {
-    //   // Add a click event listener to each link
-    //   link.addEventListener("click", function(event) {
+    // Loop through the links
+    links.forEach(link => {
+      // Add a click event listener to each link
+      link.addEventListener("click", function(event) {
 
-    //     // Add "active" class to the clicked link
-    //     this.classList.add("active2");
+        // Add "active" class to the clicked link
+        this.classList.add("active2");
         
-    //     // Remove "active" class from all links
-    //     links.forEach(link => {
-    //       link.classList.remove("active2");
-    //     });
+        // Remove "active" class from all links
+        links.forEach(link => {
+          link.classList.remove("active2");
+        });
         
-    //     // Add "active" class to the clicked link
-    //     this.classList.add("active2");
+        // Add "active" class to the clicked link
+        this.classList.add("active2");
         
-    //   });
-    // });
+      });
+    });
   </script>
 
 </body>

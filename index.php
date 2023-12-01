@@ -24,7 +24,7 @@ if (isset($_POST['login'])) {
     header("location:dashboard.php");
 // check if the field usertype is admin
   } else if($usertype == "admin"){
-    header("location:admin.php");
+    header("location:admin/adminIndex.php");
   } 
   
   else {
