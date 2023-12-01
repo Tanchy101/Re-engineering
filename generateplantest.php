@@ -104,20 +104,20 @@ h3{
             <div class="form-row">
               <div class="col-md-12">
                 <label>Length (meter/s)</label><span id="lengthError" style="color: red;"></span>
-                <input type="text" name="length" class="form-control" id="length" value="" required>
+                <input type="number" name="length" class="form-control" id="length" value="" style="color: black;" required>
              
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-12" style="margin-top:10px;">
               <label>Width (meter/s)</label><span id="widthError" style="color: red;"></span>
-              <input type="text" name="width" class="form-control" id="width" value="" required>
+              <input type="number" name="width" class="form-control" id="width" value="" style="color: black;" required>
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-12" style="margin-top:10px;">
                 <label for="net_institution">Institution</label>
-                <select id="net_institution" name="net_institution" class="form-control" required>
+                <select id="net_institution" name="net_institution" class="form-control" style="color: black; font-size: 15px;" required>
                 <option value="">-- Select --</option>
                 <option value="Office">Office</option>
                 <option value="School">School</option>
@@ -146,7 +146,7 @@ h3{
             </div>
             <div class="card-body">
                 <label>Select Dimension to Customize:</label><span id="lengthError" style="color: red;"></span>
-                <select id="Opt" class="form-control" style="font-size: 15px;">
+                <select id="Opt" class="form-control" style="font-size: 15px; color: black;">
                 <option value="5x5">5x5</option>
                 <option value="5x6">5x6</option>
                 <option value="5x7">5x7</option>

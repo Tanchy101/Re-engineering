@@ -12,7 +12,7 @@ $net_institution = $_GET['net_institution'];
 ?>
 <head>
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="16x16" href="assets\img\icons\networklogo2.png">
   <link rel="manifest" href="assets/img/icons/site.webmanifest">
   <link rel="mask-icon" href="assets/img/icons/safari-pinned-tab.svg" color="#5bbad5">
@@ -33,9 +33,9 @@ $net_institution = $_GET['net_institution'];
     require_once('partials/_topnav.php');
     ?>
         <!-- Header -->
-    <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: 1500px 1000px;background-repeat: no-repeat;" class="header  pb-8 pt-5 pt-md-8">
-    <span class="mask bg-gradient-dark opacity-8"></span>
-      <div class="container-fluid">
+        <div style="display: flex; background-image: url(assets/img/theme/GenerateBG.png); background-size: cover; height: 100vh;" class="header  pb-8 pt-5 pt-md-8">
+        <span class="mask bg-gradient-dark opacity-2"></span>
+          <div class="container-fluid">
         <div class="header-body">
         </div>
       </div>
@@ -63,25 +63,25 @@ if(is_numeric($input)){
       <!-- Table -->
       <div class="row">
         <div class="col">
-          <div class="card shadow">
-            <div class="card-header border-0">
-              <a href="generateplantest.php" class="btn btn-outline-success">
-                <i class="fas fa-plus"></i>
+          <div class="card shadow" style="overflow-x: hidden; height: 75vh; border-radius: 15px; margin-top: -35em; background-color: rgba(22, 27, 34, .8);">
+            <div class="card-header border-0" style="overflow-y: hidden; background-color: transparent;">
+              <a href="generateplantest.php" class="btn btn-outline-success" style="margin-left: -5px; margin-bottom: 3em; margin-top: 1em;">
+                <i class="fas fa-plus" style></i>
                 Generate New Layout
               </a>
             </div>
-            <h3 style="margin-left: 20px;"><?php echo "Your Area is: $input";?></h3>
+            <h3 style="margin-left: 20px; color: white; margin-bottom: 1em;"><?php echo "Your Area is: $input";?></h3>
               <div class="table-responsive">
               <table class="table align-items-center table-flush">
-                <thead class="thead-light">
+                <thead class="thead-light" style="border: none;">
                 <tr>
-                  <th scope="col">Network Image</th>
-                  <th scope="col">Network Area (sqm)</th>
-                  <th scope="col">Institution</th>
-                  <th scope="col">Ergonomics</th>
-                  <th scope="col">Length (m)</th>
-                  <th scope="col">Width (m)</th>
-                  <th scope="col">Action</th>
+                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Network Image</th>
+                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Network Area (sqm)</th>
+                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Institution</th>
+                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Ergonomics</th>
+                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Length (m)</th>
+                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Width (m)</th>
+                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Action</th>
                 </tr> 
                 </thead>
                 <tbody>
@@ -112,11 +112,11 @@ if(is_numeric($input)){
                                   }
             
                                   ?></td>
-                              <td><?php echo $net_layout_area; ?></td>
-                              <td><?php echo $net_institution; ?></td>
-                              <td><?php echo $net_ergo; ?></td>
-                              <td><?php echo $net_length; ?></td>
-                              <td><?php echo $net_width;?></td> 
+                              <td style="color: white;"><?php echo $net_layout_area; ?></td>
+                              <td style="color: white;"><?php echo $net_institution; ?></td>
+                              <td style="color: white;"><?php echo $net_ergo; ?></td>
+                              <td style="color: white;"><?php echo $net_length; ?></td>
+                              <td style="color: white;"><?php echo $net_width;?></td> 
                               <td>
                                     <a href="makeplantest<?php echo $net_layout_id;?>.php?display=<?php echo $net_layout_id;?>">
 
@@ -144,10 +144,6 @@ if(is_numeric($input)){
            </div>
         </div>
     </body>
-      <!-- Footer -->
-      <?php
-      require_once('partials/_footer.php');
-      ?>
           <?php
     }else{  
         $err = "Insert Numerical Value!";

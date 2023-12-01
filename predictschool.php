@@ -209,11 +209,11 @@ function isValidComputers($computers, $roomSize)
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="input1" class="form-label">Enter number of Computers in the Room:</label>
-                                        <input type="text" name="input1" id="input1" class="form-control" required>
+                                        <input type="text" name="input1" id="input1" class="form-control" style="color: black;" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="input2" class="form-label">Enter Room Size in Square Meters:</label>
-                                        <input type="text" name="input2" id="input2" class="form-control" required>
+                                        <input type="text" name="input2" id="input2" class="form-control" style="color: black;" required>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -249,7 +249,7 @@ function isValidComputers($computers, $roomSize)
             // Display the results if form submitted and condition met
             if ($_SERVER["REQUEST_METHOD"] === "POST" && $printResult) {
                 echo '<div class="alert alert-success">';
-                echo 'Predicted Cost: ' . number_format($prediction, 2) . '<br>';
+                echo 'Predicted Cost: ₱ ' . number_format($prediction, 2) . '<br>';
                 echo 'R2 Score: ' . $score . '<br>';
                 echo '</div>';
             }

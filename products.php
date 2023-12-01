@@ -62,12 +62,12 @@
                 <div class="row">
                   <!-- Search input -->
                   <div class="col-md-10 mb-3">
-                    <input type="text" class="form-control" id="live_search_product" autocomplete="off" placeholder="Search">
+                    <input type="text" class="form-control" id="live_search_product" autocomplete="off" placeholder="Search" style="color: black;">
                   </div>
 
                   <!-- Select dropdown -->
                   <div class="col-md-2 mb-3">
-                    <select class="form-control" id="filter_product_type">
+                    <select class="form-control" id="filter_product_type" style="color: black;">
                     <option disabled selected value="">Select Type</option>
                       <option value="">All</option>
                       <option value="CPU">CPU</option>
@@ -123,12 +123,12 @@
                               }
                               ?>
                             </td>
-                            <td><?php echo $prod_name; ?></td>
-                            <td>₱<?php echo $prod_price; ?></td>
+                              <td><?php echo $prod_name; ?></td>
+                              <td>₱<?php echo $prod_price; ?></td>
                             <td>
                               <input type="number" class="form-control quantity-input" min="1" value="1" max="999" style="width:70px;">
                             </td>
-                            <td><?php echo $prod_type; ?></td>
+                              <td><?php echo $prod_type; ?></td>
                             <td>
                               <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>" data-name="<?php echo $prod_name; ?>" data-image="<?php echo $prod_img; ?>">
                                 <i class="fas fa-cart-plus link-click"></i>
