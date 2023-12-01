@@ -270,28 +270,28 @@ function captureAndPrint() {
                               </div>
                             </div>
 
+
                             
                           </div>
                         </div>
                       </div> 
                     </div>
                     
+                    
                     <div class="col-sm-6">
                       <div id = "plane-container" style = "height: 143mm; width: 143mm;">
                         <p>5x5</p>
                       </div>
-                    </div> 
-
-                    </div>   
-                    <div class = "row">
-                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 1060px; margin-top: -120px; height: 120px;">
-                    <div style="text-align: left; color: black;">
+                      <div class = "row">
+                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: -6em; margin-top: -120px; 
+                    height: 120px; background-color: transparent; border: none;">
+                    <div style="text-align: center; color: black;">
                     <div style="font-size: 40px;">
-                      <i class="fas fa-trash-alt"></i>
+                      <span><i class="fas fa-trash-alt"></i></span>
                     </div>
                       <span style="font-size: 16px;"><b>DROP TO</b></span><br>
                       <span style="font-size: 16px;"><b>DELETE</b></span>
-                    </div>
+                    </div> 
 
               </div>  
               </div>
