@@ -111,7 +111,7 @@ p {
 }
 
 .dropzone {
-  border: hidden 2px red;
+  border: hidden 2px transparent;
   padding: 10px;
   transition: background-color 0.3s;
 }
