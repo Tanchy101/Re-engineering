@@ -113,7 +113,7 @@ function captureAndPrint() {
             </div>
             <div class = "col-sm-12 container" id = "form-container">
               <div class="row">
-                     <div class="col-sm-4" style = "padding-right: 150px; padding-left: 30px; max-width:500px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
+                     <div class="col-sm-5" style = "padding-right: 150px; padding-left: 30px; max-width:490px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
                        <div id = "accordion">
                          <div class = "elementToOverlay"><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none">
@@ -264,17 +264,15 @@ function captureAndPrint() {
                     </div> 
 
                     <div class="col-sm-6">
-                      <div id = "plane-container" style = "height: 283mm; width: 311mm; margin-left:-200px;">
+                      <div id = "plane-container" style = "height: 283mm; width: 311mm;">
                         <p>10x11</p>
                       </div>
-                    </div> 
-
-                    </div>   
-                    <div class = "row">
-                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 1490px; margin-top: -120px; height: 120px;">
-                    <div style="text-align: left; color: black;">
+                      <div class = "row">
+                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: -6em; margin-top: -120px; 
+                    height: 120px; background-color: transparent; border: none;">
+                    <div style="text-align: center; color: black;">
                     <div style="font-size: 40px;">
-                      <i class="fas fa-trash-alt"></i>
+                      <span><i class="fas fa-trash-alt"></i></span>
                     </div>
                       <span style="font-size: 16px;"><b>DROP TO</b></span><br>
                       <span style="font-size: 16px;"><b>DELETE</b></span>
@@ -284,7 +282,7 @@ function captureAndPrint() {
               </div>
             <hr>
             <div class="form-row text-left">
-              <div class="col-md-12" style = "margin-bottom:25px; margin-left: 20px">
+              <div class="col-md-12" style = "margin-bottom:25px; margin-left: -470px">
               <button type="button" id = "printButton" class="btn btn-primary" onclick="captureAndPrint()">Print</button>
               </div>
             </div>

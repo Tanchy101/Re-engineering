@@ -122,7 +122,7 @@ function captureAndPrint() {
             
             <div class = "col-sm-12 container" id = "form-container">
               <div class="row">
-                     <div class="col-sm-4" style = "padding-right: 150px; padding-left: 30px; max-width:500px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
+                     <div class="col-sm-5" style = "padding-right: 150px; padding-left: 30px; max-width:490px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
                      <div id = "accordion">
                           <div class = "elementToOverlay"> 
                             <button class="collapsible"  style = "margin-top: 10px;"><b>Cubicles</b></button>
@@ -297,7 +297,7 @@ function captureAndPrint() {
               </div>
             <hr>
             <div class="form-row text-left">
-              <div class="col-md-12" style = "margin-bottom:25px; margin-left: 20px">
+              <div class="col-md-12" style = "margin-bottom:25px; margin-left: -470px">
               <button type="button" id = "printButton" class="btn btn-primary" onclick="captureAndPrint()">Print</button>
               </div>
             </div>
