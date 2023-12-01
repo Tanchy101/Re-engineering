@@ -73,7 +73,6 @@ body{
   margin-top: -2em;
   border-radius: 10px;
 }  
-
 h3{
   color: white;
   margin-top: .8em;
@@ -104,14 +103,14 @@ h3{
             <div class="form-row">
               <div class="col-md-12">
                 <label>Length (meter/s)</label><span id="lengthError" style="color: red;"></span>
-                <input type="number" name="length" class="form-control" id="length" value="" style="color: black;" required>
+                <input type="number" name="length" class="form-control" id="length" value="" style="color: black;" min="1" max="11" required>
              
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-12" style="margin-top:10px;">
               <label>Width (meter/s)</label><span id="widthError" style="color: red;"></span>
-              <input type="number" name="width" class="form-control" id="width" value="" style="color: black;" required>
+              <input type="number" name="width" class="form-control" id="width" value="" style="color: black;" min="1" max="11" required>
               </div>
             </div>
             <div class="form-row">
@@ -129,7 +128,7 @@ h3{
             <hr>
             <div class="form-row text-left">
               <div class="col-md-6">
-                <input type="submit" name="generate" value="Generate" class="btn btn-success" value="">
+                <input type="submit" name="generate" value="Generate" class="btn btn-success">
               </div>
             </div>
             
@@ -190,7 +189,7 @@ h3{
                 <hr>
                 <div class="form-row text-left">
                   <div class="col-md-6">
-                    <input type="button" value="Create Own Layout" class="btn" id = "but" style="background-color: #7ED957;"></a>
+                    <input type="submit" value="Create Own Layout" class="btn btn-success" id="but">
                   </div>
                 </div>
 

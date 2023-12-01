@@ -65,7 +65,7 @@ if(is_numeric($input)){
         <div class="col">
           <div class="card shadow" style="overflow-x: hidden; height: 75vh; border-radius: 15px; margin-top: -35em; background-color: rgba(22, 27, 34, .8);">
             <div class="card-header border-0" style="overflow-y: hidden; background-color: transparent;">
-              <a href="generateplantest.php" class="btn btn-outline-success" style="margin-left: -5px; margin-bottom: 3em; margin-top: 1em;">
+              <a href="generateplantest.php" class="btn btn-outline-success" style="margin-left: -5px; margin-bottom: 6em; margin-top: 1em;">
                 <i class="fas fa-plus" style></i>
                 Generate New Layout
               </a>

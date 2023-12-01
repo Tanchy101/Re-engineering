@@ -54,34 +54,35 @@ if (isset($_POST['adduser'])) {
 require_once('partials/_head.php');
 ?>
 
-<style>
-@font-face {
-    font-family: "Blanka-Regular";
-    src: url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.eot");
-    src: url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.svg#Blanka-Regular")format("svg");
-}
-</style>
-
 <?php
     $length = 6;
     $alpha= substr(str_shuffle("QWERTYUIOPLKJHGFDSAZXCVBNM"),1,$length);
     $ln = 6;
     $beta = substr(str_shuffle("1234567890"),1,$length);
 ?>
+  <style>
+@font-face {
+    font-family: "Blanka";
+    src: url(fonts/nucleo/Blanka-Regular.ttf) format('truetype');
+}
+.btn{
+  width: 22.5em; 
+  border-radius: 25px; 
+  color: white; 
+  background-color: #7ED957;
+  font-family: 'Montserrat';
+}
+</style>
 
   <!-- Main content -->
   <div class="main-content">
     <!-- Top navbar -->
     <body class="bg-image" style="display: flex; overflow: hidden; background-image: url('assets/img/brand/Index BG.png'); background-size: cover; height: 100vh;">
         
-      <div><img src="assets/img/brand/LogoIndex.png" class="logoindex" style="position: relative; margin-top: 14.8em; left: 33.6em; 
+      <div><img src="assets/img/brand/LogoIndex.png" style="position: relative; margin-top: 14.8em; left: 33.6em; 
       color: white; width: 120px; height: 120px;"></div>
         
-        <div class="nlas" style="font-family: 'Blanka-Regular'; position: relative; margin-top: -0.15em; left: 4.26em; color: white; 
+        <div class="nlas" style="font-family: 'Blanka'; position: relative; margin-top: -0.15em; left: 4.26em; color: white; 
         font-size: 65px; text-align: center;">Network Layout<br>Assessment System</div>
 
         <div class="text" style="position: absolute; top: 0.7em; left: 7%; color: white; font-size: 20px; font-family: 'Montserrat'; 
@@ -121,8 +122,7 @@ require_once('partials/_head.php');
             <input type="password" name="admin_password" class="form-control" value="" placeholder="Create Password" style="margin-bottom: 15px; background-color: black;">
           </div>
           <input type="hidden" name="usertype" value="user">
-          <button type="submit" name="adduser"class="btn" style="width: 317px; border-radius: 25px; color: white; background-color: #7ED957;
-          font-family: 'Montserrat';">Sign Up</button>
+          <button type="submit" name="adduser"class="btn btn-success">Sign Up</button>
             <hr class="my-3">
             <div class="text-center" style="margin-top: 10px;">
                 <p class="mb-0" style="color: white">Already Signed? <a href="index.php" style="color: #37D5F2; font-weight: bold;">Log In</a></p>
@@ -149,6 +149,5 @@ require_once('partials/_head.php');
     <!-- Argon Scripts -->
     <?php require_once('partials/_scripts.php'); ?>
 </body>
-
 
 </html>

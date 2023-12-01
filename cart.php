@@ -27,6 +27,13 @@ require_once('partials/_head.php');
             document.body.style.zoom = "75%";
         };
     </script> -->
+
+<style>
+.btn{
+  background-color: #7ED957;
+  border-radius: 15px;
+}
+</style>
 <body>
   <!-- Sidenav -->
   <?php
@@ -120,7 +127,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                         echo "<tr>";
                         echo "<td>" . $item['name'] . "</td>";
                         echo "<td>₱" . $item['price'] . "</td>";
-                        echo "<td>" . $item['quantity'] . "</td>";
+                        echo "<td style='width: 9.5em;'>" . $item['quantity'] . "</td>";
                         echo "<td>₱" . number_format($item['price'] * $item['quantity']) .  "</td>"; // Calculate and display the amount for each item
                         echo "<td><a href='cart.php?remove=" . $index . "' style='background-color: #F5365C; padding: 3px 18px 3px; 
                         font-weight: bold; color: white; border-radius: 10px; font-size: 12px;'>Remove</a></td>";
@@ -131,7 +138,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                       echo "<tr><td colspan='3' style='text-align: right; font-weight: bold;'>Total Amount:</td>";
                       echo "<td style='font-weight: bold;'>₱" . number_format($totalAmount, 2) . "</td></tr>";
                       echo "<tr> <td> <form action='purchase.php' method='POST'> 
-                      <button class='btn btn-primary' style='background-color: #7ED957'; border: none'>Place Order</button>
+                      <button class='btn btn-success'; border: none'>Place Order</button>
                       </form> </td> </tr>";
                     } else {
                       echo "<tr><td colspan='6'>Cart is empty</td></tr>";

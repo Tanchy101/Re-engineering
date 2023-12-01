@@ -34,17 +34,22 @@ if (isset($_POST['login'])) {
 
 require_once('partials/_head.php');
 ?>
+
 <style>
 @font-face {
-    font-family: "Blanka-Regular";
-    src: url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.eot");
-    src: url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.svg#Blanka-Regular")format("svg");
+    font-family: "Blanka";
+    src: url(fonts/nucleo/Blanka-Regular.ttf) format('truetype');
+}
+.btn{
+    border-radius: 25px;
+    background-color: #7ED957; 
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color: white;
+    width: 21em;
 }
 </style>
+
 
 <!-- wag pi <script>
 >>>>>>> Stashed changes
@@ -62,7 +67,7 @@ require_once('partials/_head.php');
     <img src="assets/img/brand/LogoIndex.png" class="logoindex" style="position: relative; margin-top:14.8em; left: 448%; color: white; 
     width: 120px; height: 120px;"></div>
 
-    <div class="nlas" style="font-family: 'Blanka-Regular'; position: relative; margin-top: 5.34em; left: 2.41em; color: white; 
+    <div class="nlas" style="font-family: 'Blanka'; position: relative; margin-top: 5.34em; left: 2.41em; color: white; 
     font-size: 65px; text-align: center;">Network Layout<br>Assessment System</div>
 
         <div class="text" style="position: absolute; margin-top: 0.7em; left: 3%; color: white; font-size: 20px; font-family: 'Montserrat'; 
@@ -99,7 +104,7 @@ require_once('partials/_head.php');
                                                 </div>
                                                 </div>
                                         <div class="text-center">
-                                            <button style="border-radius: 25px; background-color: #7ED957; font-family: 'Montserrat'; font-weight: bold; color: white;" type="submit" name="login" class="btn btn-block">Log In</button>
+                                            <button type="submit" name="login" class="btn btn-success">Log In</button>
                                         </div>
                                         <hr class="my-3">
                                         <div class="text-center" style="margin-top: 10px;">

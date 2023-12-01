@@ -68,7 +68,7 @@ p.caption {
   margin-top: 10px;
 }
 
-.submit-btn {
+.btn {
   font-weight: bold;
   padding: 10px 20px;
   cursor: pointer;
@@ -80,7 +80,10 @@ p.caption {
   color: white;
   width: 250px;
   margin-left: 5.8em;
-  
+}
+.btn:hover{
+  background-color: #2DCE89;
+
 }
 </style>
 
@@ -111,8 +114,8 @@ p.caption {
               </div>
             </div>
                 <div class="submit-btn-container"><br>
-                  <a href="generateplantestt.php">
-                  <button type="submit" name="login" class="submit-btn">Generate Now!</button>
+                  <a href="generateplantest.php">
+                  <button type="submit" name="login" class="btn btn-success">Generate Now!</button>
                   </a>
                 </div>
           </div>
