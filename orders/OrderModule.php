@@ -12,20 +12,7 @@ include('../config/config.php');
     <title>Tabs</title>
 
 </head>
-<style>
 
-    th, td {
-        padding-right: 8px;
-    }
-
-    th {
-        padding-right: auto;
-    }
-
-    td {
-        padding: auto;
-    }
-</style>
 <body>
     <?php
         $activePage = 'page8';
@@ -288,6 +275,27 @@ include('../config/config.php');
     background: #ccc;
     font-family: 'Roboto', sans-serif;
 }
+
+
+th, td {
+        padding-right: 8px;
+    }
+
+    th {
+        padding-right: auto;
+    }
+
+    td {
+        padding: auto;
+    }
+
+    td, th {
+border:.1em solid #dddddd;
+text-align:left;
+padding: 1em;
+width: 20%;
+}
+
 .mytabs {
     display: flex;
     flex-wrap: wrap;
@@ -321,13 +329,6 @@ include('../config/config.php');
 
 .mytabs input[type="radio"]:checked + label {
     background: #fff;
-}
-
-td, th {
-border:.1em solid #dddddd;
-text-align:left;
-padding: 1em;
-width: 20%;
 }
 
 table {
