@@ -33,16 +33,16 @@ if (isset($_POST['input'])) {
 
     if (mysqli_num_rows($res) > 0) {
         ?>
-        <table class="table align-items-center table-flush">
+        <table class="table align-items-center table-flush" style="background-color: transparent;;">
             <thead class="thead-light">
             <tr>
-                <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Item Count</th>
-                <th scope="col">Product Type</th>
-                <th scope="col">Action</th>
-                <th scope="col">Product Link</th>
+                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none; border-top-left-radius: 10px;">Image</th>
+                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Name</th>
+                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Price</th>
+                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Quantity</th>
+                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Product Type</th>
+                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Action</th>                      
+                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none; border-top-right-radius: 10px;">Product Link</th>
             </tr>
             </thead>
             <tbody>
@@ -55,7 +55,7 @@ if (isset($_POST['input'])) {
                 $prod_price = $row['prod_price'];
                 ?>
                 <tr>
-                    <td>
+                    <td style="color: white; border-color: rgb(153, 148, 143,.5);">
                         <?php
                         if ($prod_img) {
                             echo "<img src='assets/img/products/$prod_img' height='60' width='60 class='img-thumbnail'>";
@@ -64,19 +64,19 @@ if (isset($_POST['input'])) {
                         }
                         ?>
                     </td>
-                    <td><?php echo $prod_name; ?></td>
-                    <td>₱<?php echo $prod_price; ?></td>
-                    <td>
+                    <td style="color: white; border-color: rgb(153, 148, 143,.5);"><?php echo $prod_name; ?></td>
+                    <td style="color: white; border-color: rgb(153, 148, 143,.5);">₱<?php echo $prod_price; ?></td>
+                    <td style="color: white; border-color: rgb(153, 148, 143,.5);">
                         <input type="number" class="form-control quantity-input" min="1" value="1" max="999" style="width:70px;">
                     </td>
-                    <td><?php echo $prod_type; ?></td>
-                    <td>
+                    <td style="color: white; border-color: rgb(153, 148, 143,.5);"><?php echo $prod_type; ?></td>
+                    <td style="color: white; border-color: rgb(153, 148, 143,.5);">
                         <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>" data-name="<?php echo $prod_name; ?>" data-image="<?php echo $prod_img; ?>">
                             <i class="fas fa-cart-plus"></i>
                             Add to Cart
                         </button>
                     </td>
-                    <td>
+                    <td style="color: white; border-color: rgb(153, 148, 143,.5);">
                         <button class="btn btn-sm btn-primary">
                             <i class="fas fa-link"></i>
                             Link

@@ -56,8 +56,8 @@
         <div class="row">
           <div class="col">
               <div class="card-header" style="overflow-x: hidden; overflow-y: scroll; visible; height: 75vh; border-radius: 25px;
-              margin-top: -32.5em;">
-                <label style="font-size: x-large; font-weight: bold; margin-left: 0.6em;"> Products </label>
+              margin-top: -32.5em; postion: relative; background-color: rgba(22,27,34,.93);">
+                <label style="font-size: x-large; font-weight: bold; margin-left: 0.6em; color: white;"> Products </label>
                 <div class="col-md-12">
                 <div class="row">
                   <!-- Search input -->
@@ -86,7 +86,7 @@
   
 
                   <div class="table-responsive">
-                    <table class="table align-items-center table-flush" id="table-data-product" style="zoom:70%">
+                    <table class="table align-items-center table-flush" id="table-data-product" style="zoom:70%;">
                       <thead class="thead-light">
                         <?php
                         $ret = "SELECT * FROM product";
@@ -95,13 +95,13 @@
                         $res = $stmt->get_result();
                         ?>
                         <tr>
-                            <th scope="col">Image</th>
-                            <th scope="col">Name</th>
-                            <th scope="col">Price</th>
-                            <th scope="col">Quantity</th>
-                            <th scope="col">Product Type</th>
-                            <th scope="col">Action</th>                      
-                            <th scope="col">Product Link</th>
+                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none; border-top-left-radius: 10px;">Image</th>
+                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Name</th>
+                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Price</th>
+                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Quantity</th>
+                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Product Type</th>
+                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Action</th>                      
+                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none; border-top-right-radius: 10px;">Product Link</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -114,7 +114,7 @@
                           $prod_url= $row['prod_url'];
                         ?>
                           <tr>
-                            <td>
+                            <td style="border-color: rgb(153, 148, 143,.5);">
                               <?php
                               if ($prod_img) {
                                 echo "<img src='assets/img/products/$prod_img' height='60' width='60 class='img-thumbnail'>";
@@ -123,19 +123,19 @@
                               }
                               ?>
                             </td>
-                              <td><?php echo $prod_name; ?></td>
-                              <td>₱<?php echo $prod_price; ?></td>
-                            <td>
+                            <td style="color: white; border-color: rgb(153, 148, 143,.5);"><?php echo $prod_name; ?></td>
+                            <td style="color: white; border-color: rgb(153, 148, 143,.5);">₱<?php echo $prod_price; ?></td>
+                            <td style="border-color: rgb(153, 148, 143,.5);">
                               <input type="number" class="form-control quantity-input" min="1" value="1" max="999" style="width:70px;">
                             </td>
-                              <td><?php echo $prod_type; ?></td>
-                            <td>
+                            <td style="color: white; border-color: rgb(153, 148, 143,.5);"><?php echo $prod_type; ?></td>
+                            <td style="border-color: rgb(153, 148, 143,.5);">
                               <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>" data-name="<?php echo $prod_name; ?>" data-image="<?php echo $prod_img; ?>">
                                 <i class="fas fa-cart-plus link-click"></i>
                                 Add to Cart
                               </button>
                             </td>
-                            <td>
+                            <td style="border-color: rgb(153, 148, 143,.5);">
                               <button class="btn btn-sm btn-primary link-click" onclick = "alert('Here is the link for the product <?php echo $prod_url; ?>')">
                                 <i class="fas fa-link"></i>
                                 Link
@@ -145,6 +145,7 @@
                         <?php } ?>
                       </tbody>
                     </table>
+                    <h2 style="margin-left: 18em; color: white;"> ---------- END OF LIST ---------- </h2>
                   </div>
                 </div>
               </div>
