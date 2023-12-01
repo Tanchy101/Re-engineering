@@ -114,6 +114,7 @@ function captureAndPrint() {
             <div class = "col-sm-12 container" id = "form-container">
               <div class="row">
                      <div class="col-sm-4" style = "padding-right: 150px; padding-left: 30px; max-width:500px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
+                       <div id = "accordion">
                         <div class = "elementToOverlay"><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none">
                             <div class="drag-element-source drag-element" style = "z-index:1">
@@ -260,6 +261,7 @@ function captureAndPrint() {
                           </div>
                         </div>
                       </div> 
+                    </div>
 
                     <div class="col-sm-6">
                       <div id = "plane-container" style = "height: 143mm; width: 311mm; margin-left:-200px;">
@@ -292,10 +294,7 @@ function captureAndPrint() {
           </div>
         </div>
       </div>
-      <!-- Footer -->
-      <?php
-      require_once('partials/_footer.php');
-      ?>
+      
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js"></script>
@@ -306,20 +305,29 @@ function captureAndPrint() {
   ?>
 <script>
 
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
+$(document).ready(function(){
+  // Event listener for when a collapsible button is clicked
+  $('#accordion .collapsible').click(function() {
+    // Check if the button has an active class
+    // If yes, close its content and remove its active class (clicked an open container)
+    // If no, remove all active classes except for the current button and close all containers (clicked a close container)
+    if ($(this).hasClass('active')) {
+      $(this).siblings('.content').slideUp();
+      $(this).removeClass('active');
     } else {
-      content.style.display = "block";
+      $('.collapsible.active').removeClass('active');
+
+      $(this).addClass('active');
+
+      $('.collapsible:not(.active) ~ .content').each(function() {
+        $(this).slideUp();
+      });
+
+      $(this).siblings('.content').slideDown();
     }
   });
-}
+});
+
   function validateForm() {
     let lengthInput = document.getElementById("length");
     let widthInput = document.getElementById("width");

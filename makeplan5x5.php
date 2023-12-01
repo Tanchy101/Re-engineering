@@ -307,10 +307,7 @@ function captureAndPrint() {
           </div>
         </div>
       </div>
-      <!-- Footer -->
-      <?php
-      require_once('partials/_footer.php');
-      ?>
+      
     </div>
   </div>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/dom-to-image/2.6.0/dom-to-image.min.js" ></script>
