@@ -13,8 +13,8 @@ if (isset($_POST['adduser'])) {
     $admin_email = $_POST['admin_email'];
     $admin_password = $_POST['admin_password']; //Hash This   
     $usertype = $_POST['usertype'];
-    $profileImage = $_FILES['profileImage']['name'];
-    move_uploaded_file($_FILES["profileImage"]["tmp_name"], "assets/img/profile/" . $_FILES["profileImage"]["name"]);
+    // $profileImage = $_FILES['profileImage']['name'];
+    // move_uploaded_file($_FILES["profileImage"]["tmp_name"], "assets/img/profile/" . $_FILES["profileImage"]["name"]);
 
     $sql = "SELECT * FROM admin WHERE admin_name='$admin_name'";
     $stmt = $mysqli->prepare($sql);
@@ -36,10 +36,10 @@ if (isset($_POST['adduser'])) {
     }else{
     
     //Insert Captured information to a database table
-    $postQuery = "INSERT INTO admin (admin_id, admin_name, admin_email, admin_password, profileImage, usertype) VALUES(?,?,?,?,?,?)";
+    $postQuery = "INSERT INTO admin (admin_id, admin_name, admin_email, admin_password, usertype) VALUES(?,?,?,?,?)";
     $postStmt = $mysqli->prepare($postQuery);
     //bind paramaters
-    $rc = $postStmt->bind_param('ssssss', $admin_id, $admin_name, $admin_email, $admin_password, $profileImage, $usertype);
+    $rc = $postStmt->bind_param('sssss', $admin_id, $admin_name, $admin_email, $admin_password, $usertype);
     $postStmt->execute();
     //declare a varible which will be passed to alert function
     if ($postStmt) {
