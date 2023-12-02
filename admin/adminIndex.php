@@ -1,6 +1,6 @@
 <?php
 include('../config/config.php');
-
+session_start();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +24,36 @@ include('../config/config.php');
 <header>
   <h1>ADMIN VIEW</h1>
 </header>
+<?php
+  $retri = "SELECT orders.order_id, order_item.price, order_item.name, order_item.quantity, orders.order_status, orders.total, orders.order_username 
+  FROM orders JOIN order_item ON orders.order_id = order_item.order_id";
 
+  $res = mysqli_query($mysqli, $retri);
+  $allOrderItems = mysqli_fetch_all($res, MYSQLI_ASSOC);
+  mysqli_free_result($res);
+
+  $pendingOrderItems = array_filter($allOrderItems, function($orderItem) {
+    return $orderItem['order_status'] == "Pending";
+  });
+
+  $toShipOrderItems = array_filter($allOrderItems, function($orderItem) {
+    return $orderItem['order_status'] == "To Ship";
+  });
+
+  $toReceiveOrderItems = array_filter($allOrderItems, function($orderItem) {
+    return $orderItem['order_status'] == "To Receive";
+  });
+
+    $admin_id = $_SESSION['admin_id'];
+    $ret = "SELECT * FROM admin WHERE admin_id = ?";
+    $stmt = $mysqli->prepare($ret);
+    $stmt->bind_param('s', $admin_id);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    $admin = $res->fetch_object();
+
+    $address = $admin->address;
+?>
 
 <div class="mytabs">
   <input type="radio" id="tabpending" name="mytabs" checked="checked">
@@ -32,7 +61,8 @@ include('../config/config.php');
   <div class="tab">
       <div class="styled-box" style="background-color: rgba(213, 211, 209, 8)">
       <div style="overflow-x: auto; text-align: left;">
-          <table>
+          <table style="width: 100%; height: 100%;">
+          <thead>
             <tr>
               <th>USER</th> 
               <th>ADDRESS</th> 
@@ -41,22 +71,53 @@ include('../config/config.php');
               <th>QUANTITY</th> 
               <th>AMOUNT</th>
             </tr>
-            <tr>
-              <td>hev jenie asdasdasd</td>
-              <td>1157 marzan st. sampaloc, manila</td>
-              <td>kush</td>
-              <td>300php</td>
-              <td>2 grams</td>
-              <td>600php</td>
-            </tr>  
-            <tr>
-              <td>hev jenie asdasdasd</td>
-              <td>1157 marzan st. sampaloc, manila</td>
-              <td>kush</td>
-              <td>300php</td>
-              <td>2 grams</td>
-              <td>600php</td>
-            </tr>  
+          </thead>
+          <tbody>
+            <?php
+            $pendingByOrderId = [];
+
+            foreach($pendingOrderItems as $pendingOrderItem){
+              $pendingByOrderId[$pendingOrderItem['order_id']][] = $pendingOrderItem;
+            }
+            
+            if(count($pendingByOrderId) == 0){
+              echo "<tr><td><center>Users Have No Orders For Now</center></td></tr>";
+            } else {
+
+              foreach($pendingByOrderId as $pendingByOrderIdKey => $pendingByOrderIdItems){
+               
+                foreach($pendingByOrderIdItems as $pendingByOrderIdItem){
+                  
+                  echo "
+                    <tr>
+                      <td>
+                        "
+                          .$pendingByOrderIdItem['order_username']. 
+                        "
+                      </td>
+                      
+                      <td>
+                        "
+                          . $address .
+                        "
+                      </td>
+
+                      <td>"
+                        . $pendingByOrderIdItem['name'] .
+                      "</td>
+
+                      <td>₱"
+                        . number_format($pendingByOrderIdItem['price'], 0).
+                      "</td>
+
+                    </tr>
+                  ";
+                  
+                }
+              }
+            }
+            ?>
+          </tbody>
           </table>
         </div>
       </div>
@@ -78,22 +139,7 @@ include('../config/config.php');
               <th>QUANTITY</th> 
               <th>AMOUNT</th>
             </tr>
-            <tr>
-              <td>hev jenie asdasdasd</td>
-              <td>1157 marzan st. sampaloc, manila</td>
-              <td>kush</td>
-              <td>300php</td>
-              <td>2 grams</td>
-              <td>600php</td>
-            </tr>  
-            <tr>
-              <td>hev jenie asdasdasd</td>
-              <td>1157 marzan st. sampaloc, manila</td>
-              <td>kush</td>
-              <td>300php</td>
-              <td>2 grams</td>
-              <td>600php</td>
-            </tr>  
+           
           </table>
         </div>
       </div>
@@ -114,22 +160,7 @@ include('../config/config.php');
               <th>QUANTITY</th> 
               <th>AMOUNT</th>
             </tr>
-            <tr>
-              <td>hev jenie asdasdasd</td>
-              <td>1157 marzan st. sampaloc, manila</td>
-              <td>kush</td>
-              <td>300php</td>
-              <td>2 grams</td>
-              <td>600php</td>
-            </tr>  
-            <tr>
-              <td>hev jenie asdasdasd</td>
-              <td>1157 marzan st. sampaloc, manila</td>
-              <td>kush</td>
-              <td>300php</td>
-              <td>2 grams</td>
-              <td>600php</td>
-            </tr>  
+            
           </table>
         </div>
       </div>

@@ -75,7 +75,7 @@ include('../config/config.php');
 
                 
                 if (count($pendingByOrderId) == 0){
-                    echo "<tr><td colspan = '4'><center>You don't have any current orders for now</center></tr></td>";
+                    echo "<tr><td colspan = '4'><center>You don't have any current orders for now</center></td></tr>";
                 }else {
                     // Loop through each order 
                     foreach($pendingByOrderId as $pendingByOrderIdKey => $pendingByOrderIdItems) {

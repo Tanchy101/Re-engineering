@@ -13,17 +13,8 @@ require_once('partials/_head.php');
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous" />
 </head>
 <style>
-        body {
-            /* Optional: Set a minimum width to prevent horizontal scrollbars due to zooming */
-            min-width: 1000px;
-        }
-    </style>
-    <!--wag pi <script>
-        window.onload = function() {
-            // Set the zoom level to 67% (0.67) when the page loads
-            document.body.style.zoom = "67%";
-        };
-    </script> -->
+
+ </style>
 <body>
    
 
@@ -126,7 +117,8 @@ function captureAndPrint() {
                      <div id = "accordion">
                           <div class = "elementToOverlay"> 
                             <button class="collapsible"  style = "margin-top: 10px;"><b>Cubicles</b></button>
-                              <div class="content" id = "scroll-box" style = "display:none">
+                           
+                              <div class="content" id = "scroll-box" style="display: none;">
                                 <div class="drag-element-source drag-element" style = "z-index:1">
                                   <div class="rect" style = "margin-bottom: 110px;"><img src="assets/img/items/cubicle.png" draggable="false"/>  
                                       <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
@@ -141,12 +133,11 @@ function captureAndPrint() {
                                       </div>
                                     </div>
                               </div>
-
-                        
+                           
                             <div><button class="collapsible"><b>Tables</b></button>
                               <div class="content" id = "scroll-box" style = "display:none">
                                 <div class="drag-element-source drag-element" style = "z-index:2">
-                                  <div class="rect" style = "margin-top: 10px; margin-left: 11px"><img src="assets/img/items/L-table.png" draggable="false"/>
+                                  <div class="rect" style = "margin-top: 10px; margin-left: 11px" ><img src="assets/img/items/L-table.png" draggable="false"/>
                                   <div class="middle desc" style = "margin-left: 74px; margin-top: 55px;"> <b>L-shaped Table </b> <br>155cmX130cm</div>
                                   </div>
                                 </div>
@@ -329,6 +320,8 @@ $(document).ready(function(){
     if ($(this).hasClass('active')) {
       $(this).siblings('.content').slideUp();
       $(this).removeClass('active');
+      
+
     } else {
       $('.collapsible.active').removeClass('active');
 
@@ -338,10 +331,20 @@ $(document).ready(function(){
         $(this).slideUp();
       });
 
-      $(this).siblings('.content').slideDown();
+      $(this).siblings('.content').slideDown().css("overflow-y", "scroll");
     }
   });
 });
+
+
+  
+var panel = content;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+
 
   function validateForm() {
     let lengthInput = document.getElementById("length");

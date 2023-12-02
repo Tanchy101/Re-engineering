@@ -60,7 +60,7 @@ body.dark {
   left: 0;
   height: 100%;
   width: 180px;
-  padding: 10px 14px;
+  padding: 5px 14px;
   background: var(--sidebar-color);
   transition: var(--tran-05);
   z-index: 100;
@@ -81,7 +81,7 @@ body.dark {
 
 .sidebar header .image,
 .sidebar .icon {
-  min-width: 60px;
+  min-width: 50px;
   border-radius: 6px;
 }
 
@@ -155,6 +155,7 @@ header .image-text .profession {
 .sidebar header .image img {
   height: 100%;
   width: 150px;
+  margin-left: -490px;
 }
 
 .sidebar header .image .img-navbar-close {
@@ -412,7 +413,7 @@ body.dark .switch::before {
         </div>
       </div>
     
-      <i id="arrow" class='bx bx-chevron-right toggle'></i>
+      
     </header>
 
     <div class="menu-bar">
@@ -423,7 +424,7 @@ body.dark .switch::before {
           
         
           <li class="item">
-            <a href="logout.php" style="margin-bottom: -50.25em;">
+            <a href="/Re-engineering/logout.php" style="margin-bottom: -50.25em;">
               <i class='bx bx-log-out icon'></i>
               <span class="text nav-text">Logout</span>
             </a>
