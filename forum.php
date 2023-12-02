@@ -24,6 +24,30 @@ check_login();
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 </head>
+<style>
+  h2{
+    margin-left: .5em;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    margin-top: 1em;
+    color: white;
+    margin-bottom: -1em;
+  }
+  h3{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color: white;
+  }
+  .panel-body{
+    background-color: rgba(22,27,34,.7);
+    border-radius: 20px;
+  }
+  .panel-default{
+    background-color: rgba(22,27,34,.7);
+    border-radius: 20px;
+  }
+
+</style>
 
     <!--wag pi
     <script>
@@ -39,33 +63,17 @@ check_login();
     $activePage = 'page6';
   require_once('partials/_sidebar.php');
   ?>
+      <div style="background-image: url(assets/img/theme/GenerateBG.png); background-size: 100%; background-repeat: repeat-y;" class="header  pb-8 pt-5 pt-md-8">
+    <span class="mask bg-gradient-dark opacity-5"></span>
+      <div class="container-fluid">
+        <div class="header-body">
+        </div>
+      </div>
+    </div>
 
   <!-- Main content -->
   <div class="main-content">
- 
-  <div class="navbar navbar-default">
-  <div class="container-fluid">
-  <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <div class="navbar-brand" style="font-size: 24px;">Network Layout Assessment Forum</div>
-    </div>
-
-    <div class="collapse navbar-collapse" id="navbar-collapse">
-      <ul class="nav navbar-nav" style="font-size: 12px;">
-        <li class="active"><a href="forum.php">General Discussion</a></li>
-        <li><a href="forumlayplans.php">Layout Plans</a></li>
-        <li><a href="forumprod.php">Products</a></li>
-        <li><a href="forumisp.php">ISP</a></li>
-        <li><a href="forumnet.php">Networking</a></li>
-      </ul>
-    </div>
-  </div>
-</div>  
+    <h2>Network Layout Assessment General Discussions</h2>
     <!-- Modal -->
     <div id="ReplyModal" class="modal fade" role="dialog">
       <div class="modal-dialog">
@@ -106,7 +114,7 @@ check_login();
 
     <div class="form-row">
       <div class="col-md-12">
-        <div class="panel panel-default" style="margin-top:50px">
+        <div class="panel panel-default" style="margin-top:50px; background-color: transparent; border: none;">
           <div class="panel-body">
             <h3>Community forum</h3>
             <hr>
@@ -116,10 +124,10 @@ check_login();
                 <input type="hidden" class="form-control" name="name" value="<?php echo "$admin->admin_name" ?>">
               </div>
               <div class="form-group">
-                <label for="comment">Write your question:</label>
+                <label for="comment" style="color: white; font-family: Montserrat;">Write your question:</label>
                 <textarea class="form-control" rows="5" name="msg" required></textarea>
               </div>
-              <input type="button" id="butsave" name="save" class="btn btn-primary" value="Send">
+              <input type="button" id="butsave" name="save" class="btn btn-success" value="Send" style="width: 6em; border-radius: 12px; font-weight: bold; font-family: Montserrat;">
             </form>
           </div>
         </div>
@@ -131,9 +139,9 @@ check_login();
           ?>
     <div class="form-row">
       <div class="col-md-12">
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="margin-top:10px; background-color: transparent; border: none;">
           <div class="panel-body">
-            <h4>Recent Thread</h4>
+            <h3 style="margin-bottom: 1em;">Recent Thread</h3>
             <table class="table" id="MyTable" style="background-color: #edfafa; border:0px;border-radius:20px">
               <tbody id="record">
 
