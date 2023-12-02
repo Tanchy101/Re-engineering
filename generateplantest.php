@@ -103,14 +103,14 @@ h3{
             <div class="form-row">
               <div class="col-md-12">
                 <label>Length (meter/s)</label><span id="lengthError" style="color: red;"></span>
-                <input type="number" name="length" class="form-control" id="length" value="" style="color: black;" min="1" max="11" required>
+                <input type="number" name="length" class="form-control" id="length" value="" style="color: black;" min="5" max="11" required>
              
               </div>
             </div>
             <div class="form-row">
               <div class="col-md-12" style="margin-top:10px;">
               <label>Width (meter/s)</label><span id="widthError" style="color: red;"></span>
-              <input type="number" name="width" class="form-control" id="width" value="" style="color: black;" min="1" max="11" required>
+              <input type="number" name="width" class="form-control" id="width" value="" style="color: black;" min="5" max="11" required>
               </div>
             </div>
             <div class="form-row">
