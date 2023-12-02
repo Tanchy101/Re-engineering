@@ -12,6 +12,34 @@ require_once('partials/_head.php');
   <link rel="stylesheet" href="makeplanstyle.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha384-vp86vTRFVJgpjF9jiIGPEEqYqlDwgyBgEF109VFjmqGmIY/Y4HV4d3Gp2irVfcrp" crossorigin="anonymous" />
 </head>
+<style>
+        body {
+            /* Optional: Set a minimum width to prevent horizontal scrollbars due to zooming */
+            min-width: 1000px;
+        }
+        h3, b{
+          color: black;
+        }
+        h3{
+          font-size: 25px;
+          margin-top: -0.2em;
+          
+        }
+        .collapsible:hover{
+          background-color: #a6a6a6;
+          transition: 0.2s;
+        }
+        #backButton{
+          background-color: #F5365C;
+        }
+        .card shadow{
+          margin-top: -37em; 
+          max-height: 43em; 
+          padding: 1em;
+        }
+        
+    </style>
+
 <!--<script>
         window.onload = function() {
             // Set the zoom level to 67% (0.67) when the page loads
@@ -95,8 +123,8 @@ function captureAndPrint() {
     require_once('partials/_topnav.php');
     ?>
     <!-- Header -->
-    <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
-    <span class="mask bg-gradient-dark opacity-8"></span>
+    <div style="background-image: url(assets/img/theme/GenerateBG.png); background-size: cover; height: 100vh;" class="header  pb-8 pt-5 pt-md-8">
+    <span class="mask bg-gradient-dark opacity-5"></span>
       <div class="container-fluid">
         <div class="header-body">
         </div>
@@ -107,13 +135,13 @@ function captureAndPrint() {
       <!-- Table -->
       <div class="row">
         <div class="col">
-          <div class="card shadow">
+        <div class="card shadow" style="margin-top: -37em; max-height: 43em; padding: 1em;">
             <div class="card-header border-6">
               <h3>Customize your Layout: 7x10 Dimension</h3>
             </div>
             <div class = "col-sm-12 container" id = "form-container">
               <div class="row">
-                     <div class="col-sm-5" style = "padding-right: 150px; padding-left: 30px; max-width:490px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
+                     <div class="col-sm-5" style = "padding-right: 150px; max-width:482px" > <b style = "margin-top: 10px;"> ITEMS LIST: </b>
                        <div id = "accordion">
                          <div class = "elementToOverlay"><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none">
@@ -268,22 +296,35 @@ function captureAndPrint() {
                         <p>7x10</p>
                       </div>
                       <div class = "row">
-                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: -6em; margin-top: -120px; 
-                    height: 120px; background-color: transparent; border: none;">
-                    <div style="text-align: center; color: black;">
-                    <div style="font-size: 40px;">
-                      <span><i class="fas fa-trash-alt"></i></span>
+                        <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: -8em; margin-top: -120px; 
+                        height: 120px; background-color: transparent; border: none; ">
+                            <div style="text-align: center; color: black;">
+                              <div style="font-size: 40px;">
+                                <span><i class="fas fa-trash-alt"></i></span>
+                              </div>
+                              <span style="font-size: 16px;"><b>DROP TO</b></span><br>
+                              <span style="font-size: 16px;"><b>DELETE</b></span>
+                            </div>
+                        </div>
+                      </div>  
                     </div>
-                      <span style="font-size: 16px;"><b>DROP TO</b></span><br>
-                      <span style="font-size: 16px;"><b>DELETE</b></span>
+                  </div>
+                  <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 98em; margin-top: -120px; 
+                        height: 120px; background-color: transparent; border: none;">
+                            <div style="text-align: center; color: black; margin-left: -3em;">
+                              <div style="font-size: 40px;">
+                                <span><i class="fas fa-trash-alt"></i></span>
+                              </div>
+                              <span style="font-size: 16px;"><b>DROP TO</b></span><br>
+                              <span style="font-size: 16px;"><b>DELETE</b></span>
+                          </div>
                     </div>
-
-              </div>  
-              </div>
+                </div>
             <hr>
             <div class="form-row text-left">
-              <div class="col-md-12" style = "margin-bottom:25px; margin-left: -470px">
+              <div class="col-md-12" style = "margin-top: 0px; margin-left: 40px; width: 1em;">
               <button type="button" id = "printButton" class="btn btn-primary" onclick="captureAndPrint()">Print</button>
+              <a href="generateplantest.php"><button type="button" id = "backButton" class="btn" style="color: white;">Back</button></a>
               </div>
             </div>
             <input type="hidden" name="input" value="<?php echo $input; ?>">
@@ -321,7 +362,7 @@ $(document).ready(function(){
         $(this).slideUp();
       });
 
-      $(this).siblings('.content').slideDown();
+      $(this).siblings('.content').slideDown().css("overflow-y", "scroll");
     }
   });
 });
