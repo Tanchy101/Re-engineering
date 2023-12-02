@@ -37,15 +37,12 @@ require_once('partials/_head.php');
 
 <style>
 @font-face {
-    font-family: "Blanka";
-    src: url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.eot");
-    src: url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.eot?#iefix")format("embedded-opentype"),
-    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.woff2")format("woff2"),
-    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.woff")format("woff"),
-    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.ttf")format("truetype"),
-    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.svg#Blanka-Regular")format("svg");
-
+    font-family: 'Blanka';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Blanka'), url('https://fonts.cdnfonts.com/s/18915/Blanka-Regular.woff') format('woff');
 }
+
 .btn{
     border-radius: 25px;
     background-color: #7ED957; 

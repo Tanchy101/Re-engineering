@@ -62,8 +62,10 @@ require_once('partials/_head.php');
 ?>
   <style>
 @font-face {
-    font-family: "Blanka";
-    src: url(fonts/nucleo/Blanka-Regular.ttf) format('truetype');
+    font-family: 'Blanka';
+    font-style: normal;
+    font-weight: 400;
+    src: local('Blanka'), url('https://fonts.cdnfonts.com/s/18915/Blanka-Regular.woff') format('woff');
 }
 .btn{
   width: 22.5em; 
@@ -72,18 +74,34 @@ require_once('partials/_head.php');
   background-color: #7ED957;
   font-family: 'Montserrat';
 }
+.nlas{
+  font-family: 'Blanka', Poppins; 
+  position: relative; 
+  margin-top: -0.15em; 
+  left: 4.26em; 
+  color: white; 
+  font-size: 65px; 
+  text-align: center;
+
+}
+.bg-image{
+    display: flex; 
+    background-image: url('assets/img/brand/Index BG.png'); 
+    background-size: cover; 
+    height: 100vh;"
+}
+</style>
 </style>
 
   <!-- Main content -->
   <div class="main-content">
     <!-- Top navbar -->
-    <body class="bg-image" style="display: flex; overflow: hidden; background-image: url('assets/img/brand/Index BG.png'); background-size: cover; height: 100vh;">
+    <body class="bg-image">
         
       <div><img src="assets/img/brand/LogoIndex.png" style="position: relative; margin-top: 14.8em; left: 33.6em; 
       color: white; width: 120px; height: 120px;"></div>
         
-        <div class="nlas" style="font-family: 'Blanka'; position: relative; margin-top: -0.15em; left: 4.26em; color: white; 
-        font-size: 65px; text-align: center;">Network Layout<br>Assessment System</div>
+        <div class="nlas">Network Layout<br>Assessment System</div>
 
         <div class="text" style="position: absolute; top: 0.7em; left: 7%; color: white; font-size: 20px; font-family: 'Montserrat'; 
         font-weight: bold;">Sign Up</div>
