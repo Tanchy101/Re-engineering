@@ -38,7 +38,13 @@ require_once('partials/_head.php');
 <style>
 @font-face {
     font-family: "Blanka";
-    src: url(fonts/nucleo/Blanka-Regular.ttf) format('truetype');
+    src: url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.eot");
+    src: url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.eot?#iefix")format("embedded-opentype"),
+    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.woff2")format("woff2"),
+    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.woff")format("woff"),
+    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.ttf")format("truetype"),
+    url("https://db.onlinewebfonts.com/t/8cdbb48678e4418f22a2f507c2b975bd.svg#Blanka-Regular")format("svg");
+
 }
 .btn{
     border-radius: 25px;
@@ -47,6 +53,21 @@ require_once('partials/_head.php');
     font-weight: bold;
     color: white;
     width: 21em;
+}
+.nlas{
+    font-family: 'Blanka', Poppins;
+    position: relative; 
+    margin-top: 5.34em; 
+    left: 2.41em; 
+    color: white; 
+    font-size: 65px; 
+    text-align: center;
+}
+.bg-image{
+    display: flex; 
+    background-image: url('assets/img/brand/Index BG.png'); 
+    background-size: cover; 
+    height: 100vh;"
 }
 </style>
 
@@ -61,14 +82,13 @@ require_once('partials/_head.php');
 
 
 
-<body class="bg-image" style="display: flex; background-image: url('assets/img/brand/Index BG.png'); background-size: cover; height: 100vh;">
+<body class="bg-image">
     
     <div>
     <img src="assets/img/brand/LogoIndex.png" class="logoindex" style="position: relative; margin-top:14.8em; left: 448%; color: white; 
     width: 120px; height: 120px;"></div>
 
-    <div class="nlas" style="font-family: 'Blanka'; position: relative; margin-top: 5.34em; left: 2.41em; color: white; 
-    font-size: 65px; text-align: center;">Network Layout<br>Assessment System</div>
+    <div class="nlas" >Network Layout<br>Assessment System</div>
 
         <div class="text" style="position: absolute; margin-top: 0.7em; left: 3%; color: white; font-size: 20px; font-family: 'Montserrat'; 
         font-weight: bold;">Log In</div>
