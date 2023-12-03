@@ -43,7 +43,7 @@ $(document).on("click", ".open-ReplyModal", function () {
 
 $(document).ready(function () {
   $('#butsave').on('click', function () {
-    $("#butsave").attr("disabled", "disabled");
+    $("#btnreply").attr("disabled", "disabled");
     var id = document.forms["frm"]["Pcommentid"].value;
     var name = document.forms["frm"]["name"].value;
     var msg = document.forms["frm"]["msg"].value;
@@ -71,6 +71,7 @@ $(document).ready(function () {
         }
       });
     } else {
+      $("#butsave").removeAttr("disabled");
       alert('Please fill all the fields!');
     }
   });
@@ -107,6 +108,7 @@ $(document).ready(function () {
         }
       });
     } else {
+      $("#btnreply").removeAttr("disabled");
       alert('Please fill all the fields!');
     }
   });

@@ -71,6 +71,7 @@ $(document).ready(function () {
         }
       });
     } else {
+      $("#butsave").removeAttr("disabled");
       alert('Please fill all the fields!');
     }
   });
@@ -107,6 +108,7 @@ $(document).ready(function () {
         }
       });
     } else {
+      $("#btnreply").removeAttr("disabled");
       alert('Please fill all the fields!');
     }
   });

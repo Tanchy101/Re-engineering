@@ -52,7 +52,7 @@ require_once('partials/_head.php');
     width: 21em;
 }
 .nlas{
-    font-family: 'Blanka', Poppins;
+    font-family: 'Blanka' !important;
     position: relative; 
     margin-top: 5.34em; 
     left: 2.41em; 

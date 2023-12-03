@@ -21,12 +21,15 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
         $stmt->execute();
         $res = $stmt->get_result();
         while ($admin = $res->fetch_object()) {
-        $admin -> admin_name;
+    
         
-        $order_username = $admin -> admin_name;}
+        $order_username = $admin -> admin_name;
+        $user_address = $admin -> address;
+        
+        }
 
         // Prepare insert order sql statement
-        $insertOrderSql="INSERT INTO orders (order_status, total, order_username) VALUES(?,?,?)";
+        $insertOrderSql="INSERT INTO orders (order_status, total, order_username, user_address) VALUES(?,?,?,?)";
         $insertOrderSqlStmt=mysqli_prepare($mysqli, $insertOrderSql);
 
         if($insertOrderSqlStmt){
@@ -36,7 +39,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             }, 0);
 
             // Execute insert order sql statement with parameters
-            mysqli_stmt_bind_param($insertOrderSqlStmt, "sis", $order_status, $total, $order_username);
+            mysqli_stmt_bind_param($insertOrderSqlStmt, "siss", $order_status, $total, $order_username, $user_address);
             mysqli_stmt_execute($insertOrderSqlStmt);
 
             // Get the ID of the last query (insert order query)

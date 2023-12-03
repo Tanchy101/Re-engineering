@@ -1,5 +1,6 @@
 <?php
 include('../config/config.php');
+
 session_start();
 ?>
 <!DOCTYPE html>
@@ -13,6 +14,169 @@ session_start();
 </head>
  
 </head>
+<style>
+  .btn{
+    background-color: #C83264;
+    padding: 6px;
+    border-radius: 15px;
+    /* margin-bottom: 0.1em; */
+    color: white;
+    font-size: 10px;  
+      
+  }
+  td, a{
+    font-size: 13px;
+    text-decoration: none;
+  }
+  
+  .btn:hover {
+    background-color: #C80032;
+  }
+  td{
+    border: 1px solid gray;
+    padding: 5px;
+  }
+  table {
+    border-collapse: collapse;
+  
+  }
+
+  
+  body {
+    background: #ccc;
+    font-family: Montserrat;
+    margin: 0;
+    padding: 10px;
+    background-color: #36517C;
+}
+
+  header {
+    background-color: #36517C;
+    color: #fff;
+    padding: 0px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    text-align: left;
+    align-items: left; margin-left: 320px;
+      
+}
+
+ .styled-box { 
+  background-color: #99948F; 
+  padding: auto;
+  width: 65.60em;
+  height: 2.5em;
+  margin: 0px; 
+  border-radius: 5px; 
+  align-items: left; margin-left: -1.25em;
+  margin-top:   -1.25em;
+  margin-right: 0.1em;
+  border-radius: 0px;
+}
+
+.top-text {
+      margin-top: 20px; /* Adjust the margin-top value as needed */
+    }
+
+th {
+  font-size: 14px;
+  font-weight: lighter;
+  top: 2em;
+  padding-bottom: 18px;
+  padding-top: 10px;
+  
+  
+}
+
+th,td{
+  padding-left: 20px;
+  column-gap: 40px;
+}
+
+td{
+  line-height: 1.0;
+  
+}
+
+h5{
+  font-size: 15px;
+  margin-top: -0.3em;
+}
+
+p {
+  margin-top: 6.20px;
+  padding: 12px;
+  margin-left: -0.85em;
+}
+
+h4 { 
+  margin-top: -0.1em;
+  background-color: #99948F; 
+  padding: 12px; 
+  width: 66.65em;
+  height: 1em;
+  margin: 0px; 
+  border-radius: 5px; 
+  align-items: left; margin-left: -1.25em;
+  margin-top:   -1.25em;
+  margin-right: 0.1em;
+  border-radius: 0px;
+} 
+
+.mytabs {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1100px;
+    padding: 25px;
+    align-items: left; margin-left: 335px;
+    border-radius: 10px;
+    flex-content: row;
+    height: 1em;
+    position: fixed;
+    
+    
+}
+.mytabs input[type="radio"] {
+    display: none;
+}
+
+.mytabs label {
+    padding: 23px;
+    background: #e2e2e2;
+    font-weight: bold;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    height: 13px;
+    width: 13em;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 1em;
+    flex-content: center;
+    
+    
+}
+
+.mytabs .tab {
+    width: 100%;
+    padding: 20px;
+    background: #fff;
+    order: 1;
+    display: none;
+    height: 410px;
+}
+
+
+.mytabs input[type='radio']:checked + label + .tab {
+    display: block;
+    background: #FFFFFF;
+    
+}
+
+.mytabs input[type="radio"]:checked + label {
+    background: #99948F;
+}
+
+</style>
 <body>
 
   <!-- Sidenav -->
@@ -25,7 +189,14 @@ session_start();
   <h1>ADMIN VIEW</h1>
 </header>
 <?php
-  $retri = "SELECT orders.order_id, order_item.price, order_item.name, order_item.quantity, orders.order_status, orders.total, orders.order_username 
+
+  if(isset($_POST['order_id'])){
+    $del_id=$_POST['order_id'];
+    $remove = mysqli_query($mysqli, "DELETE orders, order_item FROM orders INNER JOIN order_item ON order_item.order_id = orders.order_id WHERE orders.order_id=$del_id");
+  }
+
+  //retrieving data from the two tables that has a relationship
+  $retri = "SELECT orders.user_address, orders.order_id, order_item.price, order_item.name, order_item.quantity, orders.order_status, orders.total, orders.order_username, order_item.id
   FROM orders JOIN order_item ON orders.order_id = order_item.order_id";
 
   $res = mysqli_query($mysqli, $retri);
@@ -43,24 +214,119 @@ session_start();
   $toReceiveOrderItems = array_filter($allOrderItems, function($orderItem) {
     return $orderItem['order_status'] == "To Receive";
   });
-
-    $admin_id = $_SESSION['admin_id'];
-    $ret = "SELECT * FROM admin WHERE admin_id = ?";
-    $stmt = $mysqli->prepare($ret);
-    $stmt->bind_param('s', $admin_id);
-    $stmt->execute();
-    $res = $stmt->get_result();
-    $admin = $res->fetch_object();
-
-    $address = $admin->address;
+  
 ?>
-
+<!-- Pending Table  -->
 <div class="mytabs">
   <input type="radio" id="tabpending" name="mytabs" checked="checked">
   <label for="tabpending" style="background-color: #99948F;"><h5>PENDING</h5></label>
   <div class="tab">
       <div class="styled-box" style="background-color: rgba(213, 211, 209, 8)">
       <div style="overflow-x: auto; text-align: left;">
+          <table style="width: 100%; height: 100%;">
+          <thead>
+            <tr>
+              <th>ORDER#</th>
+              <th>USER</th> 
+              <th>ADDRESS</th> 
+              <th>PRODUCT</th> 
+              <th>PRICE</th> 
+              <th>QUANTITY</th> 
+              <th>AMOUNT</th>
+              
+            </tr>
+          </thead>
+          <tbody>
+            <?php
+            $pendingByOrderId = [];
+            // $pendingOrderId = [];
+
+            foreach($pendingOrderItems as $pendingOrderItem){
+              $pendingByOrderId[$pendingOrderItem['order_id']][] = $pendingOrderItem;
+              // $pendingOrderId[$pendingOrderItem['id']][] = $pendingOrderItem;
+
+            }
+            
+            if(count($pendingByOrderId) == 0){
+              echo "<tr><td><center>Users Have No Orders For Now</center></td></tr>";
+            } else {
+
+              foreach($pendingByOrderId as $pendingByOrderIdKey => $pendingByOrderIdItems){
+                
+                foreach($pendingByOrderIdItems as $pendingByOrdersIdKey => $pendingByOrderIdItem){
+                  echo "<tr>";
+                  if($pendingByOrdersIdKey == 0){
+                    echo "
+                    <td rowspan = '".(count($pendingByOrderIdItems))."'>
+                      ".$pendingByOrderIdItem['order_id']."
+                    </td>
+                    ";
+                  }
+                  echo "
+                    
+                      <td>
+                        "
+                          .$pendingByOrderIdItem['order_username']. 
+                        "
+                      </td>
+                      
+                      <td>
+                        "
+                          . $pendingByOrderIdItem['user_address'] .
+                        "
+                      </td>
+
+                      <td>"
+                        . $pendingByOrderIdItem['name'] .
+                      "</td>
+
+                      <td>₱"
+                        . number_format($pendingByOrderIdItem['price'], 0).
+                      "</td>
+
+                      <td>
+                        <center>"
+                        . $pendingByOrderIdItem['quantity'] .
+                        "</center>
+                      </td>
+
+                      <td>₱"
+                        . number_format($pendingByOrderIdItem['price'] * $pendingByOrderIdItem['quantity'], 0) .
+                      "</td>";
+
+                      if($pendingByOrdersIdKey == 0){ 
+                      echo 
+                      "<td rowspan='".(count($pendingByOrderIdItems))."'>
+                          <center>
+                              <form action='adminIndex.php' method='POST'>
+                              <input type='hidden' name='order_id' value='".$pendingByOrderIdItem['order_id']."'>
+                              <button type='submit' class='btn'>CANCEL</button>
+                              </form>
+                          </center>
+                        </td>";
+                     
+                      }
+                      
+                    echo "</tr>";
+                  
+                  
+                }
+              }
+            }
+            ?>
+          </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
+  <!-- To Pack Table  -->
+    <input type="radio" id="tabtopack" name="mytabs">
+    <label for="tabtopack" style="background-color: #FAB6AB;"><h5>TO PACK</h5></label>
+    <div class="tab">
+      <div class="styled-box" style="background-color: rgba(252, 225, 217, 8);">
+        <div style="overflow-x: auto; text-align: left;">
           <table style="width: 100%; height: 100%;">
           <thead>
             <tr>
@@ -74,93 +340,146 @@ session_start();
           </thead>
           <tbody>
             <?php
-            $pendingByOrderId = [];
+              $toShipByOrderId = [];
 
-            foreach($pendingOrderItems as $pendingOrderItem){
-              $pendingByOrderId[$pendingOrderItem['order_id']][] = $pendingOrderItem;
-            }
-            
-            if(count($pendingByOrderId) == 0){
-              echo "<tr><td><center>Users Have No Orders For Now</center></td></tr>";
-            } else {
+              foreach($toShipOrderItems as $toShipOrderItem){
+                $toShipByOrderId[$toShipOrderItem['order_id']][] = $toShipOrderItem;
+              }
+              
+              if(count($toShipByOrderId) == 0){
+                echo "<tr><td><center>Users Have No Orders For Now</center></td></tr>";
+              } else {
 
-              foreach($pendingByOrderId as $pendingByOrderIdKey => $pendingByOrderIdItems){
-               
-                foreach($pendingByOrderIdItems as $pendingByOrderIdItem){
-                  
-                  echo "
-                    <tr>
-                      <td>
-                        "
-                          .$pendingByOrderIdItem['order_username']. 
-                        "
-                      </td>
-                      
-                      <td>
-                        "
-                          . $address .
-                        "
-                      </td>
+                foreach($toShipByOrderId as $toShipByOrderIdKey => $toShipByOrderIdItems){
+                
+                  foreach($toShipByOrderIdItems as $toShipByOrderIdItem){
+                    
+                    echo "
+                      <tr>
+                        <td>
+                          "
+                            .$toShipByOrderIdItem['order_username']. 
+                          "
+                        </td>
+                        
+                        <td>
+                          "
+                            . $toShipByOrderIdItem['user_address'] .
+                          "
+                        </td>
 
-                      <td>"
-                        . $pendingByOrderIdItem['name'] .
-                      "</td>
+                        <td>"
+                          . $toShipByOrderIdItem['name'] .
+                        "</td>
 
-                      <td>₱"
-                        . number_format($pendingByOrderIdItem['price'], 0).
-                      "</td>
+                        <td>₱"
+                          . number_format($toShipByOrderIdItem['price'], 0).
+                        "</td>
 
-                    </tr>
-                  ";
-                  
+                        <td>
+                          <center>"
+                          . $toShipByOrderIdItem['quantity'] .
+                          "</center>
+                        </td>
+
+                        <td>₱"
+                          . number_format($toShipByOrderIdItem['price'] * $toShipByOrderIdItem['quantity'], 0) .
+                        "</td>
+
+                        <td>
+                        <input type='button' class='btn' value='CANCEL' name='cancel'>
+                        </td>
+
+                      </tr>
+                    ";
+                    
+                  }
                 }
               }
-            }
-            ?>
-          </tbody>
+              ?>
+          </tbody> 
           </table>
         </div>
       </div>
     </div>
 
-
-
-    <input type="radio" id="tabtopack" name="mytabs">
-    <label for="tabtopack" style="background-color: #FAB6AB;"><h5>TO PACK</h5></label>
-    <div class="tab">
-      <div class="styled-box" style="background-color: rgba(252, 225, 217, 8);">
-        <div style="overflow-x: auto; text-align: left;">
-          <table>
-            <tr>
-              <th>USER</th> 
-              <th>ADDRESS</th> 
-              <th>PRODUCT</th> 
-              <th>PRICE</th> 
-              <th>QUANTITY</th> 
-              <th>AMOUNT</th>
-            </tr>
-           
-          </table>
-        </div>
-      </div>
-    </div>
-
-
+    <!-- Table for To Receive or In Transit -->
     <input type="radio" id="tabintransit" name="mytabs">
     <label for="tabintransit" style="background-color: #5DCAD1;"><h5>IN TRANSIT</h5></label>
     <div class="tab">
       <div class="styled-box" style="background-color: rgba(189, 233, 232, 8);">
       <div style="overflow-x: auto; text-align: left;">
-          <table>
-            <tr>
-              <th>USER</th> 
-              <th>ADDRESS</th> 
-              <th>PRODUCT</th> 
-              <th>PRICE</th> 
-              <th>QUANTITY</th> 
-              <th>AMOUNT</th>
-            </tr>
-            
+          <table style="width: 100%; height: 100%;">
+            <thead>
+              <tr>
+                <th>USER</th> 
+                <th>ADDRESS</th> 
+                <th>PRODUCT</th> 
+                <th>PRICE</th> 
+                <th>QUANTITY</th> 
+                <th>AMOUNT</th>
+              </tr>
+            </thead>
+            <tbody>
+              <?php
+                $toReceiveByOrderId = [];
+
+                foreach($toReceiveOrderItems as $toReceiveOrderItem){
+                  $toReceiveByOrderId[$toReceiveOrderItem['order_id']][] = $toReceiveOrderItem;
+                }
+                
+                if(count($toReceiveByOrderId) == 0){
+                  echo "<tr><td colspan ='7'><center>Users Have No Orders For Now</center></td></tr>";
+                } else {
+
+                  foreach($toReceiveByOrderId as $toReceiveByOrderIdKey => $toReceiveByOrderIdItems){
+                  
+                    foreach($toReceiveByOrderIdItems as $toReceiveByOrderIdItem){
+                      
+                      echo "
+                        <tr>
+                          <td>
+                            "
+                              .$toReceiveByOrderIdItem['order_username']. 
+                            "
+                          </td>
+                          
+                          <td>
+                            "
+                              . $toReceiveByOrderIdItem['user_address'] .
+                            "
+                          </td>
+
+                          <td>"
+                            . $toReceiveByOrderIdItem['name'] .
+                          "</td>
+
+                          <td>₱"
+                            . number_format($toReceiveByOrderIdItem['price'], 0).
+                          "</td>
+
+                          <td>
+                            <center>"
+                            . $toReceiveByOrderIdItem['quantity'] .
+                            "</center>
+                          </td>
+
+                          <td>₱"
+                            . number_format($toReceiveByOrderIdItem['price'] * $toReceiveByOrderIdItem['quantity'], 0) .
+                          "</td>
+
+                          <td>
+                          <input type='button' class='btn' value='CANCEL' name='cancel'>
+                          </td>
+
+                        </tr>
+                      ";
+                      
+                    }
+                  }
+                }
+                ?>
+            </tbody>
           </table>
         </div>
       </div>
@@ -168,10 +487,20 @@ session_start();
   </div>
 
 </body>
+<?php
+// require_once('../partials/_scripts.php');
+?>
+<script>
+  if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
+
+<script src="http://cdn.jsdelivr.net/interact.js/1.2.4/interact.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.8.3.js"></script>
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 </html>
-
 <style>
-
   body {
     background: #ccc;
     font-family: Montserrat;

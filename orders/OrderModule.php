@@ -20,17 +20,17 @@ include('../config/config.php');
     ?>
 
     <?php
-     $admin_id = $_SESSION['admin_id'];
-     $ret = "SELECT * FROM admin WHERE admin_id = ?";
-     $stmt = $mysqli->prepare($ret);
-     $stmt->bind_param('s', $admin_id);
-     $stmt->execute();
-     $res = $stmt->get_result();
-     $admin = $res->fetch_object();
+    $admin_id = $_SESSION['admin_id'];
+    $ret = "SELECT * FROM admin WHERE admin_id = ?";
+    $stmt = $mysqli->prepare($ret);
+    $stmt->bind_param('s', $admin_id);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    $admin = $res->fetch_object();
 
     $username = $admin->admin_name;
     $retri = "SELECT orders.order_id, order_item.price, order_item.name, order_item.quantity, orders.order_status, orders.total, orders.order_username 
-    FROM orders JOIN order_item ON orders.order_id = order_item.order_id AND order_username = '" . $username . "';";
+    FROM orders JOIN order_item ON orders.order_id = order_item.order_id AND order_username = '" . $username . "'";
     
     $res = mysqli_query($mysqli, $retri);
     $allOrderItems = mysqli_fetch_all($res, MYSQLI_ASSOC);

@@ -138,7 +138,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                       echo "<tr><td colspan='3' style='text-align: right; font-weight: bold;'>Total Amount:</td>";
                       echo "<td style='font-weight: bold;'>₱" . number_format($totalAmount, 2) . "</td></tr>";
                       echo "<tr> <td> <form action='purchase.php' method='POST'> 
-                      <button class='btn btn-success'; border: none'>Place Order</button>
+                      <button class='btn btn-success'; border: none' name='purchase'>Place Order</button>
                       </form> </td> </tr>";
                     } else {
                       echo "<tr><td colspan='6'>Cart is empty</td></tr>";
