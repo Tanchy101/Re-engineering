@@ -20,6 +20,12 @@ include('../config/config.php');
     ?>
 
     <?php
+
+    if(isset($_POST['user_cancel'])){
+        $del_id=$_POST['user_cancel'];
+        $remove = mysqli_query($mysqli, "DELETE orders, order_item FROM orders INNER JOIN order_item ON order_item.order_id = orders.order_id WHERE orders.order_id=$del_id");
+    }
+
     $admin_id = $_SESSION['admin_id'];
     $ret = "SELECT * FROM admin WHERE admin_id = ?";
     $stmt = $mysqli->prepare($ret);
@@ -112,7 +118,12 @@ include('../config/config.php');
                         echo "
                             <tr>
                                 <td colspan = '4'>
-                                    <span><button class='btn'>CANCEL</button></span>
+                                    <span style='float:left;'>
+                                        <form action='OrderModule.php' method='POST'>
+                                        <input type='hidden' name='user_cancel' value='".$pendingByOrderIdItem['order_id']."'>
+                                        <button type='submit'>CANCEL</button>
+                                        </form>
+                                    </span>
                                     <span style = 'float: right;'> Total Amount: ₱" . number_format($pendingByOrderIdItem['total'], 0). "</span>
                                 </td>
                             </tr>";
@@ -348,20 +359,17 @@ table {
         text-align: right;
     }
 
-.btn {
-    background-color: #C83264;
-    padding: 6px;
-    border-radius: 15px;
-    /* margin-bottom: 0.1em; */
-    color: white;
-    font-size: 10px; 
-    }
-.btn:hover {
-    background-color: #C80032;
-  }
+
+
 </style>
  
     
 </body>
 <?php include('../partials/_BootStrap.php'); ?>
+
+<script>
+  if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
 </html>
