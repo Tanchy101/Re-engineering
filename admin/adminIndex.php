@@ -306,6 +306,19 @@ h4 {
                         </td>";
                      
                       }
+
+                      if($pendingByOrdersIdKey == 0){ 
+                        echo 
+                        "<td rowspan='".(count($pendingByOrderIdItems))."'>
+                            <center>
+                                <form action='adminIndex.php' method='POST'>
+                                <input type='hidden' name='order_id' value='".$pendingByOrderIdItem['order_id']."'>
+                                <button type='submit' class='btn'>PACKED</button>
+                                </form>
+                            </center>
+                          </td>";
+                       
+                        }
                       
                     echo "</tr>";
                   
@@ -330,6 +343,7 @@ h4 {
           <table style="width: 100%; height: 100%;">
           <thead>
             <tr>
+              <th>ORDER#</th>
               <th>USER</th> 
               <th>ADDRESS</th> 
               <th>PRODUCT</th> 
@@ -352,10 +366,16 @@ h4 {
 
                 foreach($toShipByOrderId as $toShipByOrderIdKey => $toShipByOrderIdItems){
                 
-                  foreach($toShipByOrderIdItems as $toShipByOrderIdItem){
-                    
+                  foreach($toShipByOrderIdItems as $toShipByOrdersIdKey => $toShipByOrderIdItem){
+                    echo "<tr>";
+                    if($toShipByOrdersIdKey == 0){
+                      echo "
+                      <td rowspan = '" .(count($toShipByOrderIdItems)).  "'>
+                      ".$toShipByOrderIdItem['order_id']."
+                      </td>
+                      ";
+                    }
                     echo "
-                      <tr>
                         <td>
                           "
                             .$toShipByOrderIdItem['order_username']. 
@@ -384,14 +404,33 @@ h4 {
 
                         <td>₱"
                           . number_format($toShipByOrderIdItem['price'] * $toShipByOrderIdItem['quantity'], 0) .
-                        "</td>
+                        "</td>";
 
-                        <td>
-                        <input type='button' class='btn' value='CANCEL' name='cancel'>
-                        </td>
-
-                      </tr>
-                    ";
+                        // if($toShipByOrdersIdKey == 0){
+                        // echo
+                        // "<td rowspan = '".(count($toShipByOrderIdItems))."'>
+                        //   <center>
+                        //       <form action='adminIndex.php' method='POST'>
+                        //       <input type='hidden' name='order_id' value='".$toShipByOrderIdItem['order_id']."'>
+                        //       <button type='submit' class='btn'>CANCEL</button>
+                        //       </form>
+                        //   </center>
+                        // </td>";
+                        // }
+                      
+                        if($toShipByOrdersIdKey == 0){
+                          echo"
+                          <td rowspan = '".(count($toShipByOrderIdItems))."'>
+                            <center>
+                                <form action='adminIndex.php' method='POST'>
+                                <input type='hidden' name='order_id' value='".$toShipByOrderIdItem['order_id']."'>
+                                <button type='submit' class='btn'>SHIP OUT</button>
+                                </form>
+                            </center>
+                          </td>";
+                          }     
+                        echo "</tr>";
+                    
                     
                   }
                 }
@@ -412,6 +451,7 @@ h4 {
           <table style="width: 100%; height: 100%;">
             <thead>
               <tr>
+                <th>ORDER#</th>
                 <th>USER</th> 
                 <th>ADDRESS</th> 
                 <th>PRODUCT</th> 
@@ -434,10 +474,16 @@ h4 {
 
                   foreach($toReceiveByOrderId as $toReceiveByOrderIdKey => $toReceiveByOrderIdItems){
                   
-                    foreach($toReceiveByOrderIdItems as $toReceiveByOrderIdItem){
-                      
+                    foreach($toReceiveByOrderIdItems as $toReceiveByOrdersIdKey => $toReceiveByOrderIdItem){
+                      echo "<tr>";
+                      if($toReceiveByOrdersIdKey == 0){
+                        echo "
+                        <td rowspan='".(count($toReceiveByOrderIdItems))."'>
+                          ".$toReceiveByOrderIdItem['order_id']."
+                        </td>
+                        ";
+                      }
                       echo "
-                        <tr>
                           <td>
                             "
                               .$toReceiveByOrderIdItem['order_username']. 
@@ -466,14 +512,22 @@ h4 {
 
                           <td>₱"
                             . number_format($toReceiveByOrderIdItem['price'] * $toReceiveByOrderIdItem['quantity'], 0) .
-                          "</td>
+                          "</td>";
 
-                          <td>
-                          <input type='button' class='btn' value='CANCEL' name='cancel'>
-                          </td>
-
-                        </tr>
-                      ";
+                          // if($toReceiveByOrdersIdKey == 0){
+                          //   echo 
+                          //   "<td rowspan='".(count($toReceiveByOrderIdItems))."'>
+                          //     <center>
+                          //       <form action='adminIndex.php' method='POST'>
+                          //       <input type='hidden' name='order_id' value='".$toReceiveByOrderIdItem['order_id']."'>
+                          //       <button type='submit' class='btn'>CANCEL</button>
+                          //       </form>
+                          //     </center>
+                          //   </td>
+                          //   ";
+                          // }
+                       echo "</tr>";
+                     
                       
                     }
                   }

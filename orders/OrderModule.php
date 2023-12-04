@@ -112,6 +112,7 @@ include('../config/config.php');
                         echo "
                             <tr>
                                 <td colspan = '4'>
+                                    <span><button class='btn'>CANCEL</button></span>
                                     <span style = 'float: right;'> Total Amount: ₱" . number_format($pendingByOrderIdItem['total'], 0). "</span>
                                 </td>
                             </tr>";
@@ -346,6 +347,18 @@ table {
     tr.total-row td{
         text-align: right;
     }
+
+.btn {
+    background-color: #C83264;
+    padding: 6px;
+    border-radius: 15px;
+    /* margin-bottom: 0.1em; */
+    color: white;
+    font-size: 10px; 
+    }
+.btn:hover {
+    background-color: #C80032;
+  }
 </style>
  
     
