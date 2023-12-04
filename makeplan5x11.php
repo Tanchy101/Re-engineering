@@ -361,7 +361,7 @@ $(document).ready(function(){
         $(this).slideUp();
       });
 
-      $(this).siblings('.content').slideDown();
+      $(this).siblings('.content').slideDown().css("overflow-y", "scroll");
     }
   });
 });
