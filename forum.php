@@ -13,6 +13,7 @@ check_login();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="mainnew.js"></script>
@@ -130,9 +131,9 @@ check_login();
               <div class="form-group">
                 <input type="hidden" class="form-control" name="name" value="<?php echo "$admin->admin_name" ?>">
               </div>
-              <div class="form-group">
+               <div class="form-group">
                 <textarea placeholder="Write your Question..." class="form-control" rows="5" name="msg" style="resize: none; overflow-y: scroll; background-color: black; color: white; border-color: white;" required></textarea>
-              </div>
+               </div>
               <input type="button" id="butsave" name="save" class="btn btn-success" value="Post" style="width: 6em; border-radius: 12px; font-weight: bold; font-family: Montserrat;">
             </form>
           </div>
