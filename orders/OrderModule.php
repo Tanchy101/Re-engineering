@@ -430,7 +430,7 @@ h3{
     border: 0;
     }
 .receive:hover {
-    background-color: #C80032;
+    background-color: #4EAD26;
     color: white;
 
 }
