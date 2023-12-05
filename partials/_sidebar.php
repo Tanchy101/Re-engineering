@@ -462,18 +462,18 @@ if (isset($_SESSION['admin_id'])) {
               <span class="text nav-text">Forum</span>
             </a>
           </li>
-
-          <li class="<?php echo ($activePage == 'page7') ? 'active2' : 'item'; ?>">
-            <a href="/Re-engineering/change_profile.php">
-              <i class='bx bxs-user-circle icon'></i>
-              <span class="text nav-text">My Profile</span>
-            </a>
-          </li>
           
           <li class="<?php echo ($activePage == 'page8') ? 'active2' : 'item'; ?>">
             <a href="/Re-engineering/orders/OrderModule.php">
               <i class='bx bxs-truck icon'></i>
               <span class="text nav-text">Orders</span>
+            </a>
+          </li>
+
+          <li class="<?php echo ($activePage == 'page7') ? 'active2' : 'item'; ?>">
+            <a href="/Re-engineering/change_profile.php">
+              <i class='bx bxs-user-circle icon'></i>
+              <span class="text nav-text">My Profile</span>
             </a>
           </li>
 
