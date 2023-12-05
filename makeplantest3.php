@@ -683,11 +683,32 @@ function captureAndPrint() {
 
                     </div>   
                     <div class = "row">
-                    <div class ="col-sm-2 dropzone element-trash elementToOverlay2" style = "margin-left: 1300px; margin-top: -300px; height: 300px">
-                      <div style = "text-align:center; font-size:smaller; height: 260px;"><b>DROP TO DELETE</b></div>
-                    </div>
+                      <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 17em; margin-top: -120px; 
+                          height: 120px; background-color: transparent; border: none; ">
+                              <div style="text-align: center; color: black;">
+                                <div style="font-size: 40px;">
+                                  <span><i class="fas fa-trash-alt"></i></span>
+                                </div>
+                                <span style="font-size: 16px;"><b>DROP TO</b></span><br>
+                                <span style="font-size: 16px;"><b>DELETE</b></span>
+                              </div>
+                            </div> 
+                        <!-- </div>   -->
+                      <!-- </div> -->
+                    <!-- </div> -->
+                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 66em; margin-top: -120px; 
+                          height: 120px; background-color: transparent; border: none;">
+                              <div style="text-align: center; color: black; margin-left: -3em;">
+                                <div style="font-size: 40px;">
+                                  <span><i class="fas fa-trash-alt"></i></span>
+                                </div>
+                                <span style="font-size: 16px;"><b>DROP TO</b></span><br>
+                                <span style="font-size: 16px;"><b>DELETE</b></span>
+                            </div>
+                      </div>
+                  </div>
 
-              </div>                                                
+              <!-- </div>                                                 -->
                     <div class="form-row">
                         <div class="col-md-6">
                           <br>
