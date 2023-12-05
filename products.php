@@ -86,7 +86,7 @@
   
 
                   <div class="theader">
-                    <table class="table align-items-center table-flush" id="table-data-product" style="zoom:80%;">
+                    <table class="table align-items-center table-flush" id="table-data-product" style="zoom:75%;">
                       <thead class="thead-light">
                         <?php
                         $ret = "SELECT * FROM product";
