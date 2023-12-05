@@ -33,6 +33,10 @@ require_once('partials/_head.php');
   background-color: #7ED957;
   border-radius: 15px;
 }
+.btn-remove:hover{
+  background-color: white;
+}
+
 </style>
 <body>
   <!-- Sidenav -->
@@ -80,6 +84,7 @@ if (isset($_GET['remove'])) {
     unset($_SESSION['cart'][$removeIndex]);
   }
 }
+
 
 // Calculate the total amount in the cart
 $totalAmount = 0;
@@ -139,7 +144,14 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                       echo "<td style='font-weight: bold;'>₱" . number_format($totalAmount, 2) . "</td></tr>";
                       echo "<tr> <td> <form action='purchase.php' method='POST'> 
                       <button class='btn btn-success'; border: none' name='purchase'>Place Order</button>
-                      </form> </td> </tr>";
+                      </form>
+                      <br>
+                      <span>
+                        <form action='removeAllItemCart.php' method='POST' name='reset'>
+                        <button class='btn' border: none style='background-color: red; color:white;' name='reset'>Remove All</button>
+                        </form>
+                      </span>
+                      </td> </tr>";
                     } else {
                       echo "<tr><td colspan='6'>Cart is empty</td></tr>";
                     }

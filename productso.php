@@ -33,6 +33,49 @@ if (isset($_POST['input'])) {
 
     if (mysqli_num_rows($res) > 0) {
         ?>
+        <style>
+        #message {
+        visibility: hidden;
+        min-width: 250px;
+        margin-left: -125px;
+        background-color: white;
+        color: black;
+        text-align: center;
+        border-radius: 2px;
+        padding: 16px;
+        position: fixed;
+        z-index: 1;
+        left: 50%;
+        top: 30px;
+        font-size: 17px;
+        }
+
+        #message.show {
+        visibility: visible;
+        -webkit-animation: fadein 0.5s, fadeout 0.4s 2.5s;
+        animation: fadein 0.5s, fadeout 0.5s 2.5s;
+        }
+
+        @-webkit-keyframes fadein {
+        from {top: 0; opacity: 0;} 
+        to {top: 30px; opacity: 1;}
+        }
+
+        @keyframes fadein {
+        from {top: 0; opacity: 0;}
+        to {top: 30px; opacity: 1;}
+        }
+
+        @-webkit-keyframes fadeout {
+        from {top: 30px; opacity: 1;} 
+        to {top: 0; opacity: 0;}
+        }
+
+        @keyframes fadeout {
+        from {top: 30px; opacity: 1;}
+        to {top: 0; opacity: 0;}
+        }
+        </style>
         <table class="table align-items-center table-flush" style="background-color: transparent;;">
             <thead class="thead-light">
             <tr>
@@ -71,10 +114,12 @@ if (isset($_POST['input'])) {
                     </td>
                     <td style="color: white; border-color: rgb(153, 148, 143,.5);"><?php echo $prod_type; ?></td>
                     <td style="color: white; border-color: rgb(153, 148, 143,.5);">
-                        <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>" data-name="<?php echo $prod_name; ?>" data-image="<?php echo $prod_img; ?>">
+                        <button class="btn btn-sm btn-warning add-to-cart" onclick="popUp()" data-price="<?php echo $prod_price; ?>" data-name="<?php echo $prod_name; ?>" data-image="<?php echo $prod_img; ?>">
                             <i class="fas fa-cart-plus"></i>
                             Add to Cart
                         </button>
+                        <div id="message">Item Added To Cart Successfully</div>
+
                     </td>
                     <td style="color: white; border-color: rgb(153, 148, 143,.5);">
                         <button class="btn btn-sm btn-primary">
@@ -98,6 +143,13 @@ require_once('partials/_head.php');
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
 <script type="text/javascript">
+function popUp() {
+  var msgpop = document.getElementById("message");
+  msgpop.className = "show";
+  setTimeout(function(){ msgpop.className = msgpop.className.replace("show", ""); }, 3000);
+}
+
+
   $(document).ready(function() {
 // Add to Cart button click event
 $(".add-to-cart").click(function() {
@@ -123,7 +175,7 @@ $(".add-to-cart").click(function() {
     url: "cart.php?item=" + JSON.stringify(item), // Include the image in the item object
     method: "GET",
     success: function(response) {
-      alert("Item added to cart");
+    //   alert("Item added to cart");
       }
     });
   });

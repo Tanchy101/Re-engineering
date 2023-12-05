@@ -11,6 +11,7 @@ if(mysqli_connect_error()){
 }
 
 if($_SERVER["REQUEST_METHOD"]=="POST"){
+
     if(isset($_POST['purchase'])){
         $order_status = "Pending";
 
