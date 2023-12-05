@@ -192,11 +192,11 @@ require_once('partials/_head.php');
             </div>
 
               </div>
-              <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4" style="background-color: rgba(22,27,34, .9);">
+              <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4" style="background-color: rgba(22,27,34, .9); border-top-left-radius: 25px; border-top-right-radius: 25px;">
                 <div class="d-flex justify-content-between">
                 </div>
               </div>
-              <div class="card-body pt-0 pt-md-4" style="background-color: rgba(22,27,34, .9);">
+              <div class="card-body pt-0 pt-md-4" style="background-color: rgba(22,27,34, .9); border-bottom-left-radius: 25px; border-bottom-right-radius: 25px;">
                 <div class="row">
                   <div class="col">
                     <div class="card-profile-stats d-flex justify-content-center mt-md-5">
@@ -238,7 +238,7 @@ require_once('partials/_head.php');
             </div>
           </div>
           <div class="col-xl-8 order-xl-1">
-        <div class="card" style="background-color: rgba(22,27,34, .9);">
+        <div class="card" style="background-color: transparent;">
           <div class="row align-items-center">
             <form method="post" enctype="multipart/form-data">
               <div class="col-8" style="width: 300px;">
@@ -250,7 +250,7 @@ require_once('partials/_head.php');
             </div>
           </div>
         </div>
-              <div class="card-body" style="background-color: rgba(22,27,34, .9); height: 97.5%;">
+              <div class="card-body" style="background-color: rgba(22,27,34, .9); height: 97.5%; border-radius: 25px;">
                 <form method="post" enctype ="multipart/form-data">
                   
                   <h6 class="heading mb-4" style="color: white;">User information</h6>
@@ -342,8 +342,10 @@ require_once('partials/_head.php');
           </div>
         </div>
         <!-- Footer -->
+        <div class="footers" style="margin-top: 56em; margin-left: 1em; position: absolute; width: 50%;">
         <?php require_once('partials/_footer.php'); }
         ?>
+        </div>
       </div>
     </div>
     <!-- Argon Scripts -->
