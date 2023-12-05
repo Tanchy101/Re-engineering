@@ -177,7 +177,7 @@ require_once('partials/_head.php');
       <div class="container-fluid mt--8">
         <div class="row">
           <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
-            <div class="card card-profile shadow">
+            <div class="card card-profile shadow" style="background-color: transparent;">
               <div class="row justify-content-center">
               <div class="card-profile-image">
                 <?php
@@ -192,11 +192,11 @@ require_once('partials/_head.php');
             </div>
 
               </div>
-              <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4">
+              <div class="card-header text-center border-0 pt-8 pt-md-4 pb-0 pb-md-4" style="background-color: rgba(22,27,34, .9);">
                 <div class="d-flex justify-content-between">
                 </div>
               </div>
-              <div class="card-body pt-0 pt-md-4">
+              <div class="card-body pt-0 pt-md-4" style="background-color: rgba(22,27,34, .9);">
                 <div class="row">
                   <div class="col">
                     <div class="card-profile-stats d-flex justify-content-center mt-md-5">
@@ -210,26 +210,26 @@ require_once('partials/_head.php');
                   </div>
                 </div>
                 <div class="text-center">
-                  <h3>
+                  <h3 style="color: white;">
                 <?php 
                 echo "Username: ";
                 echo $admin->admin_name; ?>
                   </h3>
-                  <div class="h5 font-weight-300">
+                  <div class="h5 font-weight-300" style="color: white;">
                     <i class="ni location_pin mr-2"></i><?php echo $admin->admin_email; ?>
                   </div>
                 <div class="h5 font-weight-300">
-                <label class="form-control-label" for="input-bio">Bio:</label><br>
-                  <i class="ni location_pin mr"></i><span id="bioText"><?php echo $admin->bio; ?></span><br><br>
+                <label class="form-control-label" for="input-bio" style="color: white;">Bio:</label><br>
+                  <i class="ni location_pin mr"></i><span id="bioText" style="color: white;"><?php echo $admin->bio; ?></span><br><br>
                   <button class="btn btn-sm btn-primary" type="button" onclick="toggleBioEdit()">Edit Bio</button>
                 </div>
                 <div id="bioEditSection" style="display: none;">
                 <form method="post" enctype="multipart/form-data">
                   <div class="form-group">
-                    <textarea maxlength="75" name="bio" id="input-bio" class="form-control" rows="4" style="resize: none;"><?php echo $admin->bio; ?></textarea>
+                    <textarea placeholder="Input Less Than 75 Characters" maxlength="75" name="bio" id="input-bio" class="form-control" rows="4" style="resize: none; background-color: black; border-color: white; color: white;"><?php echo $admin->bio; ?></textarea>
                   </div>
                   <div class="form-group">
-                    <input type="submit" name="ChangeBio" class="btn btn-sm btn-primary form-control-alternative" value="Update Bio">
+                    <input type="submit" name="ChangeBio" class="btn btn-sm btn-success form-control-alternative" value="Update Bio">
                   </div>
                 </form>
                 </div>
@@ -238,42 +238,42 @@ require_once('partials/_head.php');
             </div>
           </div>
           <div class="col-xl-8 order-xl-1">
-        <div class="card-header border-0 py-4" style="background-color: rgba(22,27,34, .9);" >
+        <div class="card" style="background-color: rgba(22,27,34, .9);">
           <div class="row align-items-center">
             <form method="post" enctype="multipart/form-data">
               <div class="col-8" style="width: 300px;">
-                <h3 style="margin-bottom: 0px; color: white;">My Account </h3>
-              
+                
               </div>
             </form>
+        
             <div class="col-4 text-right">
             </div>
           </div>
         </div>
-              <div class="card-body" style="background-color: rgba(22,27,34, .9);">
+              <div class="card-body" style="background-color: rgba(22,27,34, .9); height: 97.5%;">
                 <form method="post" enctype ="multipart/form-data">
                   
-                  <h6 class="heading-small text-muted mb-4">User information</h6>
+                  <h6 class="heading mb-4" style="color: white;">User information</h6>
                   <div class="pl-lg-4">
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
                           <label class="form-control-label" for="input-username" style="color: white;">Username</label>
-                          <input type="text" name="admin_name" value="<?php echo $admin->admin_name; ?>" id="input-username" class="form-control form-control-alternative">
+                          <input type="text" name="admin_name" value="<?php echo $admin->admin_name; ?>" id="input-username" class="form-control form-control-alternative" style=" background-color: black; border: solid; border-width: thin; border-color: white; color: white;">
                         </div>
                       </div>
                       <div class="col-lg-6">
                         <div class="form-group">
-                          <label class="form-control-label" for="input-email">Email address</label>
-                          <input type="email" id="input-email" value="<?php echo $admin->admin_email; ?>" name="admin_email" class="form-control form-control-alternative">
+                          <label class="form-control-label" for="input-email" style="color: white;">Email Address</label>
+                          <input type="email" id="input-email" value="<?php echo $admin->admin_email; ?>" name="admin_email" class="form-control form-control-alternative" style=" background-color: black; border: solid; border-width: thin; border-color: white; color: white;">
                         </div>
                       </div>
                       
                       <!-- Address -->
                       <div class="col-lg-6">
                         <div class="form-group">
-                          <label class="form-control-label" for="input-address">Address</label>
-                          <input type="text" name="address" value="<?php echo $admin->address; ?>" id="input-address" class="form-control form-control-alternative">
+                          <label class="form-control-label" for="input-address" style="color: white;">Address</label>
+                          <input type="text" name="address" value="<?php echo $admin->address; ?>" id="input-address" class="form-control form-control-alternative" style=" background-color: black; border: solid; border-width: thin; border-color: white; color: white;">
                         </div>
                       </div>
 
@@ -288,13 +288,13 @@ require_once('partials/_head.php');
                     
                   </div>
 
-                  <h6 class="heading-small text-muted mb-4">Change Profile Picture</h6>
+                  <h6 class="heading mb-4" style="color: white;">Change Profile Picture</h6>
                   <div class="pl-lg-4">
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
-                          <label class="form-control-label" for="input-username">Select Image</label>
-                          <input type="file" class="form-control" name="profileImage">
+                          <label class="form-control-label" for="input-username" style="color: white;">Select Image</label>
+                          <input type="file" class="form-control" name="profileImage" style="background-color: black; color: white; border: solid; border-width: thin; border-color: white;">
                         </div>
                       </div>
                       <div class="col-lg-6">
@@ -307,26 +307,26 @@ require_once('partials/_head.php');
            
                 </form>
                 <hr>
-                <form method="post" enctype ="multipart/form-data">
-                  <h6 class="heading-small text-muted mb-4">Change Password</h6>
+                <form method="post" enctype ="multipart/form-data" style="margin-left: -8px;">
+                  <h6 class="heading mb-4" style="color: white;">CHANGE PASSWORD</h6>
                   <div class="pl-lg-4">
                     <div class="row">
-                      <div class="col-lg-12">
+                      <div class="col-lg-11">
                         <div class="form-group">
-                          <label class="form-control-label" for="input-username">Old Password</label>
-                          <input type="password" name="old_password" id="input-username" class="form-control form-control-alternative">
+                          <label class="form-control-label" for="input-username" style="color: white;">Old Password</label>
+                          <input placeholder="Enter Current Password" maxlength="20" type="password" name="old_password" id="input-username" class="form-control form-control-alternative" style="background-color: black; border: solid; border-width: thin; color: white;">
                         </div>
                       </div>
-                      <div class="col-lg-12">
+                      <div class="col-lg-11">
                         <div class="form-group">
-                          <label class="form-control-label" for="input-email">New Password</label>
-                          <input type="password" name="new_password" class="form-control form-control-alternative">
+                          <label class="form-control-label" for="input-email" style="color: white;">New Password</label>
+                          <input placeholder="Enter Desired Password" maxlength="20"  type="password" name="new_password" class="form-control form-control-alternative" style="background-color: black; border: solid; border-width: thin; color: white;">
                         </div>
                       </div>
-                      <div class="col-lg-12">
+                      <div class="col-lg-11">
                         <div class="form-group">
-                          <label class="form-control-label" for="input-email">Confirm New Password</label>
-                          <input type="password" name="confirm_password" class="form-control form-control-alternative">
+                          <label class="form-control-label" for="input-email" style="color: white;">Confirm New Password</label>
+                          <input placeholder="Re-Type Desired Password" maxlength="20" type="password" name="confirm_password" class="form-control form-control-alternative" style="background-color: black; border: solid; border-width: thin; color: white;">
                         </div>
                       </div>
                       <div class="col-lg-12">
