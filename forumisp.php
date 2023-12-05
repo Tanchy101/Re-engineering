@@ -13,6 +13,7 @@ check_login();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="main3.js"></script>
@@ -25,14 +26,32 @@ check_login();
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 </head>
+<style>
 
-    <!--
-    <script>
-        window.onload = function() {
-            // Set the zoom level to 67% (0.67) when the page loads
-            document.body.style.zoom = "75%";
-        };
-    </script> -->
+  h2{
+    margin-left: .5em;
+    font-family: 'Montserrat';
+    font-weight: bold;
+    margin-top: -25em;
+    color: white;
+    margin-bottom: -1em;
+  }
+  h3{
+    font-family: 'Montserrat';
+    font-weight: bold;
+    color: white;
+  }
+  .panel-body{
+    background-color: rgba(22,27,34, .7);
+    border-radius: 20px;
+  }
+  .panel-default{
+    background-color: rgba(22,27,34,.7);
+    border-radius: 20px;
+  }
+
+</style>
+
 <body>
 
   <!-- Sidenav -->
@@ -42,19 +61,19 @@ check_login();
   ?>
 
   <!-- Main content -->
-  <div class="main-content">
- 
-  <div class="navbar navbar-default">
-  <div class="container-fluid">
-  <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <div class="navbar-brand" style="font-size: 24px;">Network Layout Assessment Forum</div>
-    </div>
+  <div class="main-content" style="background-image: url(assets/img/theme/ForumBG.png); background-size: cover; height: 100vh;">
+    <div class="navbar navbar-default">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
+            <span class="sr-only">Toggle Navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+      
+          <div class="navbar-brand" style="font-size: 24px;">Network Layout Assessment Forum</div>
+        </div>
 
     <div class="collapse navbar-collapse" id="navbar-collapse">
       <ul class="nav navbar-nav" style="font-size: 12px;">
@@ -72,9 +91,8 @@ check_login();
       <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
-          <div class="modal-header">
+          <div class="modal">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h4 class="modal-title">Reply Question</h4>
           </div>
           <?php
           if (isset($_SESSION['admin_id'])) {
@@ -88,17 +106,17 @@ check_login();
 
             while ($admin = $res->fetch_object()) {
           ?>
-              <div class="modal-body">
+              <div class="modal-body" style="background-color: black;">
                 <form name="frm1" method="post">
                   <input type="hidden" id="commentid" name="Rcommentid">
                   <div class="form-group">
                     <input type="hidden" name="Rname" value="<?php echo "$admin->admin_name" ?>">
                   </div>
                   <div class="form-group">
-                    <label for="comment">Write your reply:</label>
-                    <textarea class="form-control" rows="5" name="Rmsg" required></textarea>
+                    <h4 style="color: white; font-family: Montserrat;">Reply to a Question</h4>
+                    <textarea placeholder="Write your Reply..." class="form-control" rows="5" name="Rmsg" style="resize: none; color: white; background-color: black; border-color: white;" required></textarea>
                   </div>
-                  <input type="button" id="btnreply" name="btnreply" class="btn btn-primary" value="Reply">
+                  <input type="button" id="btnreply" name="btnreply" class="btn btn-primary" value="Reply" style="background-color: #7ed957; color: white; font-weight: bold; font-family: Montserrat;">
                 </form>
               </div>
         </div>
@@ -107,20 +125,18 @@ check_login();
 
     <div class="form-row">
       <div class="col-md-12">
-        <div class="panel panel-default" style="margin-top:50px">
+        <div class="panel panel-default" style="margin-top:50px;  background-color: transparent; border: none;">
           <div class="panel-body">
-            <h3>Community forum</h3>
-            <hr>
+            <h3>Community Forum</h3>
             <form name="frm" method="post">
               <input type="hidden" id="commentid" name="Pcommentid" value="0">
               <div class="form-group">
                 <input type="hidden" class="form-control" name="name" value="<?php echo "$admin->admin_name" ?>">
               </div>
               <div class="form-group">
-                <label for="comment">Write your question:</label>
-                <textarea class="form-control" rows="5" name="msg" required></textarea>
+                <textarea placeholder="Write your Question..." class="form-control" rows="5" name="msg" style="resize: none; overflow-y: scroll; background-color: black; color: white; border-color: white;" required></textarea>
               </div>
-              <input type="button" id="butsave" name="save" class="btn btn-primary" value="Send">
+              <input type="button" id="butsave" name="save" class="btn btn-success" value="Post" style="width: 6em; border-radius: 12px; font-weight: bold; font-family: Montserrat;">
             </form>
           </div>
         </div>
@@ -132,9 +148,10 @@ check_login();
           ?>
     <div class="form-row">
       <div class="col-md-12">
-        <div class="panel panel-default">
+        <div class="panel panel-default" style="margin-top:10px; background-color: transparent; border: none;">
           <div class="panel-body">
-            <h4>Recent questions</h4>
+            <h3 style="margin-bottom: 1em;">Recent Questions</h3>
+            <div class="table-content" style="overflow-y: scroll; max-height: 290px;">
             <table class="table" id="MyTable" style="background-color: #edfafa; border:0px;border-radius:20px">
               <tbody id="record">
 

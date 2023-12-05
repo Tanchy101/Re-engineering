@@ -13,7 +13,7 @@ check_login();
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="mainnew.js"></script>
@@ -61,12 +61,12 @@ check_login();
 
 
   <!-- Main content -->
-  <div class="main-content" style="background-image: url(assets/img/theme/ForumBG.png); background-size: 100%; height: 100vh; background-repeat: repeat;">
+  <div class="main-content" style="background-image: url(assets/img/theme/ForumBG.png); background-size: cover; height: 100vh;">
     <div class="navbar navbar-default">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse">
-          <span class="sr-only">Toggle navigation</span>
+          <span class="sr-only">Toggle Navigation</span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
@@ -89,7 +89,7 @@ check_login();
       <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
-          <div class="modal" style="background-color: black; border-color: white;">
+          <div class="modal">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
           </div>
           <?php

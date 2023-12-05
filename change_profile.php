@@ -227,7 +227,7 @@ require_once('partials/_head.php');
                 <div id="bioEditSection" style="display: none;">
                 <form method="post" enctype="multipart/form-data">
                   <div class="form-group">
-                    <textarea name="bio" id="input-bio" class="form-control" rows="4"><?php echo $admin->bio; ?></textarea>
+                    <textarea maxlength="75" name="bio" id="input-bio" class="form-control" rows="4" style="resize: none;"><?php echo $admin->bio; ?></textarea>
                   </div>
                   <div class="form-group">
                     <input type="submit" name="ChangeBio" class="btn btn-sm btn-primary form-control-alternative" value="Update Bio">
