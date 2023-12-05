@@ -157,9 +157,8 @@ require_once('partials/_head.php');
     while ($admin = $res->fetch_object()) {
     ?>
       <!-- Header -->
-      <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style="min-height: 400px; background-image: url(assets/img/theme/restro00.jpg); margin-top:-100px;background-size: cover; background-position: center top;">
+      <div class="header pb-8 pt-5 pt-lg-8 d-flex align-items-center" style=" background-image: url(assets/img/theme/MyProfileBG.png); margin-top:-100px; background-size: cover;">
         <!-- Mask -->
-        <span class="mask bg-gradient-default opacity-8"></span>
         <!-- Header container -->
         <div class="container-fluid d-flex align-items-center">
           <div class="row">
@@ -239,12 +238,11 @@ require_once('partials/_head.php');
             </div>
           </div>
           <div class="col-xl-8 order-xl-1">
-      <div class="card bg-secondary shadow">
-        <div class="card-header bg-white border-0 py-4">
+        <div class="card-header border-0 py-4" style="background-color: rgba(22,27,34, .9);" >
           <div class="row align-items-center">
             <form method="post" enctype="multipart/form-data">
               <div class="col-8" style="width: 300px;">
-                <h3 style="margin-bottom: 0px;">My Account </h3>
+                <h3 style="margin-bottom: 0px; color: white;">My Account </h3>
               
               </div>
             </form>
@@ -252,7 +250,7 @@ require_once('partials/_head.php');
             </div>
           </div>
         </div>
-              <div class="card-body" style="zoom: 83%">
+              <div class="card-body" style="background-color: rgba(22,27,34, .9);">
                 <form method="post" enctype ="multipart/form-data">
                   
                   <h6 class="heading-small text-muted mb-4">User information</h6>
@@ -260,7 +258,7 @@ require_once('partials/_head.php');
                     <div class="row">
                       <div class="col-lg-6">
                         <div class="form-group">
-                          <label class="form-control-label" for="input-username">Username</label>
+                          <label class="form-control-label" for="input-username" style="color: white;">Username</label>
                           <input type="text" name="admin_name" value="<?php echo $admin->admin_name; ?>" id="input-username" class="form-control form-control-alternative">
                         </div>
                       </div>
