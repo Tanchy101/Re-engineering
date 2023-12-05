@@ -121,7 +121,7 @@ function captureAndPrint() {
     require_once('partials/_topnav.php');
     ?>
     <!-- Header -->
-    <div style="background-image: url(assets/img/theme/GenerateBG.png); background-size: cover; background-height: 50%;" class="header  pb-8 pt-5 pt-md-8">
+    <div style="background-image: url(assets/img/theme/GenerateBG.png); background-size: cover; height: 45vh;" class="header  pb-8 pt-5 pt-md-8">
       <div class="container-fluid">
         <div class="header-body">
         </div>
@@ -130,7 +130,7 @@ function captureAndPrint() {
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
-          <div class="card shadow">
+          <div class="card shadow" style="margin-top: -18em;">
             <div class="card-header border-0">
               <div class = "row">
                 <div class = "col-md-6">
@@ -282,7 +282,7 @@ function captureAndPrint() {
             <!-- ITEMS COLUMN -->
             <div class = "col-sm-12 container" id = "form-container">
               <div class="row">
-                     <div class="col-sm-4" style = "padding-right: 150px; padding-left: 30px; max-width:500px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
+                     <div class="col-sm-5" style = "padding-right: 150px; padding-left: 30px; max-width:480px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
                         <div class = "elementToOverlay"><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none">
                             <div class="drag-element-source drag-element" style = "z-index:1">
