@@ -123,7 +123,7 @@ check_login();
 
     <div class="form-row">
       <div class="col-md-12" style="margin-top: -2em;">
-        <div class="panel panel-default" style="margin-top:50px; background-color: transparent; border: none;">
+        <div class="panel panel-default" style="margin-top:30px; background-color: transparent; border: none;">
           <div class="panel-body">
             <h3>Community Forum</h3>
             <form name="frm" method="post">
@@ -149,7 +149,7 @@ check_login();
         <div class="panel panel-default" style="margin-top:10px; background-color: transparent; border: none;">
           <div class="panel-body">
             <h3 style="margin-bottom: 1em;">Recent Thread</h3>
-            <div class="table-content" style="overflow-y: scroll; max-height: 290px;">
+            <div class="table-content" style="overflow-y: scroll; max-height: 252px;">
             <table class="table" id="MyTable" style="background-color: #edfafa; border:0px;border-radius:20px;">
               <tbody id="record">
               </tbody>
