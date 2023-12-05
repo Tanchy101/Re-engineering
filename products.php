@@ -55,7 +55,7 @@
         <!-- Table -->
         <div class="row">
           <div class="col">
-              <div class="card-header" style="overflow-x: hidden; overflow-y: scroll; visible; height: 75vh; border-radius: 25px;
+              <div class="card-header" style="height: 75vh; border-radius: 25px;
               margin-top: -32.5em; postion: relative; background-color: rgba(22,27,34,.93);">
                 <label style="font-size: x-large; font-weight: bold; margin-left: 0.6em; color: white;"> Products </label>
                 <div class="col-md-12">
@@ -85,8 +85,8 @@
                               
   
 
-                  <div class="table-responsive">
-                    <table class="table align-items-center table-flush" id="table-data-product" style="zoom:70%;">
+                  <div class="theader">
+                    <table class="table align-items-center table-flush" id="table-data-product" style="zoom:80%;">
                       <thead class="thead-light">
                         <?php
                         $ret = "SELECT * FROM product";
@@ -95,13 +95,13 @@
                         $res = $stmt->get_result();
                         ?>
                         <tr>
-                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none; border-top-left-radius: 10px;">Image</th>
-                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Name</th>
-                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Price</th>
-                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Quantity</th>
-                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Product Type</th>
-                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Action</th>                      
-                            <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none; border-top-right-radius: 10px;">Product Link</th>
+                            <th scope="col" style="color: white; background-color: #484A4C; border: none; border-top-left-radius: 10px;">Image</th>
+                            <th scope="col" style="color: white; background-color: #484A4C; border: none;">Name</th>
+                            <th scope="col" style="color: white; background-color: #484A4C; border: none;">Price</th>
+                            <th scope="col" style="color: white; background-color: #484A4C; border: none;">Quantity</th>
+                            <th scope="col" style="color: white; background-color: #484A4C; border: none;">Product Type</th>
+                            <th scope="col" style="color: white; background-color: #484A4C; border: none;">Action</th>                      
+                            <th scope="col" style="color: white; background-color: #484A4C; border: none;">Product Link</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -129,6 +129,7 @@
                               <input type="number" class="form-control quantity-input" min="1" value="1" max="999" style="width:70px;">
                             </td>
                             <td style="color: white; border-color: rgb(153, 148, 143,.5);"><?php echo $prod_type; ?></td>
+                            
                             <td style="border-color: rgb(153, 148, 143,.5);">
                               <button class="btn btn-sm btn-warning add-to-cart" data-price="<?php echo $prod_price; ?>" data-name="<?php echo $prod_name; ?>" data-image="<?php echo $prod_img; ?>">
                                 <i class="fas fa-cart-plus link-click"></i>
@@ -259,6 +260,29 @@
   }); 
  });
 </script>
+    <style> 
+    .theader { 
+      overflow-y: auto;
+      height: 25em; 
+    } 
+    .theader thead th { 
+      position: sticky; 
+      top: 0; 
+      z-index: 100;
+    } 
+    table { 
+      border-collapse: collapse;         
+      width: 100%; 
+    } 
+    th, 
+    td { 
+      padding: 8px 15px; 
+      border: 2px solid #529432; 
+    } 
+    th { 
+      background: #ABDD93; 
+    } 
+  </style> 
 
 </body>
 </html>
