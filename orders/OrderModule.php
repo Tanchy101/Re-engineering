@@ -137,10 +137,10 @@ check_login();
                                     <span style='float:left;'>
                                         <form action='OrderModule.php' method='POST'>
                                         <input type='hidden' name='user_cancel' value='".$pendingByOrderIdItem['order_id']."'>
-                                        <button type='submit'>CANCEL</button>
+                                        <button class='submits' type='submit'>CANCEL</button>
                                         </form>
                                     </span>
-                                    <span style = 'float: right;'> Total Amount: ₱" . number_format($pendingByOrderIdItem['total'], 0). "</span>
+                                    <span style = 'float: right; font-weight: bold;'> Total Amount: ₱" . number_format($pendingByOrderIdItem['total'], 0). "</span>
                                 </td>
                             </tr>";
                     }
@@ -271,7 +271,7 @@ check_login();
                                         <span style='float:left;'>
                                             <form action='OrderModule.php' method='POST'>
                                                 <input type='hidden' name='received' value='".$toReceiveByOrderIdItem['order_id']."'>
-                                                <button type='submit'>RECEIVED</button>
+                                                <button class='receive' type='submit'>RECEIVED</button>
                                             </form>
                                         </span>
                                         <span style = 'float: right; margin-bottom: 3em; font-weight: bold;' > Total Amount: ₱" . number_format($toReceiveByOrderIdItem['total'], 0). "</span>
@@ -387,7 +387,6 @@ h3{
 .pendings{
     background-color: #D6D4D2;
     height: 0em;
-    float: center;
     border-top-right-radius: 20px;
 }
 .topacks{
@@ -403,22 +402,42 @@ h3{
     float: center;
     border-top-right-radius: 20px;
 }
-.btn {
-    background-color: #C83264;
+.submits {
+    background-color: #FF0000;
+    width: 10em;
     padding: 6px;
     border-radius: 15px;
     /* margin-bottom: 0.1em; */
     color: white;
     font-size: 10px; 
+    margin-bottom: 3em;
+    border: 0;
     }
-.btn:hover {
+.submits:hover {
     background-color: #C80032;
     color: white;
   }
+
+.receive {
+    background-color: #7ED957;
+    width: 10em;
+    padding: 6px;
+    border-radius: 15px;
+    /* margin-bottom: 0.1em; */
+    color: white;
+    font-size: 10px; 
+    margin-bottom: 3em;
+    border: 0;
+    }
+.receive:hover {
+    background-color: #C80032;
+    color: white;
+
+}
   tbody {
     display: block;
     height: 28em;
-    overflow: auto;
+    overflow-y: scroll;
   }
 
 </style>
