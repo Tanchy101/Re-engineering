@@ -25,14 +25,14 @@ check_login();
 <body style="background-image: url('../assets/img/theme/AdminBG.png'); background-size: cover; height: 100vh; opacity: 3">
 <?php
   // deleting the placed order items in database when cancel button is pressed
-  if(isset($_POST['order_id'])){
-    $del_id=$_POST['order_id'];
+  if(isset($_POST['cancelOrder'])){
+    $del_id=$_POST['cancelOrder'];
     $remove = mysqli_query($mysqli, "DELETE orders, order_item FROM orders INNER JOIN order_item ON order_item.order_id = orders.order_id WHERE orders.order_id=$del_id");
   }
 
   //query for updating status into to ship from pednding
-  if(isset($_POST['packed'])){
-    $packed_id=$_POST['packed'];
+  if(isset($_POST['toPack'])){
+    $packed_id=$_POST['toPack'];
     $updateStatus = mysqli_query($mysqli, "UPDATE orders SET order_status='To Ship' WHERE order_id=$packed_id");
   }
 
@@ -153,12 +153,12 @@ check_login();
                             <tr>
                                 <td colspan = '6'>
                                     <span style='float:left;'>
-                                        <form action='OrderModule.php' method='POST'>
-                                        <input type='hidden' name='user_cancel' value='".$pendingByOrderIdItem['order_id']."'>
+                                        <form action='adminIndex.php' method='POST'>
+                                        <input type='hidden' name='cancelOrder' value='".$pendingByOrderIdItem['order_id']."'>
                                         <button class='cancels' type='submit'>CANCEL</button>
                                         </form>
-                                        <form action='OrderModule.php' method='POST'>
-                                        <input type='hidden' name='user_cancel' value='".$pendingByOrderIdItem['order_id']."'>
+                                        <form action='adminIndex.php' method='POST'>
+                                        <input type='hidden' name='toPack' value='".$pendingByOrderIdItem['order_id']."'>
                                         <button class='to-packs' type='submit'>TO PACK</button>
                                         </form>
                                     </span>
@@ -194,50 +194,50 @@ check_login();
     
         <tbody>
             <?php  
-                $pendingByOrderId = [];
+                $toShipByOrderId = [];
                 // Group each pending order items by their orders (using order_id)
-                foreach($pendingOrderItems as $pendingOrderItem) {
-                    $pendingByOrderId[$pendingOrderItem['order_id']][] = $pendingOrderItem;
+                foreach($toShipOrderItems as $toShipOrderItem) {
+                    $toShipByOrderId[$toShipOrderItem['order_id']][] = $toShipOrderItem;
                 }
                 
-                if (count($pendingByOrderId) == 0){
+                if (count($toShipByOrderId) == 0){
                     echo "<tr><td colspan = '4'><center>You don't have any current orders for now</center></td></tr>";
                 }else {
                     // Loop through each order 
-                    foreach($pendingByOrderId as $pendingByOrderIdKey => $pendingByOrderIdItems) {
+                    foreach($toShipByOrderId as $toShipByOrderIdKey => $toShipByOrderIdItems) {
                         echo "
                                 <tr>
                                     <td colspan = '6'>
-                                        <div style='font-weight: bold;'>Order ID: " . $pendingByOrderIdKey . "</div>
+                                        <div style='font-weight: bold;'>Order ID: " . $toShipByOrderIdKey . "</div>
                                     </td>
                                 </tr>
                             ";
                         // Loop through each of the current order's order items
-                        foreach($pendingByOrderIdItems as $pendingByOrderIdItem) {
+                        foreach($toShipByOrderIdItems as $toShipByOrderIdItem) {
                             echo "
                                     <tr>
                                         <td>
                                         "
-                                        .$pendingByOrderIdItem['order_username']. 
+                                        .$toShipByOrderIdItem['order_username']. 
                                         "
                                         </td>
                                         <td style='margin-left: -10em;'>
                                         "
-                                        .$pendingByOrderIdItem['user_address'].
+                                        .$toShipByOrderIdItem['user_address'].
                                         "
                                         </td>
                                         <td>
-                                            <span>" . $pendingByOrderIdItem['name'] . "</span>
+                                            <span>" . $toShipByOrderIdItem['name'] . "</span>
                                         </td>
                                         <td>
-                                            <span> ₱" . number_format($pendingByOrderIdItem['price'], 0) . "</span>
+                                            <span> ₱" . number_format($toShipByOrderIdItem['price'], 0) . "</span>
                                         </td>
                                         
                                         <td>
-                                            <span>" . $pendingByOrderIdItem['quantity'] . "</span>
+                                            <span>" . $toShipByOrderIdItem['quantity'] . "</span>
                                         </td>
                                         <td>
-                                            <span> ₱" . number_format($pendingByOrderIdItem['price'] * $pendingByOrderIdItem['quantity'], 0) . "</span>
+                                            <span> ₱" . number_format($toShipByOrderIdItem['price'] * $toShipByOrderIdItem['quantity'], 0) . "</span>
                                         </td>
                                         
                                         
@@ -248,13 +248,13 @@ check_login();
                             <tr>
                                 <td colspan = '6'>
                                     <span style='float:left;'>
-                                        <form action='OrderModule.php' method='POST'>
-                                        <input type='hidden' name='user_cancel' value='".$pendingByOrderIdItem['order_id']."'>
+                                        <form action='adminIndex.php' method='POST'>
+                                        <input type='hidden' name='toShip' value='".$toShipByOrderIdItem['order_id']."'>
                                         <button class='ship-out' type='submit'>SHIP OUT</button>
                                         </form>
                                         
                                     </span>
-                                    <span style = 'float: right; font-weight: bold;'> Total Amount: ₱" . number_format($pendingByOrderIdItem['total'], 0). "</span>
+                                    <span style = 'float: right; font-weight: bold;'> Total Amount: ₱" . number_format($toShipByOrderIdItem['total'], 0). "</span>
                                 </td>
                             </tr>";
                     }
@@ -285,50 +285,50 @@ check_login();
     
         <tbody>
             <?php  
-                $pendingByOrderId = [];
+                $toReceiveByOrderId = [];
                 // Group each pending order items by their orders (using order_id)
-                foreach($pendingOrderItems as $pendingOrderItem) {
-                    $pendingByOrderId[$pendingOrderItem['order_id']][] = $pendingOrderItem;
+                foreach($toReceiveOrderItems as $toReceiveOrderItem) {
+                    $toReceiveByOrderId[$toReceiveOrderItem['order_id']][] = $toReceiveOrderItem;
                 }
                 
-                if (count($pendingByOrderId) == 0){
+                if (count($toReceiveByOrderId) == 0){
                     echo "<tr><td colspan = '4'><center>You don't have any current orders for now</center></td></tr>";
                 }else {
                     // Loop through each order 
-                    foreach($pendingByOrderId as $pendingByOrderIdKey => $pendingByOrderIdItems) {
+                    foreach($toReceiveByOrderId as $toReceiveByOrderIdKey => $toReceiveByOrderIdItems) {
                         echo "
                                 <tr>
                                     <td colspan = '6'>
-                                        <div style='font-weight: bold;'>Order ID: " . $pendingByOrderIdKey . "</div>
+                                        <div style='font-weight: bold;'>Order ID: " . $toReceiveByOrderIdKey . "</div>
                                     </td>
                                 </tr>
                             ";
                         // Loop through each of the current order's order items
-                        foreach($pendingByOrderIdItems as $pendingByOrderIdItem) {
+                        foreach($toReceiveByOrderIdItems as $toReceiveByOrderIdItem) {
                             echo "
                                     <tr>
                                         <td>
                                         "
-                                        .$pendingByOrderIdItem['order_username']. 
+                                        .$toReceiveByOrderIdItem['order_username']. 
                                         "
                                         </td>
                                         <td style='margin-left: -10em;'>
                                         "
-                                        .$pendingByOrderIdItem['user_address'].
+                                        .$toReceiveByOrderIdItem['user_address'].
                                         "
                                         </td>
                                         <td>
-                                            <span>" . $pendingByOrderIdItem['name'] . "</span>
+                                            <span>" . $toReceiveByOrderIdItem['name'] . "</span>
                                         </td>
                                         <td>
-                                            <span> ₱" . number_format($pendingByOrderIdItem['price'], 0) . "</span>
+                                            <span> ₱" . number_format($toReceiveByOrderIdItem['price'], 0) . "</span>
                                         </td>
                                         
                                         <td>
-                                            <span>" . $pendingByOrderIdItem['quantity'] . "</span>
+                                            <span>" . $toReceiveByOrderIdItem['quantity'] . "</span>
                                         </td>
                                         <td>
-                                            <span> ₱" . number_format($pendingByOrderIdItem['price'] * $pendingByOrderIdItem['quantity'], 0) . "</span>
+                                            <span> ₱" . number_format($toReceiveByOrderIdItem['price'] * $toReceiveByOrderIdItem['quantity'], 0) . "</span>
                                         </td>
                                         
                                         
@@ -337,15 +337,10 @@ check_login();
 
                         echo "
                             <tr>
-                                <td colspan = '6'>
-                                    <span style='float:left;'>
-                                        <form action='OrderModule.php' method='POST'>
-                                        <input type='hidden' name='user_cancel' value='".$pendingByOrderIdItem['order_id']."'>
-                                        <button class='order-received' type='submit'>ORDER RECEIVED</button>
-                                        </form>
-                                        
+                                <td colspan = '6'>                        
                                     </span>
-                                    <span style = 'float: right; font-weight: bold;'> Total Amount: ₱" . number_format($pendingByOrderIdItem['total'], 0). "</span>
+                                        <span style = 'float: right; font-weight: bold;'> Total Amount: ₱" . number_format($toReceiveByOrderIdItem['total'], 0). "
+                                    </span>
                                 </td>
                             </tr>";
                     }
