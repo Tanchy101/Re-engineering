@@ -22,7 +22,7 @@ check_login();
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 </head>
-<body style="background-image: url('../assets/img/theme/AdminBG.png'); background-size: cover; height: 100vh; opacity: 3">
+<body style="background-image: url('../assets/img/theme/Adminbg.png'); background-size: cover; height: 100vh; opacity: 3">
 <?php
   // deleting the placed order items in database when cancel button is pressed
   if(isset($_POST['cancelOrder'])){
