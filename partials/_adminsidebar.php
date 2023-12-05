@@ -16,22 +16,20 @@
   --tran-05: all 0.3s ease;
 }
 
-/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap'); */
-
-@import url('https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
 
 * {
-  margin 0;
+  margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: 'Montserrat';
-  
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
   min-height: 100vh;
   background-color: var(--body-color);
   transition: var(--tran-05);
+  font-family: 'Poppins';
 }
 
 ::selection {
@@ -39,10 +37,6 @@ body {
   color: #fff;
 }
 
-.nav {
-  font-size: 10px;
-  margin-left: 20px;
-}
 
 body.dark {
   --body-color: #18191a;
@@ -59,8 +53,8 @@ body.dark {
   top: 0;
   left: 0;
   height: 100%;
-  width: 180px;
-  padding: 5px 14px;
+  width: 250px;
+  padding: 10px 14px;
   background: var(--sidebar-color);
   transition: var(--tran-05);
   z-index: 100;
@@ -81,7 +75,10 @@ body.dark {
 
 .sidebar header .image,
 .sidebar .icon {
-  min-width: 50px;
+  min-width: 53px;
+  max-width: 53px;
+  min-height: 53px;
+  max-height: 53px;
   border-radius: 6px;
 }
 
@@ -155,7 +152,6 @@ header .image-text .profession {
 .sidebar header .image img {
   height: 100%;
   width: 150px;
-  margin-left: -490px;
 }
 
 .sidebar header .image .img-navbar-close {
@@ -200,6 +196,7 @@ body.dark .sidebar header .toggle {
 
 .sidebar .menu {
   margin-top: 30px;
+  do
 }
 
 .sidebar li.search-box {
@@ -228,7 +225,6 @@ body.dark .sidebar header .toggle {
   background-color: transparent;
   display: flex;
   align-items: center;
-  margin-left: -5px;
   height: 100%;
   width: 100%;
   border-radius: 6px;
@@ -333,7 +329,7 @@ body.dark .switch::before {
   left: 20px;
 }
 
-/* .home {
+.home {
   position: absolute;
   top: 0;
   top: 0;
@@ -342,32 +338,37 @@ body.dark .switch::before {
   width: calc(100% - 250px);
   background-color: var(--body-color);
   transition: var(--tran-05);
-} */
+}
 
-/* .home .text {
+.home .text {
   font-size: 30px;
   font-weight: 500;
   color: var(--text-color);
   padding: 12px 60px;
-} */
+}
 
-/* .sidebar.sb-close~.home {
+.sidebar.sb-close~.home {
   left: 78px;
   height: 100vh;
   width: calc(100% - 78px);
-} */
+}
 
 .img {
-  content: url("/Re-engineering/assets/img/brand/networkit logo 1.png");
+  content: url("/Re-engineering/assets/img/brand/networkit logo 2.png");
+  min-width: 53px;
+  max-width: 53px;
+  min-height: 47px;
+  max-height: 47px;
 }
 
 .img-navbar-close {
   content: url("/Re-engineering/assets/img/brand/networkit logo 2.png");
+  margin-left: 5.5em;
 }
 
-/* body.dark .home .text {
+body.dark .home .text {
   color: var(--text-color);
-} */
+}
 </style>
 
 <head>
@@ -380,6 +381,7 @@ body.dark .switch::before {
 
   <!----===== Boxicons CSS ===== -->
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
   <!--<title>Dashboard Sidebar Menu</title>-->
 </head>
@@ -388,47 +390,44 @@ body.dark .switch::before {
 <body>
 <?php
 
-// if (isset($_SESSION['admin_id'])) {
-//   $admin_id = $_SESSION['admin_id'];
-//   //$login_id = $_SESSION['login_id'];
-//   $ret = "SELECT * FROM admin WHERE admin_id = ?";
-//   $stmt = $mysqli->prepare($ret);
-//   $stmt->bind_param('s', $admin_id);
-//   $stmt->execute();
-//   $res = $stmt->get_result();
+if (isset($_SESSION['admin_id'])) {
+  $admin_id = $_SESSION['admin_id'];
+  //$login_id = $_SESSION['login_id'];
+  $ret = "SELECT * FROM admin WHERE admin_id = ?";
+  $stmt = $mysqli->prepare($ret);
+  $stmt->bind_param('s', $admin_id);
+  $stmt->execute();
+  $res = $stmt->get_result();
 
-//   while ($admin = $res->fetch_object()) {
+  while ($admin = $res->fetch_object()) {
 
 ?>
   <nav class="sidebar">
     <header>
-      <div class="image-text">
+      <div class="image-text"> 
         <span class="image">
-          <img class="img">
+          <img class="img"> </img>
         </span>
 
         <div class="text logo-text">
-          <span class="name"></span>
+          <span class="name" style="font-weight: 600; color: black; font-family: Montserrat; margin-left: -.1em;">network.it</span>
           <span class="profession"></span>
         </div>
       </div>
     
-      
+      <i id="arrow" class='bx bx-chevron-right toggle'></i>
     </header>
 
     <div class="menu-bar">
       <div class="menu">
-  
 
-        <ul class="menu-links" id = "menuu">
-          
-        
-          <li class="item">
-            <a href="/Re-engineering/logout.php" style="margin-bottom: -50.25em;">
+          <li class="item" style="margin-top: 37em;">
+            <a href="/Re-engineering/logout.php">
               <i class='bx bx-log-out icon'></i>
-              <span class="text nav-text">Logout</span>
+              <span class="text nav-text" style="font-weight: 800;">Logout</span>
             </a>
           </li>
+          
     </div>
 </div>
   </nav>
@@ -484,6 +483,6 @@ body.dark .switch::before {
 </body>
 
 <?php
-//   }
-// }
+  }
+}
 ?>

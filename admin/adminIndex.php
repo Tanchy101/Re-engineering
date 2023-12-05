@@ -22,7 +22,7 @@ check_login();
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 </head>
-<body style="background-image: url('../assets/img/theme/Adminbg.png'); background-size: cover; height: 100vh; opacity: 3">
+<body style="background-image: url('../assets/img/theme/Adminbg.png'); background-size: cover; height: 100vh;">
 <?php
   // deleting the placed order items in database when cancel button is pressed
   if(isset($_POST['cancelOrder'])){
@@ -470,54 +470,54 @@ h3{
     float: center;
     border-top-right-radius: 20px;
 }
-.cancels {
-    background-color: #FF0000;
+.cancels {  /*btn*/
+    background-color: #FF9999;
     width: 10em;
     padding: 6px;
     border-radius: 15px;
     /* margin-bottom: 0.1em; */
-    color: white;
+    color: black;
     font-size: 10px; 
     margin-bottom: 3em;
     border: 0;
     }
-.cancels:hover {
+.cancels:hover {  /*btn*/
     background-color: #C80032;
     color: white;
   }
 
-.to-packs {
-    background-color: orange;
+.to-packs { /*btn*/
+    background-color: #CBF0BC;
+    color: black;
     width: 10em;
     padding: 6px;
     border-radius: 15px;
     /* margin-bottom: 0.1em; */
-    color: white;
     font-size: 10px; 
     border: 0;
-    margin-top: -7.2em;
+    margin-top: -5.6em;
     margin-left: 12em;
     }
-.to-packs:hover {
+.to-packs:hover {  /*btn*/
     background-color: green;
     color: white;
   }
-  .ship-out {
-    background-color: #FF0000;
+  .ship-out {  /*btn*/
+    background-color: #BEEAE9;
     width: 10em;
     padding: 6px;
     border-radius: 15px;
     /* margin-bottom: 0.1em; */
-    color: white;
+    color: black;
     font-size: 10px; 
     margin-bottom: 3em;
     border: 0;
     }
-.ship-out:hover {
-    background-color: #C80032;
+.ship-out:hover {  /*btn*/
+    background-color: #5DCAD1;
     color: white;
   }
-  .order-received {
+  .order-received {  /*btn*/
     background-color: orange;
     width: 15em;
     padding: 6px;
@@ -528,7 +528,7 @@ h3{
     margin-bottom: 3em;
     border: 0;
     }
-.order-received:hover {
+.order-received:hover {  /*btn*/
     background-color: green;
     color: white;
   }
