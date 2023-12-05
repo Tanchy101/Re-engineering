@@ -2,6 +2,7 @@
 session_start();
 include('../config/checklogin.php');
 include('../config/config.php');
+check_login();
 ?>
 
 <head>
@@ -9,12 +10,13 @@ include('../config/config.php');
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=0.5">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Montserrat'>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   <script src="mainnew.js"></script>
     <!-- Favicon -->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="assets\img\icons\networklogo2.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/icons/networklogo2.png">
   <link rel="manifest" href="assets/img/icons/site.webmanifest">
   <link rel="mask-icon" href="assets/img/icons/safari-pinned-tab.svg" color="#5bbad5">
   <meta name="msapplication-TileColor" content="#da532c">
@@ -26,6 +28,11 @@ include('../config/config.php');
         require_once('../partials/_sidebar.php');
     ?>
     <?php
+    if(isset($_POST['received'])){
+        $order_received =$_POST['received'];
+        $received = mysqli_query($mysqli, "DELETE orders, order_item FROM orders INNER JOIN order_item ON order_item.order_id = orders.order_id WHERE orders.order_id=$order_received");
+    }
+
 
     if(isset($_POST['user_cancel'])){
         $del_id=$_POST['user_cancel'];
@@ -261,6 +268,12 @@ include('../config/config.php');
                             echo "
                                 <tr>
                                     <td colspan = '4'>
+                                        <span style='float:left;'>
+                                            <form action='OrderModule.php' method='POST'>
+                                                <input type='hidden' name='received' value='".$toReceiveByOrderIdItem['order_id']."'>
+                                                <button type='submit'>RECEIVED</button>
+                                            </form>
+                                        </span>
                                         <span style = 'float: right; margin-bottom: 3em; font-weight: bold;' > Total Amount: ₱" . number_format($toReceiveByOrderIdItem['total'], 0). "</span>
                                     </td>
                                 </tr>";
@@ -409,6 +422,10 @@ h3{
   }
 
 </style>
-
+<script>
+  if ( window.history.replaceState ) {
+  window.history.replaceState( null, null, window.location.href );
+}
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 </html>

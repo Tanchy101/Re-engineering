@@ -1,6 +1,7 @@
 <?php
 include('../config/config.php');
 
+
 session_start();
 ?>
 <!DOCTYPE html>
@@ -8,6 +9,7 @@ session_start();
 <head>
 <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="16x16" href="../assets/img/icons/networklogo2.png">
     <link rel="stylesheet" href="style.css">
     <link href='https://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet'>
     <title>Admin View</title>
@@ -195,6 +197,18 @@ h4 {
     $remove = mysqli_query($mysqli, "DELETE orders, order_item FROM orders INNER JOIN order_item ON order_item.order_id = orders.order_id WHERE orders.order_id=$del_id");
   }
 
+  //query for updating status into to ship from pednding
+  if(isset($_POST['packed'])){
+    $packed_id=$_POST['packed'];
+    $updateStatus = mysqli_query($mysqli, "UPDATE orders SET order_status='To Ship' WHERE order_id=$packed_id");
+  }
+
+  // query for updating status into in transit from to ship
+  if(isset($_POST['toShip'])){
+    $packed_id=$_POST['toShip'];
+    $updateStatus = mysqli_query($mysqli, "UPDATE orders SET order_status='To Receive' WHERE order_id=$packed_id");
+  }
+
   //retrieving data from the two tables that has a relationship
   $retri = "SELECT orders.user_address, orders.order_id, order_item.price, order_item.name, order_item.quantity, orders.order_status, orders.total, orders.order_username, order_item.id
   FROM orders JOIN order_item ON orders.order_id = order_item.order_id";
@@ -312,7 +326,7 @@ h4 {
                         "<td rowspan='".(count($pendingByOrderIdItems))."'>
                             <center>
                                 <form action='adminIndex.php' method='POST'>
-                                <input type='hidden' name='order_id' value='".$pendingByOrderIdItem['order_id']."'>
+                                <input type='hidden' name='packed' value='".$pendingByOrderIdItem['order_id']."'>
                                 <button type='submit' class='btn'>PACKED</button>
                                 </form>
                             </center>
@@ -423,7 +437,7 @@ h4 {
                           <td rowspan = '".(count($toShipByOrderIdItems))."'>
                             <center>
                                 <form action='adminIndex.php' method='POST'>
-                                <input type='hidden' name='order_id' value='".$toShipByOrderIdItem['order_id']."'>
+                                <input type='hidden' name='toShip' value='".$toShipByOrderIdItem['order_id']."'>
                                 <button type='submit' class='btn'>SHIP OUT</button>
                                 </form>
                             </center>
