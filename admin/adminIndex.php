@@ -16,6 +16,7 @@ session_start();
 </head>
  
 </head>
+">
 <style>
   .btn{
     background-color: #C83264;
@@ -53,7 +54,7 @@ session_start();
 }
 
   header {
-    background-color: #36517C;
+    
     color: #fff;
     padding: 0px;
     margin-top: 30px;
@@ -179,8 +180,7 @@ h4 {
 }
 
 </style>
-<body>
-
+<body style="background-image: url('../assets/img/theme/AdminBG.png'); background-size: cover; height: 100vh; opacity: 3">
   <!-- Sidenav -->
   <?php
   require_once('../partials/_adminsidebar.php');
@@ -578,7 +578,6 @@ h4 {
 }
 
   header {
-    background-color: #36517C;
     color: #fff;
     padding: 0px;
     margin-top: 30px;

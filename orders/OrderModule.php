@@ -22,7 +22,7 @@ check_login();
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="theme-color" content="#ffffff">
 </head>
-<body>
+<body style="background-image: url('../assets/img/theme/OrderBG.png'); background-size: cover; height: 100vh; opacity: 3">
 <?php
         $activePage = 'page8';
         require_once('../partials/_sidebar.php');
@@ -70,10 +70,13 @@ check_login();
   require_once('../partials/_sidebar.php');
   ?>
   <!-- Main content -->
+  
   <div class="main-content">
+
+
     <h2>ORDERS</h2>
 
-
+    
 <div class="mytabs">
     <input type="radio" id="tabfree" name="mytabs" checked="checked">
     <label for="tabfree" style="background-color: #ffff9; text-align: center;"><h1>PENDING</h1></label>
@@ -286,7 +289,6 @@ check_login();
   </div>
   <style>
   body {
-    background: #36517C;
     font-family: 'Poppins';
     overflow: hidden;
 }
