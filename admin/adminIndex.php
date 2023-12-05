@@ -189,7 +189,7 @@ h4 {
   <h1>ADMIN VIEW</h1>
 </header>
 <?php
-
+  // deleting the placed order items in database when cancel button is pressed
   if(isset($_POST['order_id'])){
     $del_id=$_POST['order_id'];
     $remove = mysqli_query($mysqli, "DELETE orders, order_item FROM orders INNER JOIN order_item ON order_item.order_id = orders.order_id WHERE orders.order_id=$del_id");

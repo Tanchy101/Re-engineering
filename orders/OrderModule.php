@@ -26,6 +26,12 @@ include('../config/config.php');
         require_once('../partials/_sidebar.php');
     ?>
     <?php
+
+    if(isset($_POST['user_cancel'])){
+        $del_id=$_POST['user_cancel'];
+        $remove = mysqli_query($mysqli, "DELETE orders, order_item FROM orders INNER JOIN order_item ON order_item.order_id = orders.order_id WHERE orders.order_id=$del_id");
+    }
+
     $admin_id = $_SESSION['admin_id'];
     $ret = "SELECT * FROM admin WHERE admin_id = ?";
     $stmt = $mysqli->prepare($ret);
@@ -121,8 +127,13 @@ include('../config/config.php');
                         echo "
                             <tr>
                                 <td colspan = '4'>
-                                    <span><button class='btn' style='margin-bottom: 3em; '>CANCEL</button></span>
-                                    <span style = 'float: right; margin-top: .25em; font-weight: bold;'> Total Amount: ₱" . number_format($pendingByOrderIdItem['total'], 0). "</span>
+                                    <span style='float:left;'>
+                                        <form action='OrderModule.php' method='POST'>
+                                        <input type='hidden' name='user_cancel' value='".$pendingByOrderIdItem['order_id']."'>
+                                        <button type='submit'>CANCEL</button>
+                                        </form>
+                                    </span>
+                                    <span style = 'float: right;'> Total Amount: ₱" . number_format($pendingByOrderIdItem['total'], 0). "</span>
                                 </td>
                             </tr>";
                     }
