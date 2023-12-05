@@ -1641,12 +1641,30 @@ function captureAndPrint() {
                     </div> 
                     </div>
                     </div>   
+                   
                     <div class = "row">
-                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 1240px; margin-top: 15px; height: 300px">
-                      <div style = "text-align:center; font-size:smaller; height: 260px;"><b>DROP TO DELETE</b></div>
-                    </div>
+                        <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 1.25em; margin-top: -120px; 
+                        height: 120px; background-color: transparent; border: none; ">
+                            <div style="text-align: center; color: black;">
+                              <div style="font-size: 40px;">
+                                <span><i class="fas fa-trash-alt"></i></span>
+                              </div>
+                              <span style="font-size: 16px;"><b>DROP TO</b></span><br>
+                              <span style="font-size: 16px;"><b>DELETE</b></span>
+                            </div>
+                        </div>
+                      </div>  
 
-              </div>                                                
+                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 93em; margin-top: -120px; 
+                        height: 120px; background-color: transparent; border: none;">
+                            <div style="text-align: center; color: black; margin-left: -3em;">
+                              <div style="font-size: 40px;">
+                                <span><i class="fas fa-trash-alt"></i></span>
+                              </div>
+                              <span style="font-size: 16px;"><b>DROP TO</b></span><br>
+                              <span style="font-size: 16px;"><b>DELETE</b></span>
+                          </div>
+                    </div>                                            
                     <div class="form-row">
                         <div class="col-md-6">
                           <br>
@@ -1770,20 +1788,30 @@ function captureAndPrint() {
 ?>
 <script>
 
-var coll = document.getElementsByClassName("collapsible");
-var i;
+$(document).ready(function(){
+  // Event listener for when a collapsible button is clicked
+  $('#accordion .collapsible').click(function() {
+    // Check if the button has an active class
+    // If yes, close its content and remove its active class (clicked an open container)
+    // If no, remove all active classes except for the current button and close all containers (clicked a close container)
+    if ($(this).hasClass('active')) {
+      $(this).siblings('.content').slideUp();
+      $(this).removeClass('active');
+      
 
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
     } else {
-      content.style.display = "block";
+      $('.collapsible.active').removeClass('active');
+
+      $(this).addClass('active');
+
+      $('.collapsible:not(.active) ~ .content').each(function() {
+        $(this).slideUp();
+      });
+      $(this).siblings('.content').slideDown().css("overflow-y", "scroll");
     }
   });
-}
+});
+
   function validateForm() {
     let lengthInput = document.getElementById("length");
     let widthInput = document.getElementById("width");
