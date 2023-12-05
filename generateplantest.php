@@ -110,7 +110,7 @@ h3{
             <div class="form-row">
               <div class="col-md-12" style="margin-top:10px;">
               <label>Width (meter/s)</label><span id="widthError" style="color: red;"></span>
-              <input type="number" name="width" class="form-control" id="width" value="" style="color: black;" min="5" max="11" required>
+              <input type="number" name="width" class="form-control" id="width" value="" style="color: black;" min="5" max="10" required>
               </div>
             </div>
             <div class="form-row">

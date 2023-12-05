@@ -29,6 +29,7 @@ body {
   min-height: 100vh;
   background-color: var(--body-color);
   transition: var(--tran-05);
+  font-family: 'Poppins';
 }
 
 ::selection {
@@ -36,10 +37,6 @@ body {
   color: #fff;
 }
 
-.nav {
-  font-size: 10px;
-  margin-left: 20px;
-}
 
 body.dark {
   --body-color: #18191a;
@@ -78,7 +75,10 @@ body.dark {
 
 .sidebar header .image,
 .sidebar .icon {
-  min-width: 60px;
+  min-width: 53px;
+  max-width: 53px;
+  min-height: 53px;
+  max-height: 53px;
   border-radius: 6px;
 }
 
@@ -196,6 +196,7 @@ body.dark .sidebar header .toggle {
 
 .sidebar .menu {
   margin-top: 30px;
+  do
 }
 
 .sidebar li.search-box {
@@ -353,11 +354,16 @@ body.dark .switch::before {
 }
 
 .img {
-  content: url("/Re-engineering/assets/img/brand/networkit logo 1.png");
+  content: url("/Re-engineering/assets/img/brand/networkit logo 2.png");
+  min-width: 53px;
+  max-width: 53px;
+  min-height: 47px;
+  max-height: 47px;
 }
 
 .img-navbar-close {
   content: url("/Re-engineering/assets/img/brand/networkit logo 2.png");
+  margin-left: 5.5em;
 }
 
 body.dark .home .text {
@@ -375,6 +381,7 @@ body.dark .home .text {
 
   <!----===== Boxicons CSS ===== -->
   <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+  <link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
 
   <!--<title>Dashboard Sidebar Menu</title>-->
 </head>
@@ -397,13 +404,13 @@ if (isset($_SESSION['admin_id'])) {
 ?>
   <nav class="sidebar">
     <header>
-      <div class="image-text">
+      <div class="image-text"> 
         <span class="image">
-          <img class="img">
+          <img class="img"> </img>
         </span>
 
         <div class="text logo-text">
-          <span class="name"></span>
+          <span class="name" style="font-weight: 600; color: black; font-family: Montserrat; margin-left: -.1em;">network.it</span>
           <span class="profession"></span>
         </div>
       </div>
@@ -462,19 +469,21 @@ if (isset($_SESSION['admin_id'])) {
               <span class="text nav-text">My Profile</span>
             </a>
           </li>
-
+          
           <li class="<?php echo ($activePage == 'page8') ? 'active2' : 'item'; ?>">
             <a href="/Re-engineering/orders/OrderModule.php">
               <i class='bx bxs-truck icon'></i>
               <span class="text nav-text">Orders</span>
             </a>
           </li>
+
           <li class="item">
             <a href="/Re-engineering/logout.php">
               <i class='bx bx-log-out icon'></i>
               <span class="text nav-text">Logout</span>
             </a>
           </li>
+          
     </div>
 </div>
   </nav>

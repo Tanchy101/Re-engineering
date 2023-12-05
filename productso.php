@@ -36,13 +36,13 @@ if (isset($_POST['input'])) {
         <table class="table align-items-center table-flush" style="background-color: transparent;;">
             <thead class="thead-light">
             <tr>
-                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none; border-top-left-radius: 10px;">Image</th>
-                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Name</th>
-                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Price</th>
-                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Quantity</th>
-                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Product Type</th>
-                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Action</th>                      
-                <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none; border-top-right-radius: 10px;">Product Link</th>
+                <th scope="col" style="color: white; background-color: #484A4C; border: none; border-top-left-radius: 10px;">Image</th>
+                <th scope="col" style="color: white; background-color: #484A4C; border: none;">Name</th>
+                <th scope="col" style="color: white; background-color: #484A4C; border: none;">Price</th>
+                <th scope="col" style="color: white; background-color: #484A4C; border: none;">Quantity</th>
+                <th scope="col" style="color: white; background-color: #484A4C; border: none;">Product Type</th>
+                <th scope="col" style="color: white; background-color: #484A4C; border: none;">Action</th>                      
+                <th scope="col" style="color: white; background-color: #484A4C; border: none;">Product Link</th>
             </tr>
             </thead>
             <tbody>
