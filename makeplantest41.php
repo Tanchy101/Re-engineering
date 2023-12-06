@@ -121,9 +121,7 @@ function captureAndPrint() {
     require_once('partials/_topnav.php');
     ?>
     <!-- Header -->
-    <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
-    <span class="mask bg-gradient-dark opacity-8"></span>
-      <div class="container-fluid">
+    <div style="background-image: url(assets/img/theme/GenerateBG.png); background-size: cover; height: 45vh;" class="header  pb-8 pt-5 pt-md-8">      <div class="container-fluid">
         <div class="header-body">
         </div>
       </div>
@@ -131,14 +129,14 @@ function captureAndPrint() {
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
-          <div class="card shadow">
+      <div class="card shadow" style="margin-top: -18em;">
             <div class="card-header border-0">
               <div class = "row">
                 <div class = "col-md-6">
                   <h2>Customize your Layout:</h2>
                 </div>
                 <div class = "col-md-6">
-                <a href="generateplantestt.php" class="btn btn-outline-success" style="float: right">
+                <a href="generateplantest.php" class="btn btn-outline-success" style="float: right">
                          <i class="fas fa-user-plus"></i>
                             GENERATE ANOTHER LAYOUT
                          </a>
@@ -283,14 +281,15 @@ function captureAndPrint() {
             <!-- ITEMS COLUMN -->
             <div class = "col-sm-12 container" id = "form-container">
               <div class="row">
-                     <div class="col-sm-4" style = "padding-right: 150px; padding-left: 30px; max-width:500px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
-                        <div class = "elementToOverlay"><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
-                          <div class="content" id = "scroll-box" style = "display:none">
-                            <div class="drag-element-source drag-element" style = "z-index:1">
-                              <div class="rect" style = "margin-bottom: 110px;"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                                <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
-                              </div>
-                            </div>
+              <div class="col-sm-5" style = "padding-right: 150px; padding-left: 30px; max-width:480px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
+                        <div id="accordion">
+                          <div class = "elementToOverlay"><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
+                              <div class="content" id = "scroll-box" style = "display:none">
+                                <div class="drag-element-source drag-element" style = "z-index:1">
+                                  <div class="rect" style = "margin-bottom: 110px;"><img src="assets/img/items/cubicle.png" draggable="false"/>  
+                                    <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
+                                  </div>
+                                </div>
                 
                             <div class="drag-element-source drag-element" style = "z-index:1">
                               <div class="rect" style = "margin-left: 2px; margin-top:80px"><img src="assets/img/items/U-shaped_cubicle.png" draggable="false"/>
@@ -431,6 +430,7 @@ function captureAndPrint() {
                         </div>
                       </div> 
                       
+                      </div>
                     <!-- EDIT COLUMN -->
                     <div class="col-sm-6">
                       <div id = "plane-container" style = "height: 283mm; width: 311mm; margin-left: -200px; margin-top: 15px">

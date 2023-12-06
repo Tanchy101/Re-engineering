@@ -121,9 +121,7 @@ function captureAndPrint() {
     require_once('partials/_topnav.php');
     ?>
     <!-- Header -->
-    <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
-    <span class="mask bg-gradient-dark opacity-8"></span>
-      <div class="container-fluid">
+    <div style="background-image: url(assets/img/theme/GenerateBG.png); background-size: cover; height: 45vh;" class="header  pb-8 pt-5 pt-md-8">      <div class="container-fluid">
         <div class="header-body">
         </div>
       </div>
@@ -131,14 +129,14 @@ function captureAndPrint() {
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
-          <div class="card shadow">
+      <div class="card shadow" style="margin-top: -18em;">
             <div class="card-header border-0">
               <div class = "row">
                 <div class = "col-md-6">
                   <h2>Customize your Layout:</h2>
                 </div>
                 <div class = "col-md-6">
-                <a href="generateplantestt.php" class="btn btn-outline-success" style="float: right">
+                <a href="generateplantest.php" class="btn btn-outline-success" style="float: right">
                          <i class="fas fa-user-plus"></i>
                             GENERATE ANOTHER LAYOUT
                          </a>
@@ -283,14 +281,15 @@ function captureAndPrint() {
             <!-- ITEMS COLUMN -->
             <div class = "col-sm-12 container" id = "form-container">
               <div class="row">
-                     <div class="col-sm-4" style = "padding-right: 150px; padding-left: 30px; max-width:500px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
-                        <div class = "elementToOverlay"><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
-                          <div class="content" id = "scroll-box" style = "display:none">
-                            <div class="drag-element-source drag-element" style = "z-index:1">
-                              <div class="rect" style = "margin-bottom: 110px;"><img src="assets/img/items/cubicle.png" draggable="false"/>  
-                                <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
-                              </div>
-                            </div>
+              <div class="col-sm-5" style = "padding-right: 150px; padding-left: 30px; max-width:480px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
+                        <div id="accordion">
+                          <div class = "elementToOverlay"><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
+                              <div class="content" id = "scroll-box" style = "display:none">
+                                <div class="drag-element-source drag-element" style = "z-index:1">
+                                  <div class="rect" style = "margin-bottom: 110px;"><img src="assets/img/items/cubicle.png" draggable="false"/>  
+                                    <div class="middle desc" style = "padding-left: 170px; padding-top: 120px;"> <b>L-shape Cubicle </b> <br>200cmX185cm</div>
+                                  </div>
+                                </div>
                 
                             <div class="drag-element-source drag-element" style = "z-index:1">
                               <div class="rect" style = "margin-left: 2px; margin-top:80px"><img src="assets/img/items/U-shaped_cubicle.png" draggable="false"/>
@@ -431,6 +430,7 @@ function captureAndPrint() {
                         </div>
                       </div> 
                       
+                      </div>
                     <!-- EDIT COLUMN -->
                     <div class="col-sm-6">
                       <div id = "plane-container" style = "height: 283mm; width: 255mm; margin-left: -200px; margin-top: 15px">
@@ -1329,11 +1329,32 @@ function captureAndPrint() {
 
                     </div>   
                     <div class = "row">
-                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 1300px; margin-top: -300px; height: 300px">
-                      <div style = "text-align:center; font-size:smaller; height: 260px;"><b>DROP TO DELETE</b></div>
-                    </div>
+                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 4em; margin-top: -120px; 
+                          height: 120px; background-color: transparent; border: none; ">
+                              <div style="text-align: center; color: black;">
+                                <div style="font-size: 40px;">
+                                  <span><i class="fas fa-trash-alt"></i></span>
+                                </div>
+                                <span style="font-size: 16px;"><b>DROP TO</b></span><br>
+                                <span style="font-size: 16px;"><b>DELETE</b></span>
+                              </div>
+                            </div> 
+                        <!-- </div>   -->
+                      <!-- </div> -->
+                    <!-- </div> -->
+                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 80em; margin-top: -120px; 
+                          height: 120px; background-color: transparent; border: none;">
+                              <div style="text-align: center; color: black; margin-left: -3em;">
+                                <div style="font-size: 40px;">
+                                  <span><i class="fas fa-trash-alt"></i></span>
+                                </div>
+                                <span style="font-size: 16px;"><b>DROP TO</b></span><br>
+                                <span style="font-size: 16px;"><b>DELETE</b></span>
+                            </div>
+                      </div>
+                  </div>
 
-              </div>                                               
+              <!-- </div>                                                 -->                                              
                     <div class="form-row">
                         <div class="col-md-6">
                           <br>
@@ -1457,20 +1478,26 @@ function captureAndPrint() {
 ?>
 <script>
 
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
+$(document).ready(function(){
+  // Event listener for when a collapsible button is clicked
+  $('#accordion .collapsible').click(function() {
+    // Check if the button has an active class
+    // If yes, close its content and remove its active class (clicked an open container)
+    // If no, remove all active classes except for the current button and close all containers (clicked a close container)
+    if ($(this).hasClass('active')) {
+      $(this).siblings('.content').slideUp();
+      $(this).removeClass('active');
     } else {
-      content.style.display = "block";
+      $('.collapsible.active').removeClass('active');
+      $(this).addClass('active');
+      $('.collapsible:not(.active) ~ .content').each(function() {
+        $(this).slideUp();
+      });
+      $(this).siblings('.content').slideDown().css("overflow-y", "scroll");
     }
   });
-}
+});
+
   function validateForm() {
     let lengthInput = document.getElementById("length");
     let widthInput = document.getElementById("width");
