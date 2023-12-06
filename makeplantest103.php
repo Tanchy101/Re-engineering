@@ -283,7 +283,8 @@ function captureAndPrint() {
             <!-- ITEMS COLUMN -->
             <div class = "col-sm-12 container" id = "form-container">
               <div class="row">
-                     <div class="col-sm-4" style = "padding-right: 150px; padding-left: 30px; max-width:500px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
+                     <div class="col-sm-5" style = "padding-right: 150px; padding-left: 30px; max-width:490px" > <b style = "margin-top: 10px;"> ITEMS TO ADD: </b>
+                      <div id="accordion">
                         <div class = "elementToOverlay"><button class="collapsible" style = "margin-top: 10px;"><b>Cubicles</b></button> 
                           <div class="content" id = "scroll-box" style = "display:none">
                             <div class="drag-element-source drag-element" style = "z-index:1">
@@ -430,7 +431,7 @@ function captureAndPrint() {
                           </div>
                         </div>
                       </div> 
-
+                    </div>
                     <!-- EDIT COLUMN -->
                     <div class="col-sm-6">
                       <div id = "plane-container" style = "height: 227mm; width: 227mm; margin-left: -150px">
@@ -763,9 +764,30 @@ function captureAndPrint() {
 
                     </div>   
                     <div class = "row">
-                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 1300px; margin-top: -300px; height: 300px">
-                      <div style = "text-align:center; font-size:smaller; height: 260px;"><b>DROP TO DELETE</b></div>
-                    </div>
+                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 8em; margin-top: -120px; 
+                          height: 120px; background-color: transparent; border: none; ">
+                              <div style="text-align: center; color: black;">
+                                <div style="font-size: 40px;">
+                                  <span><i class="fas fa-trash-alt"></i></span>
+                                </div>
+                                <span style="font-size: 16px;"><b>DROP TO</b></span><br>
+                                <span style="font-size: 16px;"><b>DELETE</b></span>
+                              </div>
+                            </div> 
+                        <!-- </div>   -->
+                      <!-- </div> -->
+                    <!-- </div> -->
+                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 77em; margin-top: -120px; 
+                          height: 120px; background-color: transparent; border: none;">
+                              <div style="text-align: center; color: black; margin-left: 4em;">
+                                <div style="font-size: 40px;">
+                                  <span><i class="fas fa-trash-alt"></i></span>
+                                </div>
+                                <span style="font-size: 16px;"><b>DROP TO</b></span><br>
+                                <span style="font-size: 16px;"><b>DELETE</b></span>
+                            </div>
+                      </div>
+                              
 
               </div>                                              
                     <div class="form-row">
@@ -890,21 +912,26 @@ function captureAndPrint() {
 
 ?>
 <script>
-
-var coll = document.getElementsByClassName("collapsible");
-var i;
-
-for (i = 0; i < coll.length; i++) {
-  coll[i].addEventListener("click", function() {
-    this.classList.toggle("active");
-    var content = this.nextElementSibling;
-    if (content.style.display === "block") {
-      content.style.display = "none";
-    } else {
-      content.style.display = "block";
-    }
+  $(document).ready(function(){
+    // Event listener for when a collapsible button is clicked
+    $('#accordion .collapsible').click(function() {
+      // Check if the button has an active class
+      // If yes, close its content and remove its active class (clicked an open container)
+      // If no, remove all active classes except for the current button and close all containers (clicked a close container)
+      if ($(this).hasClass('active')) {
+        $(this).siblings('.content').slideUp();
+        $(this).removeClass('active');
+      } else {
+        $('.collapsible.active').removeClass('active');
+        $(this).addClass('active');
+        $('.collapsible:not(.active) ~ .content').each(function() {
+          $(this).slideUp();
+        });
+        $(this).siblings('.content').slideDown().css("overflow-y", "scroll");
+      }
+    });
   });
-}
+
   function validateForm() {
     let lengthInput = document.getElementById("length");
     let widthInput = document.getElementById("width");

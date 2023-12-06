@@ -85,6 +85,49 @@ p.caption {
   background-color: #2DCE89;
 
 }
+
+/* animation for message */
+#welcome {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 30px;
+  font-size: 20px;
+}
+
+#welcome.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.4s, fadeout 0.5s ;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 30px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
 </style>
 
     <!--wag pi
@@ -106,11 +149,20 @@ p.caption {
             <div class= "form-container" style = "margin-left: 3.8em;">
             <div class="card">
               <div class="container">
+                <?php 
+                $ret = "SELECT * FROM admin WHERE admin_id = ?";
+                $stmt = $mysqli->prepare($ret);
+                $stmt->bind_param('s', $admin_id);
+                $stmt->execute();
+                $res = $stmt->get_result();
+                while ($admin = $res->fetch_object()) {?>
+              <div id = "welcome">Welcome <?php echo $admin->admin_name; ?></div>
                 <p style="margin: 0.8em 0.6em 0.8em" class= "caption">
                   Revamp your network layout with ease: <br>
                   Generate a network floor plan and <br>
                   corresponding costs in seconds.
                 </p>
+                <?php } ?>
               </div>
             </div>
                 <div class="submit-btn-container"><br>
@@ -125,8 +177,16 @@ p.caption {
     
   </div>
       <!-- Footer -->
-  
+
 </div>
+    <script type="text/javascript">
+      
+    
+    var msgpop = document.getElementById("welcome");
+    msgpop.className = "show";
+    setTimeout(function(){ msgpop.className = msgpop.className.replace("show", ""); }, 3000);
+    
+    </script>
 
     </body>
         <!-- Argon Scripts -->
