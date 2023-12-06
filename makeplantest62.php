@@ -425,11 +425,14 @@ function captureAndPrint() {
                               <div class="rect" style = "margin-left: 0px; margin-top: -10px;"><img src="assets/img/items/cabinet5.png" draggable="false"/>
                               <div class="middle desc" style = "margin-left:65px; margin-top: 5px"> <b>Cabinet </b> <br>160cmX45cm</div>
                               </div>
-                            </div> 
-                           </div>
-                        </div>
-                     
+                            </div>
 
+
+                          </div>
+                        </div>
+                      </div> 
+                      
+                      </div>
                     <!-- EDIT COLUMN -->
                     <div class="col-sm-6">
                       <div id = "plane-container" style = "height: 171mm; width: 171mm;">
@@ -612,7 +615,7 @@ function captureAndPrint() {
                     <!-- </div> -->
                     <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 66em; margin-top: -120px; 
                           height: 120px; background-color: transparent; border: none;">
-                              <div style="text-align: center; color: black; margin-left: -3em;">
+                              <div style="text-align: center; color: black; margin-left: 4em;">
                                 <div style="font-size: 40px;">
                                   <span><i class="fas fa-trash-alt"></i></span>
                                 </div>

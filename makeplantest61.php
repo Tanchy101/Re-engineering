@@ -426,11 +426,13 @@ function captureAndPrint() {
                               <div class="middle desc" style = "margin-left:65px; margin-top: 5px"> <b>Cabinet </b> <br>160cmX45cm</div>
                               </div>
                             </div>
+
+
                           </div>
-
-
                         </div>
-                       
+                      </div> 
+                      
+                      </div>
 
                     <!-- EDIT COLUMN -->
                     <div class="col-sm-6">
