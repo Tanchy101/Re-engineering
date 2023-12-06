@@ -37,6 +37,47 @@ require_once('partials/_head.php');
   background-color: white;
 }
 
+#err {
+  visibility: hidden;
+  min-width: 250px;
+  margin-left: -125px;
+  background-color: white;
+  color: black;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 1;
+  left: 50%;
+  top: 30px;
+  font-size: 17px;
+}
+
+#err.show {
+  visibility: visible;
+  -webkit-animation: fadein 0.5s, fadeout 0.4s 2.5s;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@-webkit-keyframes fadein {
+  from {top: 0; opacity: 0;} 
+  to {top: 30px; opacity: 1;}
+}
+
+@keyframes fadein {
+  from {top: 0; opacity: 0;}
+  to {top: 30px; opacity: 1;}
+}
+
+@-webkit-keyframes fadeout {
+  from {top: 30px; opacity: 1;} 
+  to {top: 0; opacity: 0;}
+}
+
+@keyframes fadeout {
+  from {top: 30px; opacity: 1;}
+  to {top: 0; opacity: 0;}
+}
 </style>
 <body>
   <!-- Sidenav -->
@@ -125,9 +166,37 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                   </thead>
                  <tbody><!-- Added missing opening <tbody> tag -->
                     <?php
-                    $totalAmount = 0.00; // Initialize totalAmount variable
-
-                    if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
+                  $user_address = $admin -> address;
+                  $totalAmount = 0; // Initialize totalAmount variable
+                  // if(empty($user_address) && !empty($_SESSION['cart'])){
+                  //   foreach ($_SESSION['cart'] as $index => $item) {
+                  //     echo "<tr>";
+                  //     echo "<td>" . $item['name'] . "</td>";
+                  //     echo "<td>₱" . $item['price'] . "</td>";
+                  //     echo "<td style='width: 9.5em;'>" . $item['quantity'] . "</td>";
+                  //     echo "<td>₱" . number_format($item['price'] * $item['quantity']) .  "</td>"; // Calculate and display the amount for each item
+                  //     echo "<td><a href='cart.php?remove=" . $index . "' style='background-color: #F5365C; padding: 3px 18px 3px; 
+                  //     font-weight: bold; color: white; border-radius: 10px; font-size: 12px;'>Remove</a></td>";
+                  //     echo "</tr>";
+                  //     $totalAmount += $item['price'] * $item['quantity']; // Update the total amount
+                  //   }
+                   
+                  //   echo "<tr><td colspan='3' style='text-align: right; font-weight: bold;'>Total Amount:</td>";
+                  //   echo "<td style='font-weight: bold;'>₱" . number_format($totalAmount, 0) . "</td></tr>";
+                  //   echo "<tr> <td> <form action='#' method='POST'> 
+                  //   <button class='btn btn-success'; border: none' onclick='popUp()'>Place Order</button>
+                  //   <div id='err'>You Have No Address!</div>
+                  //   </form>
+                  //   <br>
+                  //   <span>
+                  //     <form action='removeAllItemCart.php' method='POST' name='reset'>
+                  //     <button class='btn' border: none style='background-color: red; color:white;' name='reset'>Remove All</button>
+                      
+                  //     </form>
+                  //   </span>
+                  //   </td> </tr>";
+                  // } 
+                  if (isset($_SESSION['cart']) && !empty($_SESSION['cart']) && !empty($user_address)) {
                       foreach ($_SESSION['cart'] as $index => $item) {
                         echo "<tr>";
                         echo "<td>" . $item['name'] . "</td>";
@@ -141,7 +210,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                       }
                      
                       echo "<tr><td colspan='3' style='text-align: right; font-weight: bold;'>Total Amount:</td>";
-                      echo "<td style='font-weight: bold;'>₱" . number_format($totalAmount, 2) . "</td></tr>";
+                      echo "<td style='font-weight: bold;'>₱" . number_format($totalAmount, 0) . "</td></tr>";
                       echo "<tr> <td> <form action='purchase.php' method='POST'> 
                       <button class='btn btn-success'; border: none' name='purchase'>Place Order</button>
                       </form>
@@ -149,13 +218,15 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                       <span>
                         <form action='removeAllItemCart.php' method='POST' name='reset'>
                         <button class='btn' border: none style='background-color: red; color:white;' name='reset'>Remove All</button>
+                        
                         </form>
                       </span>
                       </td> </tr>";
-                    } else {
-                      echo "<tr><td colspan='6'>Cart is empty</td></tr>";
                     }
-                    }
+                     else {
+                      echo "<tr><td colspan='6'>Cart is empty or your address is not updated, please check your profile</td></tr>";
+                      }
+                  }
                     ?>
                   </tbody>
                 </table>
@@ -166,5 +237,14 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
       </div>
     </div>
   </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+ 
+<script type="text/javascript">
+  function popUp() {
+  var msgpop = document.getElementById("err");
+  msgpop.className = "show";
+  setTimeout(function(){ msgpop.className = msgpop.className.replace("show", ""); }, 3000);
+}
+</script>
 </body>
 </html>
