@@ -210,9 +210,10 @@ function isValidComputers($computers, $roomSize)
                                     <div class="col-md-6">
                                         <input type="submit" value="Predict" class="btn" style="background-color: #7ED957; color: white; font-weight: bold;">
                                         <div class="col-md-6"><div class="text-center">
-                        <a href = costpredict.php>
-                        <input type="" value="Go Back" class="btn btn-warning value=" style = "margin:0px; width: 7.5em; margin-top: -3.05em; margin-left: 2.5em; height: 3.1em;" readonly></a>
-                    </div>
+                                            <a href = costpredict.php>
+                                            <input type="" value="Go Back" class="btn btn-warning value=" style = "margin:0px; width: 7.5em; margin-top: -3.05em; margin-left: 2.5em; height: 3.1em;" readonly></a>
+                                        </div>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
