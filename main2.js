@@ -43,7 +43,6 @@ $(document).on("click", ".open-ReplyModal", function () {
 
 $(document).ready(function () {
   $('#butsave').on('click', function () {
-    $("#btnreply").attr("disabled", "disabled");
     var id = document.forms["frm"]["Pcommentid"].value;
     var name = document.forms["frm"]["name"].value;
     var msg = document.forms["frm"]["msg"].value;
@@ -60,7 +59,6 @@ $(document).ready(function () {
         success: function (dataResult) {
           var dataResult = JSON.parse(dataResult);
           if (dataResult.statusCode == 200) {
-            $("#butsave").removeAttr("disabled");
             document.forms["frm"]["Pcommentid"].value = "";
             document.forms["frm"]["name"].value = "";
             document.forms["frm"]["msg"].value = "";
@@ -79,7 +77,6 @@ $(document).ready(function () {
 
 $(document).ready(function () {
   $('#btnreply').on('click', function () {
-    $("#btnreply").attr("disabled", "disabled");
     var id = document.forms["frm1"]["Rcommentid"].value;
     var name = document.forms["frm1"]["Rname"].value;
     var msg = document.forms["frm1"]["Rmsg"].value;
