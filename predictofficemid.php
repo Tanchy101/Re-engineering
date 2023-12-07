@@ -173,11 +173,11 @@ function isValidComputers($computers, $roomSize)
                 <div class="form-row">
                   <div class="col-md-6">
                     <label for="input1">Enter number of Computers in the Room:</label>
-                    <input type="number" name="input1" id="input1" class="form-control" style="color: black;" required>
+                    <input type="number" name="input1" id="input1" class="form-control" style="color: black;" min="5" max="118" required>
                   </div>
                   <div class="col-md-6"> 
                     <label for="input2">Enter Room Size in Square Meters:</label>
-                    <input type="number" name="input2" id="input2" class="form-control" style="color: black;" required>
+                    <input type="number" name="input2" id="input2" class="form-control" style="color: black;" min="25" max="700"required>
                   </div>
                 </div>
                 <br>
@@ -194,7 +194,10 @@ function isValidComputers($computers, $roomSize)
                 <div class="form-row">
                   <div class="col-md-6"> 
                     <button type="submit" class="btn" style="background-color: #7ED957; color: white;">Predict</button>
-                    <button onclick="goToCostPredict()" class="btn" style="background-color: #F5365C; color: white;">Go Back</button>
+                    <div class="col-md-6"><div class="text-center">
+                        <a href = costpredict.php>
+                        <input type="" value="Go Back" class="btn btn-warning value=" style = "margin:0px; width: 7.5em; margin-top: -3.05em; margin-left: 2.5em; height: 3.1em;" readonly></a>
+                    </div>
                   </div>
                 </div>
               </form>
@@ -242,6 +245,10 @@ function isValidComputers($computers, $roomSize)
               <script>
   function goToCostPredict() {
     window.location.href = "costpredict.php";
+
+    function redirect(){
+        window.location.href = "costpredict.php";
+    }
   }
 </script>
 

@@ -209,17 +209,20 @@ function isValidComputers($computers, $roomSize)
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="input1" class="form-label">Enter number of Computers in the Room:</label>
-                                        <input type="number" name="input1" id="input1" class="form-control" style="color: black;" required>
+                                        <input type="number" name="input1" id="input1" class="form-control" style="color: black;" min="5" max="118"required >
                                     </div>
                                     <div class="col-md-6">
                                         <label for="input2" class="form-label">Enter Room Size in Square Meters:</label>
-                                        <input type="number" name="input2" id="input2" class="form-control" style="color: black;" required>
+                                        <input type="number" name="input2" id="input2" class="form-control" style="color: black;" min="54" max="160"required>
                                     </div>
                                 </div>
                                 <div class="row">
                                     <div class="col-md-6">
                                         <input type="submit" value="Predict" class="btn" style="background-color: #7ED957; color: white; font-weight: bold;">
-                                        <button onclick="goToCostPredict()" class="btn" style="background-color: #F5365C; color: white; font-weight: bold;">Go Back</button>
+                                        <div class="col-md-6"><div class="text-center">
+                                            <a href = costpredict.php>
+                                            <input type="" value="Go Back" class="btn btn-warning" style = "margin:0px; width: 7.5em; margin-top: -3.05em; margin-left: 2.5em; height: 3.1em;" readonly></a>
+                                        </div>
                                     </div>
                                 </div>
                             </form>
