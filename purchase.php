@@ -59,7 +59,7 @@ if($_SERVER["REQUEST_METHOD"]=="POST"){
             unset($_SESSION['cart']);
             echo"<script>
             alert('Your Order Has Been Placed');
-            window.location.href='dashboard.php';
+            window.location.href='orders/OrderModule.php';
             </script>";
         } else {
             echo"<script>

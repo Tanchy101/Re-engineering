@@ -106,7 +106,7 @@ require_once('partials/_head.php');
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" style="background-color: black;"><i class="ni ni-email-83"></i></span>
                                                 </div>
-                                                <input class="form-control" required name="admin_email" placeholder="Enter Email"
+                                                <input class="form-control" required name="admin_email" placeholder="Enter Email" pattern=".+.co|.+.edu.+.|.+.com"
                                                     type="email" style="background-color: black;">
                                             </div>
                                             </div>

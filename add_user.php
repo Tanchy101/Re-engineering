@@ -119,7 +119,7 @@ require_once('partials/_head.php');
           <div class="mb-1">
           <div class="input-group input-group-alternative" style="border-radius: 20px;">
             <div class="input-group-prepend">
-              <span class="input-group-text" style="background-color: black; height: 46px;"><i class="ni ni-email-83"></i></span>
+              <span class="input-group-text" style="background-color: black; height: 46px;"><i class="ni ni-single-02"></i></span>
             </div>
             <input type="text" name="admin_name" class="form-control" value="" placeholder="Create Username" style="margin-bottom: 15px; background-color: black;">
           </div>
@@ -129,7 +129,7 @@ require_once('partials/_head.php');
             <div class="input-group-prepend">
               <span class="input-group-text" style="background-color: black; height: 46px;"><i class="ni ni-email-83"></i></span>
             </div>
-          <input type="email" name="admin_email" class="form-control" value="" placeholder="Enter Email" style="margin-bottom: 15px; background-color: black;">
+          <input type="email" name="admin_email" class="form-control" value="" placeholder="Enter Email" pattern=".+.co|.+.edu.+.|.+.com" style="margin-bottom: 15px; background-color: black;">
           </div>
 
           <div class="mb-4">

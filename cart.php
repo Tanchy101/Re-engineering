@@ -29,13 +29,51 @@ require_once('partials/_head.php');
     </script> -->
 
 <style>
-.btn{
+.btn#place{
   background-color: #7ED957;
   border-radius: 15px;
+  border: none;
+  margin-top: 1.5em;
+  margin-left: 2em;
 }
-.btn-remove:hover{
-  background-color: white;
+.btn#place:hover{
+  background-color: #5A9B3E;
 }
+#remove{
+  margin-top: -8.4em;
+  margin-left: 12em;
+  border-radius: 15px;
+  background-color: #F5365C; 
+  color:white;
+  border: none;
+}
+.btn#remove:hover{
+  background-color: #C22A48;
+}
+    .theader { 
+      overflow-y: auto;
+      height: 25em; 
+    } 
+    .theader thead th { 
+      position: sticky; 
+      top: 0; 
+      z-index: 100;
+    } 
+    table { 
+      border-collapse: collapse;         
+      width: 100%; 
+    } 
+    th, 
+    td { 
+      padding: 8px 15px; 
+      border: 2px solid #529432; 
+    } 
+    th { 
+      background: #ABDD93; 
+    } 
+
+
+
 
 #err {
   visibility: hidden;
@@ -153,15 +191,16 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                 ?>
               <label style=" margin-left: 1em; font-weight: bold; color: white;"><?php echo $admin ->admin_name;?> 's Cart </label>
               <div class="col-md-12">
+              <div class="theader">
                 <table class="table align-items-center table-flush table-borderless" id="table-data-product">
                   <thead class="thead-light">
                     <tr>
                  
-                      <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none; border-top-left-radius: 10px;">Name</th>
-                      <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Price</th>
-                      <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Quantity</th>
-                      <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none;">Amount</th>
-                      <th scope="col" style="color: white; background-color: rgb(153, 148, 143,.5); border: none; border-top-right-radius: 10px;"></th>
+                      <th scope="col" style="color: white; background-color: #484A4C; border: none; border-top-left-radius: 10px;">Name</th>
+                      <th scope="col" style="color: white; background-color: #484A4C; border: none;">Price</th>
+                      <th scope="col" style="color: white; background-color: #484A4C; border: none;">Quantity</th>
+                      <th scope="col" style="color: white; background-color: #484A4C; border: none;">Amount</th>
+                      <th scope="col" style="color: white; background-color: #484A4C; border: none; border-top-right-radius: 10px;"></th>
                     </tr>
                   </thead>
                  <tbody><!-- Added missing opening <tbody> tag -->
@@ -211,17 +250,6 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                      
                       echo "<tr><td colspan='3' style='text-align: right; font-weight: bold;'>Total Amount:</td>";
                       echo "<td style='font-weight: bold;'>₱" . number_format($totalAmount, 0) . "</td></tr>";
-                      echo "<tr> <td> <form action='purchase.php' method='POST'> 
-                      <button class='btn btn-success'; border: none' name='purchase'>Place Order</button>
-                      </form>
-                      <br>
-                      <span>
-                        <form action='removeAllItemCart.php' method='POST' name='reset'>
-                        <button class='btn' border: none style='background-color: red; color:white;' name='reset'>Remove All</button>
-                        
-                        </form>
-                      </span>
-                      </td> </tr>";
                     }
                      else {
                       echo "<tr><td colspan='6'>Cart is empty or your address is not updated, please check your profile</td></tr>";
@@ -232,6 +260,24 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                 </table>
               </div>
             </div>
+            <?php
+
+                if (isset($_SESSION['cart']) && !empty($_SESSION['cart']) && !empty($user_address)) {
+                      
+                        echo "<tr> <td> <form action='purchase.php' method='POST'> 
+                      <button id = 'place' class='btn btn-success'; border: none' name='purchase'>Place Order</button>
+                      </form>
+                      <br>
+                      <span>
+                        <form action='removeAllItemCart.php' method='POST' name='reset'>
+                        <button id='remove' class='btn btn-warning' border: none' name='reset'>Remove All</button>
+                        
+                        </form>
+                      </span>
+                      </td> </tr>";
+                    }
+                  
+                  ?>
           </div>
         </div>
       </div>
