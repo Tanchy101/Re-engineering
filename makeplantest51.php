@@ -942,7 +942,7 @@ function captureAndPrint() {
                       </div>
                   </div>
 
-              </div>                                                
+                                                             
                     <div class="form-row">
                         <div class="col-md-6">
                           <br>

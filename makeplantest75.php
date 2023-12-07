@@ -1004,7 +1004,7 @@ function captureAndPrint() {
 
                     </div>   
                     <div class = "row">
-                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 17em; margin-top: -120px; 
+                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 13em; margin-top: -120px; 
                           height: 120px; background-color: transparent; border: none; ">
                               <div style="text-align: center; color: black;">
                                 <div style="font-size: 40px;">
@@ -1017,7 +1017,7 @@ function captureAndPrint() {
                         <!-- </div>   -->
                       <!-- </div> -->
                     <!-- </div> -->
-                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 66em; margin-top: -120px; 
+                    <div class ="elementToOverlay2 col-sm-2 dropzone element-trash" style = "margin-left: 69em; margin-top: -120px; 
                           height: 120px; background-color: transparent; border: none;">
                               <div style="text-align: center; color: black; margin-left: 3em;">
                                 <div style="font-size: 40px;">
