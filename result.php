@@ -87,7 +87,7 @@ if(is_numeric($input)){
                 <tbody>
                 <?php
                             
-                            $ret = "SELECT * FROM  netlayout ORDER BY ABS(net_layout_area - $input)LIMIT 10";
+                            $ret = "SELECT * FROM  netlayout WHERE net_institution = '$net_institution' ORDER BY ABS(net_layout_area - $input)LIMIT 10";
                             $stmt = $mysqli->prepare($ret);
                             $stmt->execute();
                             $res = $stmt->get_result();

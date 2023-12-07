@@ -265,7 +265,7 @@ check_login();
 </table>
 </div>
     <input type="radio" id="tabgold" name="mytabs">
-    <label for="tabgold" style="background-color: #5dcad1;"><h1>TO RECEIVE</h1></label>
+    <label for="tabgold" style="background-color: #5dcad1;"><h1>IN TRANSIT</h1></label>
     <div class="tab">
    
     <table class = "table table-responsive" style ="width: 100%; border: collapse; zoom:85%; border-color: transparent;"  >
