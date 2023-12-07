@@ -198,6 +198,7 @@ function isValidComputers($computers, $roomSize)
                         <a href = costpredict.php>
                         <input type="" value="Go Back" class="btn btn-warning value=" style = "margin:0px; width: 7.5em; margin-top: -3.05em; margin-left: 2.5em; height: 3.1em;" readonly></a>
                     </div>
+                    </div>
                   </div>
                 </div>
               </form>

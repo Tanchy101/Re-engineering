@@ -208,6 +208,7 @@ function isValidComputers($computers, $roomSize)
                         <input type="" value="Go Back" class="btn" style = "margin:0px; width: 7.5em; margin-top: -5.43em; margin-left: 2.5em; height: 3.37em; background-color: #FB6340; color: white; font-weight: bold; font-size: 12px;" readonly></a>
                     </div>
                     </div>
+                    </div>
                 </div>
               </form>
           </div>
