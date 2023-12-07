@@ -96,6 +96,7 @@ if (isset($_POST['input'])) {
                 $prod_type = $row['prod_type'];
                 $prod_name = $row['prod_name'];
                 $prod_price = $row['prod_price'];
+                $prod_url = $row['prod_url'];
                 ?>
                 <tr>
                     <td style="color: white; border-color: rgb(153, 148, 143,.5);">
@@ -122,7 +123,7 @@ if (isset($_POST['input'])) {
 
                     </td>
                     <td style="color: white; border-color: rgb(153, 148, 143,.5);">
-                        <button class="btn btn-sm btn-primary">
+                        <button class="btn btn-sm btn-primary link-click" onclick = "alert('Here is the link for the product <?php echo $prod_url; ?>')">
                             <i class="fas fa-link"></i>
                             Link
                         </button>
