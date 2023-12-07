@@ -209,11 +209,11 @@ function isValidComputers($computers, $roomSize)
                                 <div class="row mb-3">
                                     <div class="col-md-6">
                                         <label for="input1" class="form-label">Enter number of Computers in the Room:</label>
-                                        <input type="text" name="input1" id="input1" class="form-control" style="color: black;" required>
+                                        <input type="number" name="input1" id="input1" class="form-control" style="color: black;" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="input2" class="form-label">Enter Room Size in Square Meters:</label>
-                                        <input type="text" name="input2" id="input2" class="form-control" style="color: black;" required>
+                                        <input type="number" name="input2" id="input2" class="form-control" style="color: black;" required>
                                     </div>
                                 </div>
                                 <div class="row">

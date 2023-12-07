@@ -173,18 +173,18 @@ function isValidComputers($computers, $roomSize)
                 <div class="form-row">
                   <div class="col-md-6">
                     <label for="input1">Enter number of Computers in the Room:</label>
-                    <input type="text" name="input1" id="input1" class="form-control" required>
+                    <input type="number" name="input1" id="input1" class="form-control" style="color: black;" required>
                   </div>
                   <div class="col-md-6"> 
                     <label for="input2">Enter Room Size in Square Meters:</label>
-                    <input type="text" name="input2" id="input2" class="form-control" required>
+                    <input type="number" name="input2" id="input2" class="form-control" style="color: black;" required>
                   </div>
                 </div>
                 <br>
                 <div class="form-row">
                   <div class="col-md-6" style="margin-bottom: -2em;">
                     <label for="input3">Select Table Shape:</label>
-                    <select name="input3" id="input3" class="form-control" required>
+                    <select name="input3" id="input3" class="form-control" style="color: black;" required>
                       <option value="0">Standard Table</option>
                       <option value="1">L-Shape Table</option>
                       <option value="2">U-Shape Table</option>
@@ -223,7 +223,7 @@ function isValidComputers($computers, $roomSize)
             // Display the results if form submitted and condition met
             if ($_SERVER["REQUEST_METHOD"] === "POST" && $printResult) {
                 echo '<div class="alert alert-success">';
-                echo 'Predicted Cost: ' . number_format($prediction, 2) . '<br>';
+                echo 'Predicted Cost: ₱ ' . number_format($prediction, 2) . '<br>';
                 echo 'R2 Score: ' . $score . '<br>';
                 echo '</div>';
             }
