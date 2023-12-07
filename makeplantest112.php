@@ -121,7 +121,7 @@ function captureAndPrint() {
     require_once('partials/_topnav.php');
     ?>
     <!-- Header -->
-    <div style="background-image: url(assets/img/theme/restro00.jpg); background-size: cover;" class="header  pb-8 pt-5 pt-md-8">
+    <div style="background-image: url(assets/img/theme/GenerateBG.png); background-size: cover; height: 45vh;" class="header  pb-8 pt-5 pt-md-8">
     <span class="mask bg-gradient-dark opacity-8"></span>
       <div class="container-fluid">
         <div class="header-body">
@@ -131,7 +131,8 @@ function captureAndPrint() {
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
-          <div class="card shadow">
+      <div class="card shadow" style="margin-top: -18em;">
+
             <div class="card-header border-0">
               <div class = "row">
                 <div class = "col-md-6">
