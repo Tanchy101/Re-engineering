@@ -132,7 +132,7 @@ function captureAndPrint() {
     <!-- Page content -->
     <div class="container-fluid mt--8">
       <!-- Table -->
-          <<div class="card shadow" style="margin-top: -18em;">
+          <div class="card shadow" style="margin-top: -18em;">
             <div class="card-header border-0">
               <div class = "row">
                 <div class = "col-md-6">

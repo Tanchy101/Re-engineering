@@ -138,7 +138,7 @@ function captureAndPrint() {
                   <h2>Customize your Layout:</h2>
                 </div>
                 <div class = "col-md-6">
-                <a href="generateplantestt.php" class="btn btn-outline-success" style="float: right">
+                <a href="generateplantest.php" class="btn btn-outline-success" style="float: right">
                          <i class="fas fa-user-plus"></i>
                             GENERATE ANOTHER LAYOUT
                          </a>
