@@ -65,23 +65,24 @@ if(is_numeric($input)){
         <div class="col">
           <div class="card shadow" style="overflow-x: hidden; height: 75vh; border-radius: 15px; margin-top: -35em; background-color: rgba(22, 27, 34, .8);">
             <div class="card-header border-0" style="overflow-y: hidden; background-color: transparent;">
-              <a href="generateplantest.php" class="btn btn-outline-success" style="margin-left: -5px; margin-bottom: 6em; margin-top: 1em;">
+              <a href="generateplantest.php" class="btn btn-outline-success" style="margin-left: -5px; margin-bottom:; margin-top: 1em;">
                 <i class="fas fa-plus" style></i>
                 Generate New Layout
               </a>
             </div>
             <h3 style="margin-left: 20px; color: white; margin-bottom: 1em;"><?php echo "Your Area is: $input";?></h3>
               <div class="table-responsive">
+              <div class="theader">
               <table class="table align-items-center table-flush">
                 <thead class="thead-light" style="border: none;">
                 <tr>
-                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Network Image</th>
-                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Network Area (sqm)</th>
-                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Institution</th>
-                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Ergonomics</th>
-                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Length (m)</th>
-                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Width (m)</th>
-                  <th scope="col" style="color: white; background-color:rgba(153, 148, 143, .5); border: none;">Action</th>
+                  <th scope="col" style="color: white; background-color:#484A4C; border: none;">Network Image</th>
+                  <th scope="col" style="color: white; background-color:#484A4C; border: none;">Network Area (sqm)</th>
+                  <th scope="col" style="color: white; background-color:#484A4C; border: none;">Institution</th>
+                  <th scope="col" style="color: white; background-color:#484A4C; border: none;">Ergonomics</th>
+                  <th scope="col" style="color: white; background-color:#484A4C; border: none;">Length (m)</th>
+                  <th scope="col" style="color: white; background-color:#484A4C; border: none;">Width (m)</th>
+                  <th scope="col" style="color: white; background-color:#484A4C; border: none;">Action</th>
                 </tr> 
                 </thead>
                 <tbody>
@@ -150,3 +151,27 @@ if(is_numeric($input)){
     }
   require_once('partials/_head.php');
 ?>
+<style>
+      .theader { 
+      overflow-y: auto;
+      height: 25em; 
+    } 
+    .theader thead th { 
+      position: sticky; 
+      top: 0; 
+      z-index: 100;
+    } 
+    table { 
+      border-collapse: collapse;         
+      width: 100%; 
+    } 
+    th, 
+    td { 
+      padding: 8px 15px; 
+      border: 2px solid #529432; 
+    } 
+    th { 
+      background: #ABDD93; 
+    } 
+
+</style>
