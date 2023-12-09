@@ -180,7 +180,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
       <div class="row">
         <div class="col">
             <div class="card-header border-0" style="margin-top: -31em; border-radius: 25px; overflow-x: hidden; 
-            overflow-y: scroll; visible; height: 75vh; border-radius: 25px; background-color: rgba(22,27,34,.8); color: white;">
+            overflow-y: hidden; visible; height: 75vh; border-radius: 25px; background-color: rgba(22,27,34,.8); color: white;">
               <?php $admin_id = $_SESSION['admin_id'];
                 $ret = "SELECT * FROM admin WHERE admin_id = ?";
                 $stmt = $mysqli->prepare($ret);
@@ -200,7 +200,7 @@ if (isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
                       <th scope="col" style="color: white; background-color: #484A4C; border: none;">Price</th>
                       <th scope="col" style="color: white; background-color: #484A4C; border: none;">Quantity</th>
                       <th scope="col" style="color: white; background-color: #484A4C; border: none;">Amount</th>
-                      <th scope="col" style="color: white; background-color: #484A4C; border: none; border-top-right-radius: 10px;"></th>
+                      <th scope="col" style="color: white; background-color: #484A4C; border: none;"></th>
                     </tr>
                   </thead>
                  <tbody><!-- Added missing opening <tbody> tag -->
