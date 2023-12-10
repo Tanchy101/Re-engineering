@@ -11,7 +11,7 @@ if (isset($_POST['adduser'])) {
     $admin_id = $_POST['admin_id'];
     $admin_name = $_POST['admin_name'];
     $admin_email = $_POST['admin_email'];
-    $admin_password = $_POST['admin_password']; //Hash This   
+    // $admin_password = $_POST['admin_password']; //Hash This   
     $usertype = $_POST['usertype'];
     // $profileImage = $_FILES['profileImage']['name'];
     // move_uploaded_file($_FILES["profileImage"]["tmp_name"], "assets/img/profile/" . $_FILES["profileImage"]["name"]);
@@ -35,11 +35,13 @@ if (isset($_POST['adduser'])) {
       $err ="Email Taken Please Try Again";
     }else{
     
+    //hash the password 
+    $password_hash = password_hash($_POST["admin_password"], PASSWORD_DEFAULT);
     //Insert Captured information to a database table
     $postQuery = "INSERT INTO admin (admin_id, admin_name, admin_email, admin_password, usertype) VALUES(?,?,?,?,?)";
     $postStmt = $mysqli->prepare($postQuery);
     //bind paramaters
-    $rc = $postStmt->bind_param('sssss', $admin_id, $admin_name, $admin_email, $admin_password, $usertype);
+    $rc = $postStmt->bind_param('sssss', $admin_id, $admin_name, $admin_email, $password_hash, $usertype);
     $postStmt->execute();
     //declare a varible which will be passed to alert function
     if ($postStmt) {

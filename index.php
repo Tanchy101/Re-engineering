@@ -8,28 +8,35 @@ require 'vendor/autoload.php';
 //login 
 if (isset($_POST['login'])) {
   $admin_email = $_POST['admin_email'];
-  $admin_password = $_POST['admin_password']; //double encrypt to increase security
-  
+   //double encrypt to increase security
+  $admin_password = $_POST["admin_password"];
 
-  $stmt = $mysqli->prepare("SELECT admin_id, usertype  FROM admin WHERE (admin_email =? AND admin_password =?)"); //sql to log in user
-  $stmt->bind_param('ss',$admin_email, $admin_password); //bind fetched parameters
+  
+  $stmt = $mysqli->prepare("SELECT admin_id, usertype, admin_password FROM admin WHERE (admin_email =?)"); //sql to log in user
+  $stmt->bind_param('s',$admin_email); //bind fetched parameters
   $stmt->execute(); //execute bind 
-  $stmt->bind_result($admin_id, $usertype); //bind result into the variables
+  $stmt->bind_result($admin_id, $usertype, $hashed_pass); //bind result into the variables
   $rs = $stmt->fetch(); // returns whether true or not
-  $_SESSION['admin_id'] = $admin_id;
-  
-  //check if the field usertype is a user
-  if ($usertype == "user") {
-    //if its sucessfull
-    header("location:dashboard.php");
-// check if the field usertype is admin
-  } else if($usertype == "admin"){
-    header("location:admin/adminIndex.php");
-  } 
-  
-  else {
-    $err = "Incorrect Authentication Credentials ";
-  }
+   
+  if(password_verify($admin_password, $hashed_pass)){
+        $_SESSION['admin_id'] = $admin_id;
+        
+        //check if the field usertype is a user
+        if ($usertype == "user") {
+            //if its sucessfull
+            header("location:dashboard.php");
+        // check if the field usertype is admin
+        } else if($usertype == "admin"){
+            header("location:admin/adminIndex.php");
+        } 
+        
+        
+        else {
+            $err = "Incorrect Authentication Credentials ";
+        }
+    } else {
+        $err = "Incorrect Authentication Credentials ";
+    }
 }
 
 require_once('partials/_head.php');
