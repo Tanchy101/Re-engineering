@@ -5,39 +5,15 @@ include('config/checklogin.php');
 
 require 'vendor/autoload.php';
 
-//login 
-if (isset($_POST['login'])) {
-  $admin_email = $_POST['admin_email'];
-   //double encrypt to increase security
-  $admin_password = $_POST["admin_password"];
-
-  
-  $stmt = $mysqli->prepare("SELECT admin_id, usertype, admin_password FROM admin WHERE (admin_email =?)"); //sql to log in user
-  $stmt->bind_param('s',$admin_email); //bind fetched parameters
-  $stmt->execute(); //execute bind 
-  $stmt->bind_result($admin_id, $usertype, $hashed_pass); //bind result into the variables
-  $rs = $stmt->fetch(); // returns whether true or not
-   
-  if(password_verify($admin_password, $hashed_pass)){
-        $_SESSION['admin_id'] = $admin_id;
+require 'scriptMailer.php';
+    if(isset($_POST['submit'])){
         
-        //check if the field usertype is a user
-        if ($usertype == "user") {
-            //if its sucessfull
-            header("location:dashboard.php");
-        // check if the field usertype is admin
-        } else if($usertype == "admin"){
-            header("location:admin/adminIndex.php");
-        } 
-        
-        
-        else {
-            $err = "Incorrect Authentication Credentials ";
+        if(empty($_POST['forgotPassEmail'])){
+            $response = "Field is empty!";
+        }else{
+            $response = sendMail($_POST['forgotPassEmail']);
         }
-    } else {
-        $err = "Incorrect Authentication Credentials ";
     }
-}
 
 require_once('partials/_head.php');
 ?>
@@ -73,6 +49,16 @@ require_once('partials/_head.php');
     background-size: cover; 
     height: 100vh;"
 }
+
+.error{
+   margin-top: 30px;
+   color: #af0c0c;
+}
+ 
+.success{
+   margin-top: 30px;
+   color: green;
+}
 </style>
 
 
@@ -94,8 +80,8 @@ require_once('partials/_head.php');
 
     <div class="nlas" >Network Layout<br>Assessment System</div>
 
-        <div class="text" style="position: absolute; margin-top: 0.7em; left: 3%; color: white; font-size: 20px; font-family: 'Montserrat'; 
-        font-weight: bold;">Log In</div>
+        <div class="text" style="position: absolute; margin-top: 0.7em; left: 3%; color: white; font-size: 40px; font-family: 'Montserrat'; 
+        font-weight: bold;">Forgot Password</div>
 
             <div class="container" style="position: relative; margin-top: 14em; margin-left: 20em; width: 345px;">
                 <div class="header-body text-center mb-7">
@@ -105,35 +91,36 @@ require_once('partials/_head.php');
                             <div class="card bg-secondary shadow border-10" style="border-radius: 20px; margin-bottom: 20px; width: 351px;">
                                 <div class="card-body" style="position: relative; top: 0; left: 0; background-color: #161B22; border-radius: 20px; width: 349px;">
                                     <!-- Align the text horizontally -->
-                                    <h1 class="text-black" style="display: flex; font-size: 20px; text-align: left; margin-bottom: 15px; color: white; font-family: Montserrat;">Log in</h1>
+                                    <h1 class="text-black" style="display: flex; font-size: 20px; text-align: left; margin-bottom: 15px; color: white; font-family: Montserrat;">Enter Your Existing Email</h1>
                                     <!-- Form starts here -->
-                                    <form method="post" role="form">
+                                    <form action="" method="post"  enctype="multipart/form-data">
                                         <div class="form-group mb-3">
                                             <div class="input-group input-group-alternative" style="border-radius: 25px;">
                                                 <div class="input-group-prepend">
                                                     <span class="input-group-text" style="background-color: black;"><i class="ni ni-email-83"></i></span>
                                                 </div>
-                                                <input class="form-control" required name="admin_email" placeholder="Enter Email" pattern=".+.co|.+.edu.+.|.+.com"
-                                                    type="email" style="background-color: black;">
+                                                <input class="form-control" value= "" placeholder="Enter Email" pattern=".+.co|.+.edu.+.|.+.com"
+                                                    type="email" style="background-color: black;" name="forgotPassEmail">
                                             </div>
                                             </div>
-                                            <div class="form-group">
-                                                <div class="input-group input-group-alternative">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text" style="background-color: black;"><i class="ni ni-lock-circle-open"></i></span>
-                                                    </div>
-                                                    <input class="form-control" required name="admin_password"
-                                                        placeholder="Enter Password" type="password" style="background-color: black;">
-
-                                                </div>
-                                                </div>
+                                           
                                         <div class="text-center">
-                                            <button type="submit" name="login" class="btn btn-success">Log In</button>
+                                            <button type="submit" name="submit" class="btn btn-success">Send</button>
+                                            <?php
+                                                if(@$response == "success"){
+                                                    ?>
+                                                        <p class="success">Email send successfully</p>
+                                                    <?php
+                                                }else{
+                                                    ?>
+                                                        <p class="error"><?php echo @$response; ?></p>
+                                                    <?php
+                                                }
+                                            ?>
                                         </div>
                                         <hr class="my-3">
                                         <div class="text-center" style="margin-top: 10px;">
-                                            <p class="mb-0" style="color: white">Don't have an account? <a href="add_user.php" style="color: #37D5F2; font-weight: bold;">Sign Up</a></p>
-                                            <a href="forgot-pass.php" style="color: #37D5F2; font-weight: bold;"><p>Forgot Password ?</p></a>
+                                            <p class="mb-0" style="color: white">Already have an account? <a href="index.php" style="color: #37D5F2; font-weight: bold;">Sign In</a></p>
                                         </div>
                                     </form>
                                 </div>

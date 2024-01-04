@@ -21,6 +21,7 @@ return array(
     'Rubix\\ML\\' => array($vendorDir . '/rubix/ml/src'),
     'Psr\\Log\\' => array($vendorDir . '/psr/log/src'),
     'Phpml\\' => array($vendorDir . '/php-ai/php-ml/src'),
+    'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'OkBloomer\\' => array($vendorDir . '/andrewdalpino/okbloomer/src'),
     'Amp\\Sync\\' => array($vendorDir . '/amphp/sync/src'),
     'Amp\\Serialization\\' => array($vendorDir . '/amphp/serialization/src'),
