@@ -6,21 +6,18 @@ $sql = "SELECT * FROM admin
 
 $stmt = $mysqli->prepare($sql);
 
-$stmt->bind_param("s", $admin_email);
+$stmt->bind_param("s", $email);
 
 $stmt->execute();
 
 $result = $stmt->get_result();
 while($variable = $result->fetch_object()){
     $Email = $variable->admin_email;
-    // if ($user->admin_email === null) {
-    //     die("email not found");
-    // }
+    if ($Email === null) {
+        die("email not found");
+    }
     
-
-    
-
-    var_dump($Email);
+    // var_dump($Email);
     if (strlen($_POST["password"]) < 8) {
         die("Password must be at least 8 characters");
     }
@@ -28,18 +25,18 @@ while($variable = $result->fetch_object()){
     if ($_POST["password"] !== $_POST["password_confirmation"]) {
         die("Passwords must match");
     }
-}
-var_dump($result);
-// $password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-// $sql2 = "UPDATE admin
-//         SET admin_password = ?,
-//         WHERE admin_email = ? ";
 
-// $stmt2 = $mysqli->prepare($sql2);
+$password_hash = password_hash($_POST["password"], PASSWORD_DEFAULT);
 
-// $stmt2->bind_param("ss", $password_hash, $user["admin_email"]);
+$sql2 = "UPDATE admin
+        SET admin_password = ?
+        WHERE admin_email = ?";
 
-// $stm2t->execute();
+$stmt2 = $mysqli->prepare($sql2);
 
-// echo "Password updated. You can now login.";
+$stmt2->bind_param("ss", $password_hash, $email);
+
+$stmt2->execute();
+
+header('location: password-sucess-page.php'); }
